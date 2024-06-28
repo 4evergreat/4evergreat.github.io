@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发）
-JavaME：精简版（嵌入式开发）
-javaEE：企业级开发（web开发，服务器开发）
-2.JDK、JRE、JVM JDK: java development kit
-JRE : java runtime envirnment
-JVM : java virtual machine
-其中 JDK包含了JRE与JVM。JRE包含了JVM。
-安装了JRE后既可以运行java程序。JDK比JRE 多了一些开发工具，所以开发需要装JDK。
-JDK包含的基本组件包括:
-javac – 编译器，将源程序转成字节码 javadoc – 文档生成器，从源码注释中提取文档 jdb – debugger，查错工具 jar – 打包工具，将相关的类文件打包成一个文件 3.安装JDK 1.如果Openjdk，输入 java -version显示的版本信息为 1 2 3 4 [machao@dev ~]$ java -version openjdk version &amp;#34;1.8.0_144&amp;#34; OpenJDK Runtime Environment (build 1.8.0_144-b01) OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode) 2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为 注意：java hotspot（TM） 64-BIT是说用的是64位的hotspot虚拟机 server 是说虚拟机运行在server模	式下。 虚拟机有server 和client两种模式'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发） JavaME：精简版（嵌入式开发） javaEE：企业级开发（web开发，服务器开发）'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发）
-JavaME：精简版（嵌入式开发）
-javaEE：企业级开发（web开发，服务器开发）
-2.JDK、JRE、JVM JDK: java development kit
-JRE : java runtime envirnment
-JVM : java virtual machine
-其中 JDK包含了JRE与JVM。JRE包含了JVM。
-安装了JRE后既可以运行java程序。JDK比JRE 多了一些开发工具，所以开发需要装JDK。
-JDK包含的基本组件包括:
-javac – 编译器，将源程序转成字节码 javadoc – 文档生成器，从源码注释中提取文档 jdb – debugger，查错工具 jar – 打包工具，将相关的类文件打包成一个文件 3.安装JDK 1.如果Openjdk，输入 java -version显示的版本信息为 1 2 3 4 [machao@dev ~]$ java -version openjdk version &amp;#34;1.8.0_144&amp;#34; OpenJDK Runtime Environment (build 1.8.0_144-b01) OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode) 2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为 注意：java hotspot（TM） 64-BIT是说用的是64位的hotspot虚拟机 server 是说虚拟机运行在server模	式下。 虚拟机有server 和client两种模式'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/'>
+<meta property='og:description' content='1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发） JavaME：精简版（嵌入式开发） javaEE：企业级开发（web开发，服务器开发）'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发）
-JavaME：精简版（嵌入式开发）
-javaEE：企业级开发（web开发，服务器开发）
-2.JDK、JRE、JVM JDK: java development kit
-JRE : java runtime envirnment
-JVM : java virtual machine
-其中 JDK包含了JRE与JVM。JRE包含了JVM。
-安装了JRE后既可以运行java程序。JDK比JRE 多了一些开发工具，所以开发需要装JDK。
-JDK包含的基本组件包括:
-javac – 编译器，将源程序转成字节码 javadoc – 文档生成器，从源码注释中提取文档 jdb – debugger，查错工具 jar – 打包工具，将相关的类文件打包成一个文件 3.安装JDK 1.如果Openjdk，输入 java -version显示的版本信息为 1 2 3 4 [machao@dev ~]$ java -version openjdk version &amp;#34;1.8.0_144&amp;#34; OpenJDK Runtime Environment (build 1.8.0_144-b01) OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode) 2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为 注意：java hotspot（TM） 64-BIT是说用的是64位的hotspot虚拟机 server 是说虚拟机运行在server模	式下。 虚拟机有server 和client两种模式">
+<meta name="twitter:description" content="1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发） JavaME：精简版（嵌入式开发） javaEE：企业级开发（web开发，服务器开发）">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -77,7 +50,7 @@ javac – 编译器，将源程序转成字节码 javadoc – 文档生成器，
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -273,6 +246,8 @@ javac – 编译器，将源程序转成字节码 javadoc – 文档生成器，
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

@@ -1,74 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Maven 课程内容 初识Maven Maven概述 Maven模型介绍 Maven仓库介绍 Maven安装与配置 IDEA集成Maven 依赖管理 01. Maven课程介绍 1.1 课程安排 学习完前端Web开发技术后，我们即将开始学习后端Web开发技术。做为一名Java开发工程师，后端Web开发技术是我们学习的重点。
-后端Web开发技术的学习，我们会先学习Java项目的构建工具：Maven
-1.2 初识Maven 1.2.1 什么是Maven Maven是Apache旗下的一个开源项目，是一款用于管理和构建java项目的工具。
-官网：https://maven.apache.org/
-Apache 软件基金会，成立于1999年7月，是目前世界上最大的最受欢迎的开源软件基金会，也是一个专门为支持开源项目而生的非盈利性组织。
-开源项目：https://www.apache.org/index.html#projects-list
-1.2.2 Maven的作用 使用Maven能够做什么呢？
-依赖管理 统一项目结构 项目构建 依赖管理：
-方便快捷的管理项目依赖的资源(jar包)，避免版本冲突问题 当使用maven进行项目依赖(jar包)管理，则很方便的可以解决这个问题。 我们只需要在maven项目的pom.xml文件中，添加一段如下图所示的配置即可实现。
-**统一项目结构 : **
-提供标准、统一的项目结构 在项目开发中，当你使用不同的开发工具 (如：Eclipse、Idea)，创建项目工程时：
-若我们创建的是一个maven工程，是可以帮我们自动生成统一、标准的项目目录结构：
-具体的统一结构如下：
-目录说明：
-src/main/java: java源代码目录 src/main/resources: 配置文件信息 src/test/java: 测试代码 src/test/resources: 测试配置文件信息 项目构建 :
-maven提供了标准的、跨平台(Linux、Windows、MacOS) 的自动化项目构建方式 如上图所示我们开发了一套系统，代码需要进行编译、测试、打包、发布，这些操作如果需要反复进行就显得特别麻烦，而Maven提供了一套简单的命令来完成项目构建。
-综上所述，可以得到一个结论：Maven是一款管理和构建java项目的工具
-02. Maven概述 2.1 Maven介绍 Apache Maven是一个项目管理和构建工具，它基于项目对象模型(Project Object Model , 简称: POM)的概念，通过一小段描述信息来管理项目的构建、报告和文档。
-官网：https://maven.apache.org/
-Maven的作用：'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Maven 课程内容 初识Maven Maven概述 Maven模型介绍 Maven仓库介绍 Maven安装与配置 IDEA集成Maven 依赖管理 01. Maven课程'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/maven/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/maven/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='Maven 课程内容 初识Maven Maven概述 Maven模型介绍 Maven仓库介绍 Maven安装与配置 IDEA集成Maven 依赖管理 01. Maven课程介绍 1.1 课程安排 学习完前端Web开发技术后，我们即将开始学习后端Web开发技术。做为一名Java开发工程师，后端Web开发技术是我们学习的重点。
-后端Web开发技术的学习，我们会先学习Java项目的构建工具：Maven
-1.2 初识Maven 1.2.1 什么是Maven Maven是Apache旗下的一个开源项目，是一款用于管理和构建java项目的工具。
-官网：https://maven.apache.org/
-Apache 软件基金会，成立于1999年7月，是目前世界上最大的最受欢迎的开源软件基金会，也是一个专门为支持开源项目而生的非盈利性组织。
-开源项目：https://www.apache.org/index.html#projects-list
-1.2.2 Maven的作用 使用Maven能够做什么呢？
-依赖管理 统一项目结构 项目构建 依赖管理：
-方便快捷的管理项目依赖的资源(jar包)，避免版本冲突问题 当使用maven进行项目依赖(jar包)管理，则很方便的可以解决这个问题。 我们只需要在maven项目的pom.xml文件中，添加一段如下图所示的配置即可实现。
-**统一项目结构 : **
-提供标准、统一的项目结构 在项目开发中，当你使用不同的开发工具 (如：Eclipse、Idea)，创建项目工程时：
-若我们创建的是一个maven工程，是可以帮我们自动生成统一、标准的项目目录结构：
-具体的统一结构如下：
-目录说明：
-src/main/java: java源代码目录 src/main/resources: 配置文件信息 src/test/java: 测试代码 src/test/resources: 测试配置文件信息 项目构建 :
-maven提供了标准的、跨平台(Linux、Windows、MacOS) 的自动化项目构建方式 如上图所示我们开发了一套系统，代码需要进行编译、测试、打包、发布，这些操作如果需要反复进行就显得特别麻烦，而Maven提供了一套简单的命令来完成项目构建。
-综上所述，可以得到一个结论：Maven是一款管理和构建java项目的工具
-02. Maven概述 2.1 Maven介绍 Apache Maven是一个项目管理和构建工具，它基于项目对象模型(Project Object Model , 简称: POM)的概念，通过一小段描述信息来管理项目的构建、报告和文档。
-官网：https://maven.apache.org/
-Maven的作用：'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/maven/'>
+<meta property='og:description' content='Maven 课程内容 初识Maven Maven概述 Maven模型介绍 Maven仓库介绍 Maven安装与配置 IDEA集成Maven 依赖管理 01. Maven课程'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/maven/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="Maven 课程内容 初识Maven Maven概述 Maven模型介绍 Maven仓库介绍 Maven安装与配置 IDEA集成Maven 依赖管理 01. Maven课程介绍 1.1 课程安排 学习完前端Web开发技术后，我们即将开始学习后端Web开发技术。做为一名Java开发工程师，后端Web开发技术是我们学习的重点。
-后端Web开发技术的学习，我们会先学习Java项目的构建工具：Maven
-1.2 初识Maven 1.2.1 什么是Maven Maven是Apache旗下的一个开源项目，是一款用于管理和构建java项目的工具。
-官网：https://maven.apache.org/
-Apache 软件基金会，成立于1999年7月，是目前世界上最大的最受欢迎的开源软件基金会，也是一个专门为支持开源项目而生的非盈利性组织。
-开源项目：https://www.apache.org/index.html#projects-list
-1.2.2 Maven的作用 使用Maven能够做什么呢？
-依赖管理 统一项目结构 项目构建 依赖管理：
-方便快捷的管理项目依赖的资源(jar包)，避免版本冲突问题 当使用maven进行项目依赖(jar包)管理，则很方便的可以解决这个问题。 我们只需要在maven项目的pom.xml文件中，添加一段如下图所示的配置即可实现。
-**统一项目结构 : **
-提供标准、统一的项目结构 在项目开发中，当你使用不同的开发工具 (如：Eclipse、Idea)，创建项目工程时：
-若我们创建的是一个maven工程，是可以帮我们自动生成统一、标准的项目目录结构：
-具体的统一结构如下：
-目录说明：
-src/main/java: java源代码目录 src/main/resources: 配置文件信息 src/test/java: 测试代码 src/test/resources: 测试配置文件信息 项目构建 :
-maven提供了标准的、跨平台(Linux、Windows、MacOS) 的自动化项目构建方式 如上图所示我们开发了一套系统，代码需要进行编译、测试、打包、发布，这些操作如果需要反复进行就显得特别麻烦，而Maven提供了一套简单的命令来完成项目构建。
-综上所述，可以得到一个结论：Maven是一款管理和构建java项目的工具
-02. Maven概述 2.1 Maven介绍 Apache Maven是一个项目管理和构建工具，它基于项目对象模型(Project Object Model , 简称: POM)的概念，通过一小段描述信息来管理项目的构建、报告和文档。
-官网：https://maven.apache.org/
-Maven的作用：">
+<meta name="twitter:description" content="Maven 课程内容 初识Maven Maven概述 Maven模型介绍 Maven仓库介绍 Maven安装与配置 IDEA集成Maven 依赖管理 01. Maven课程">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -107,7 +50,7 @@ Maven的作用：">
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -899,6 +842,8 @@ Maven的作用：">
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

@@ -1,59 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. yum方式Centos7安装Mysql8教程 1.由于centOS7中默认安装了MariaDB,需要先进行卸载
-rpm -qa | grep -i mariadb rpm -e &amp;ndash;nodeps mariadb-libs-5.5.64-1.el7.x86_64
-查询下本机mysql是否卸载干净，若有残留也需要卸载
-rpm -qa | grep mysql
-2.下载MySQL仓库并安装
-wget https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm yum -y install mysql80-community-release-el7-7.noarch.rpm
-rpm &amp;ndash;import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-yum -y install mysql80-community-release-el7-3.noarch.rpm
-3.安装MySQL数据库
-yum -y install mysql-community-server
-4.开启mysql服务
-systemctl start mysqld.service
-5.查看mysql默认密码并登陆
-cat /var/log/mysqld.log | grep password
-1 2 [root@localhost tools]# cat /var/log/mysqld.log | grep password 2024-03-11T14:41:25.592058Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: uBj&amp;gt;f5tC&amp;gt;VQ! 第一次进去提示需要修改密码ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. yum方式Centos7安装Mysql8教程 1.由于centOS7中默认安装了MariaDB,需要先进行卸载 rpm -qa | grep -i mariadb rpm -e &amp;ndash;nodeps mariadb-libs-5.5.64-1.el7.x86_64 查询下本机'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day23mysql/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day23mysql/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1. yum方式Centos7安装Mysql8教程 1.由于centOS7中默认安装了MariaDB,需要先进行卸载
-rpm -qa | grep -i mariadb rpm -e &amp;ndash;nodeps mariadb-libs-5.5.64-1.el7.x86_64
-查询下本机mysql是否卸载干净，若有残留也需要卸载
-rpm -qa | grep mysql
-2.下载MySQL仓库并安装
-wget https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm yum -y install mysql80-community-release-el7-7.noarch.rpm
-rpm &amp;ndash;import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-yum -y install mysql80-community-release-el7-3.noarch.rpm
-3.安装MySQL数据库
-yum -y install mysql-community-server
-4.开启mysql服务
-systemctl start mysqld.service
-5.查看mysql默认密码并登陆
-cat /var/log/mysqld.log | grep password
-1 2 [root@localhost tools]# cat /var/log/mysqld.log | grep password 2024-03-11T14:41:25.592058Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: uBj&amp;gt;f5tC&amp;gt;VQ! 第一次进去提示需要修改密码ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day23mysql/'>
+<meta property='og:description' content='1. yum方式Centos7安装Mysql8教程 1.由于centOS7中默认安装了MariaDB,需要先进行卸载 rpm -qa | grep -i mariadb rpm -e &amp;ndash;nodeps mariadb-libs-5.5.64-1.el7.x86_64 查询下本机'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day23mysql/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="1. yum方式Centos7安装Mysql8教程 1.由于centOS7中默认安装了MariaDB,需要先进行卸载
-rpm -qa | grep -i mariadb rpm -e &amp;ndash;nodeps mariadb-libs-5.5.64-1.el7.x86_64
-查询下本机mysql是否卸载干净，若有残留也需要卸载
-rpm -qa | grep mysql
-2.下载MySQL仓库并安装
-wget https://repo.mysql.com//mysql80-community-release-el7-7.noarch.rpm yum -y install mysql80-community-release-el7-7.noarch.rpm
-rpm &amp;ndash;import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
-yum -y install mysql80-community-release-el7-3.noarch.rpm
-3.安装MySQL数据库
-yum -y install mysql-community-server
-4.开启mysql服务
-systemctl start mysqld.service
-5.查看mysql默认密码并登陆
-cat /var/log/mysqld.log | grep password
-1 2 [root@localhost tools]# cat /var/log/mysqld.log | grep password 2024-03-11T14:41:25.592058Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: uBj&amp;gt;f5tC&amp;gt;VQ! 第一次进去提示需要修改密码ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.">
+<meta name="twitter:description" content="1. yum方式Centos7安装Mysql8教程 1.由于centOS7中默认安装了MariaDB,需要先进行卸载 rpm -qa | grep -i mariadb rpm -e &amp;ndash;nodeps mariadb-libs-5.5.64-1.el7.x86_64 查询下本机">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -92,7 +50,7 @@ cat /var/log/mysqld.log | grep password
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -286,6 +244,8 @@ flush privileges;             # 刷新权限 权限更新后刷新才会起作�
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

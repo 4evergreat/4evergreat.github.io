@@ -1,95 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBootWeb请求响应 前言 在上一次的课程中，我们开发了springbootweb的入门程序。 基于SpringBoot的方式开发一个web应用，浏览器发起请求 /hello 后 ，给浏览器返回字符串 “Hello World ~”。
-其实呢，是我们在浏览器发起请求，请求了我们的后端web服务器(也就是内置的Tomcat)。而我们在开发web程序时呢，定义了一个控制器类Controller，请求会被部署在Tomcat中的Controller接收，然后Controller再给浏览器一个响应，响应一个字符串 “Hello World”。 而在请求响应的过程中是遵循HTTP协议的。
-但是呢，这里要告诉大家的时，其实在Tomcat这类Web服务器中，是不识别我们自己定义的Controller的。但是我们前面讲到过Tomcat是一个Servlet容器，是支持Serlvet规范的，所以呢，在tomcat中是可以识别 Servlet程序的。 那我们所编写的XxxController 是如何处理请求的，又与Servlet之间有什么联系呢？
-其实呢，在SpringBoot进行web程序开发时，它内置了一个核心的Servlet程序 DispatcherServlet，称之为 核心控制器。 DispatcherServlet 负责接收页面发送的请求，然后根据执行的规则，将请求再转发给后面的请求处理器Controller，请求处理器处理完请求之后，最终再由DispatcherServlet给浏览器响应数据。
-那将来浏览器发送请求，会携带请求数据，包括：请求行、请求头；请求到达tomcat之后，tomcat会负责解析这些请求数据，然后呢将解析后的请求数据会传递给Servlet程序的HttpServletRequest对象，那也就意味着 HttpServletRequest 对象就可以获取到请求数据。 而Tomcat，还给Servlet程序传递了一个参数 HttpServletResponse，通过这个对象，我们就可以给浏览器设置响应数据 。
-那上述所描述的这种浏览器/服务器的架构模式呢，我们称之为：BS架构。
-• BS架构：Browser/Server，浏览器/服务器架构模式。客户端只需要浏览器，应用程序的逻辑和数据都存储在服务端。
-那今天呢，我们的课程内容主要就围绕着：请求、响应进行。 今天课程内容，主要包含三个部分：
-请求 响应 分层解耦 1. 请求 在本章节呢，我们主要讲解，如何接收页面传递过来的请求数据。
-1.1 Postman 之前我们课程中有提到当前最为主流的开发模式：前后端分离
-在这种模式下，前端技术人员基于&amp;quot;接口文档&amp;quot;，开发前端程序；后端技术人员也基于&amp;quot;接口文档&amp;quot;，开发后端程序。
-由于前后端分离，对我们后端技术人员来讲，在开发过程中，是没有前端页面的，那我们怎么测试自己所开发的程序呢？
-方式1：像之前SpringBoot入门案例中一样，直接使用浏览器。在浏览器中输入地址，测试后端程序。
-弊端：在浏览器地址栏中输入地址这种方式都是GET请求，如何我们要用到POST请求怎么办呢？ 要解决POST请求，需要程序员自己编写前端代码（比较麻烦） 方式2：使用专业的接口测试工具（课程中我们使用Postman工具）
-1.1.1 介绍 Postman是一款功能强大的网页调试与发送网页HTTP请求的Chrome插件。
-Postman原是Chrome浏览器的插件，可以模拟浏览器向后端服务器发起任何形式(如:get、post)的HTTP请求
-使用Postman还可以在发起请求时，携带一些请求参数、请求头等信息
-作用：常用于进行接口测试
-特征
-简单 实用 美观 大方 1.1.2 安装 双击资料中提供的Postman-win64-8.3.1-Setup.exe即可自动安装。
-安装完成之后，进入页面中会提示有新版本可以升级（无需升级）
-界面介绍:
-如果我们需要将测试的请求信息保存下来，就需要创建一个postman的账号，然后登录之后才可以。
-登录完成之后，可以创建工作空间：
-创建请求：
-点击&amp;quot;Save&amp;quot;，保存当前请求
-1.2 简单参数 简单参数：在向服务器发起请求时，向服务器传递的是一些普通的请求数据。'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBootWeb请求响应 前言 在上一次的课程中，我们开发了springbootweb的入门程序。 基于SpringBoot的方式开发一'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='SpringBootWeb请求响应 前言 在上一次的课程中，我们开发了springbootweb的入门程序。 基于SpringBoot的方式开发一个web应用，浏览器发起请求 /hello 后 ，给浏览器返回字符串 “Hello World ~”。
-其实呢，是我们在浏览器发起请求，请求了我们的后端web服务器(也就是内置的Tomcat)。而我们在开发web程序时呢，定义了一个控制器类Controller，请求会被部署在Tomcat中的Controller接收，然后Controller再给浏览器一个响应，响应一个字符串 “Hello World”。 而在请求响应的过程中是遵循HTTP协议的。
-但是呢，这里要告诉大家的时，其实在Tomcat这类Web服务器中，是不识别我们自己定义的Controller的。但是我们前面讲到过Tomcat是一个Servlet容器，是支持Serlvet规范的，所以呢，在tomcat中是可以识别 Servlet程序的。 那我们所编写的XxxController 是如何处理请求的，又与Servlet之间有什么联系呢？
-其实呢，在SpringBoot进行web程序开发时，它内置了一个核心的Servlet程序 DispatcherServlet，称之为 核心控制器。 DispatcherServlet 负责接收页面发送的请求，然后根据执行的规则，将请求再转发给后面的请求处理器Controller，请求处理器处理完请求之后，最终再由DispatcherServlet给浏览器响应数据。
-那将来浏览器发送请求，会携带请求数据，包括：请求行、请求头；请求到达tomcat之后，tomcat会负责解析这些请求数据，然后呢将解析后的请求数据会传递给Servlet程序的HttpServletRequest对象，那也就意味着 HttpServletRequest 对象就可以获取到请求数据。 而Tomcat，还给Servlet程序传递了一个参数 HttpServletResponse，通过这个对象，我们就可以给浏览器设置响应数据 。
-那上述所描述的这种浏览器/服务器的架构模式呢，我们称之为：BS架构。
-• BS架构：Browser/Server，浏览器/服务器架构模式。客户端只需要浏览器，应用程序的逻辑和数据都存储在服务端。
-那今天呢，我们的课程内容主要就围绕着：请求、响应进行。 今天课程内容，主要包含三个部分：
-请求 响应 分层解耦 1. 请求 在本章节呢，我们主要讲解，如何接收页面传递过来的请求数据。
-1.1 Postman 之前我们课程中有提到当前最为主流的开发模式：前后端分离
-在这种模式下，前端技术人员基于&amp;quot;接口文档&amp;quot;，开发前端程序；后端技术人员也基于&amp;quot;接口文档&amp;quot;，开发后端程序。
-由于前后端分离，对我们后端技术人员来讲，在开发过程中，是没有前端页面的，那我们怎么测试自己所开发的程序呢？
-方式1：像之前SpringBoot入门案例中一样，直接使用浏览器。在浏览器中输入地址，测试后端程序。
-弊端：在浏览器地址栏中输入地址这种方式都是GET请求，如何我们要用到POST请求怎么办呢？ 要解决POST请求，需要程序员自己编写前端代码（比较麻烦） 方式2：使用专业的接口测试工具（课程中我们使用Postman工具）
-1.1.1 介绍 Postman是一款功能强大的网页调试与发送网页HTTP请求的Chrome插件。
-Postman原是Chrome浏览器的插件，可以模拟浏览器向后端服务器发起任何形式(如:get、post)的HTTP请求
-使用Postman还可以在发起请求时，携带一些请求参数、请求头等信息
-作用：常用于进行接口测试
-特征
-简单 实用 美观 大方 1.1.2 安装 双击资料中提供的Postman-win64-8.3.1-Setup.exe即可自动安装。
-安装完成之后，进入页面中会提示有新版本可以升级（无需升级）
-界面介绍:
-如果我们需要将测试的请求信息保存下来，就需要创建一个postman的账号，然后登录之后才可以。
-登录完成之后，可以创建工作空间：
-创建请求：
-点击&amp;quot;Save&amp;quot;，保存当前请求
-1.2 简单参数 简单参数：在向服务器发起请求时，向服务器传递的是一些普通的请求数据。'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94/'>
+<meta property='og:description' content='SpringBootWeb请求响应 前言 在上一次的课程中，我们开发了springbootweb的入门程序。 基于SpringBoot的方式开发一'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E8%AF%B7%E6%B1%82%E5%93%8D%E5%BA%94/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="SpringBootWeb请求响应 前言 在上一次的课程中，我们开发了springbootweb的入门程序。 基于SpringBoot的方式开发一个web应用，浏览器发起请求 /hello 后 ，给浏览器返回字符串 “Hello World ~”。
-其实呢，是我们在浏览器发起请求，请求了我们的后端web服务器(也就是内置的Tomcat)。而我们在开发web程序时呢，定义了一个控制器类Controller，请求会被部署在Tomcat中的Controller接收，然后Controller再给浏览器一个响应，响应一个字符串 “Hello World”。 而在请求响应的过程中是遵循HTTP协议的。
-但是呢，这里要告诉大家的时，其实在Tomcat这类Web服务器中，是不识别我们自己定义的Controller的。但是我们前面讲到过Tomcat是一个Servlet容器，是支持Serlvet规范的，所以呢，在tomcat中是可以识别 Servlet程序的。 那我们所编写的XxxController 是如何处理请求的，又与Servlet之间有什么联系呢？
-其实呢，在SpringBoot进行web程序开发时，它内置了一个核心的Servlet程序 DispatcherServlet，称之为 核心控制器。 DispatcherServlet 负责接收页面发送的请求，然后根据执行的规则，将请求再转发给后面的请求处理器Controller，请求处理器处理完请求之后，最终再由DispatcherServlet给浏览器响应数据。
-那将来浏览器发送请求，会携带请求数据，包括：请求行、请求头；请求到达tomcat之后，tomcat会负责解析这些请求数据，然后呢将解析后的请求数据会传递给Servlet程序的HttpServletRequest对象，那也就意味着 HttpServletRequest 对象就可以获取到请求数据。 而Tomcat，还给Servlet程序传递了一个参数 HttpServletResponse，通过这个对象，我们就可以给浏览器设置响应数据 。
-那上述所描述的这种浏览器/服务器的架构模式呢，我们称之为：BS架构。
-• BS架构：Browser/Server，浏览器/服务器架构模式。客户端只需要浏览器，应用程序的逻辑和数据都存储在服务端。
-那今天呢，我们的课程内容主要就围绕着：请求、响应进行。 今天课程内容，主要包含三个部分：
-请求 响应 分层解耦 1. 请求 在本章节呢，我们主要讲解，如何接收页面传递过来的请求数据。
-1.1 Postman 之前我们课程中有提到当前最为主流的开发模式：前后端分离
-在这种模式下，前端技术人员基于&amp;quot;接口文档&amp;quot;，开发前端程序；后端技术人员也基于&amp;quot;接口文档&amp;quot;，开发后端程序。
-由于前后端分离，对我们后端技术人员来讲，在开发过程中，是没有前端页面的，那我们怎么测试自己所开发的程序呢？
-方式1：像之前SpringBoot入门案例中一样，直接使用浏览器。在浏览器中输入地址，测试后端程序。
-弊端：在浏览器地址栏中输入地址这种方式都是GET请求，如何我们要用到POST请求怎么办呢？ 要解决POST请求，需要程序员自己编写前端代码（比较麻烦） 方式2：使用专业的接口测试工具（课程中我们使用Postman工具）
-1.1.1 介绍 Postman是一款功能强大的网页调试与发送网页HTTP请求的Chrome插件。
-Postman原是Chrome浏览器的插件，可以模拟浏览器向后端服务器发起任何形式(如:get、post)的HTTP请求
-使用Postman还可以在发起请求时，携带一些请求参数、请求头等信息
-作用：常用于进行接口测试
-特征
-简单 实用 美观 大方 1.1.2 安装 双击资料中提供的Postman-win64-8.3.1-Setup.exe即可自动安装。
-安装完成之后，进入页面中会提示有新版本可以升级（无需升级）
-界面介绍:
-如果我们需要将测试的请求信息保存下来，就需要创建一个postman的账号，然后登录之后才可以。
-登录完成之后，可以创建工作空间：
-创建请求：
-点击&amp;quot;Save&amp;quot;，保存当前请求
-1.2 简单参数 简单参数：在向服务器发起请求时，向服务器传递的是一些普通的请求数据。">
+<meta name="twitter:description" content="SpringBootWeb请求响应 前言 在上一次的课程中，我们开发了springbootweb的入门程序。 基于SpringBoot的方式开发一">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -128,7 +50,7 @@ Postman原是Chrome浏览器的插件，可以模拟浏览器向后端服务器�
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -2455,6 +2377,8 @@ Postman原是Chrome浏览器的插件，可以模拟浏览器向后端服务器�
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

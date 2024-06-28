@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='写在最前面 网上关于内部类的 blog 很多很乱，甚至写错的也不少。所有我写了一篇笔记，还算齐全，欢迎补充与指正！ 1. 内部类的含义 内部类就是在一个类的内部'><title></title>
+
+<link rel='canonical' href='http://localhost:1313/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day16-%E5%86%85%E9%83%A8%E7%B1%BB/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
+<meta property='og:description' content='写在最前面 网上关于内部类的 blog 很多很乱，甚至写错的也不少。所有我写了一篇笔记，还算齐全，欢迎补充与指正！ 1. 内部类的含义 内部类就是在一个类的内部'>
+<meta property='og:url' content='http://localhost:1313/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day16-%E5%86%85%E9%83%A8%E7%B1%BB/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="写在最前面 网上关于内部类的 blog 很多很乱，甚至写错的也不少。所有我写了一篇笔记，还算齐全，欢迎补充与指正！ 1. 内部类的含义 内部类就是在一个类的内部">
+    <link rel="shortcut icon" href="/static/photo.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="http://localhost:1313/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day16-%E5%86%85%E9%83%A8%E7%B1%BB/"></a>
+    </h2>
+
+    </div>
+</header>
+
+    <section class="article-content">
+    <p><code>写在最前面</code></p>
+<p>网上关于内部类的 blog 很多很乱，甚至写错的也不少。所有我写了一篇笔记，还算齐全，欢迎补充与指正！</p>
+<h2 id="1-内部类的含义">1. 内部类的含义
+</h2><p>内部类就是在一个类的内部再定义一个类。比如A类中定义了一个类B，那么 B就是A 的内部类，A是B的外部类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">A</span><span class="p">{</span><span class="c1">//外部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">class</span> <span class="nc">B</span><span class="p">{</span><span class="c1">//内部类    </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>内部类可以分为：成员内部类、静态内部类、局部内部类、匿名内部类。分类逻辑为（这个分类不精准，只是辅助理解）</p>
+<p><img src="/resources/photo/%E5%86%85%E9%83%A8%E7%B1%BB%E5%88%86%E7%B1%BB.jpg" alt="内部类分类"  /></p>
+<p>从内部类是类的角度看：</p>
+<ol>
+<li>内部类也可以声明属性、方法、构造器；</li>
+<li>内部类也可以继承父类或者接口；</li>
+<li>可以用final修饰，让这个内部类不被继承；</li>
+<li>可以用abstract修饰 <strong>？？？</strong>
+<ul>
+<li>那内部类是抽象类的话，外部类是抽象类吗？</li>
+</ul>
+</li>
+</ol>
+<p>从内部类是外部类成员的角度看：</p>
+<ol>
+<li>内部类可以调用外部类的结构，包括 外部类中 private 修饰的内容；</li>
+<li>内部类可以用 public 、省缺默认、protected、private 修饰；</li>
+<li>可以用 static 修饰，作为外部类的静态成员，定义时与外部类一起加载（有点像静态变量、方法与类的关系）；
+<ol>
+<li>2.和3.中的重点：内部类可以使用private 和 static 修饰，外部类不可以！</li>
+<li>JDK8不支持在成员内部类定义static成员，JDK16才开始支持！</li>
+</ol>
+</li>
+</ol>
+<h3 id="11-关于非静态内部类是否支持-static-的探讨">1.1 关于非静态内部类是否支持 static 的探讨
+</h3><p>（主要是成员内部类）</p>
+<p><code>先聊聊类与类的关系</code></p>
+<ul>
+<li>has-a、 is-a 、like-a 与 use-a
+<ul>
+<li>has-a  : 从属关系，如包含。 整体与部分的关系，一个拥有独立存在，但是生命周期应该一致</li>
+<li>is-a     : 继承关系，如类继承、接口实现</li>
+<li>like-a  :  具体与抽象的关系，如 抽象类继承与接口实现（可以当作是is-a 的特例）</li>
+<li>use-a  : 使用关系，一个类和另外一个类的属性或方法之间的关系，依然是其中一个拥有另外一个，但是不负责销毁，也就是声明周期不一样，如方法栈，一个类中 new 另一个对象</li>
+</ul>
+</li>
+</ul>
+<p><code>再聊聊内部类</code></p>
+<ul>
+<li>内部类自己的继承与实现的行为是 is-a 或者 like-a</li>
+<li>外部类包含成员内部类这一行为像是 has-a，但不像是use-a。因为成员内部类是依附外部类实例而存在的</li>
+<li>外部类包含静态内部类的这一行为像has-a，且也像是 use-a。因为静态内部类可以独立于外部类实例而存在</li>
+</ul>
+<p><code>回归到static</code></p>
+<p>成员内部类强调的是成员，即外部类实例的一个成员。成员内部类是依附外部类实例而存在的，这一点是由创建内部类的过程决定的，需要先创建外部类实例，再通过外部类实例来new成员内部类。如果成员内部类中的方法或者属性可以是static，那它不就可以独立存在了？从分类与用途的角度来看，这样它就完全可以取代了静态内部类的工作；从创建的角度看，总所周知，静态属性和方法是可以直接通过类名来调用的，这一点与它的实现相违背；从概念的角度看，static就是共享，有驳于实例私有。 所有 <strong>成员内部类中不应有static属性或者方法</strong>，<strong>对于有static属性或者方法的应该声明为静态内部类</strong>。这也是（包含 JDK8 在内）JDK15及之前的 JDK 版本的实现逻辑。</p>
+<p>上述理解只是在对号入座，看了答案后再填过程。实际上，java长期以来允许在非静态嵌套类中使用静态常量变量，例如字符串文字。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">OuterClass</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">class</span> <span class="nc">Inner</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">5</span><span class="p">;</span><span class="w"> </span><span class="c1">// fine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;hello&#34;</span><span class="p">;</span><span class="w"> </span><span class="c1">// fine</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">Object</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Object</span><span class="p">();</span><span class="w"> </span><span class="c1">// compile error, because cannot be written during compilation</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>JDK16中引入了新变化：成员内部类中也可以有static属性或者方法！！！</code></p>
+<h3 id="12-内部类编译文件解析">1.2 内部类编译文件解析
+</h3><p><img src="/resources/photo/%E5%86%85%E9%83%A8%E7%B1%BB%E7%9A%84%E7%BC%96%E8%AF%91%E6%96%87%E4%BB%B6.png" alt="内部类的编译文件"  /></p>
+<hr>
+<h2 id="2内部类的作用">2.内部类的作用
+</h2><ul>
+<li><strong>封装和隐藏实现细节</strong>：内部类可以访问外部类所有成员，这样可以将一些实现细节封装在内部类中，从而对外部类隐藏实现细节，提高代码的安全性和可维护性。</li>
+<li><strong>间接实现多继承</strong>：Java 不支持类的多继承，但是一个外部类可以包含多个内部类，这些内部类可以继承不同的类或实现多个接口，从而间接实现了多继承的效果。</li>
+<li><strong>回调和事件处理</strong>：内部类特别是匿名内部类通常用于实现回调和事件处理。</li>
+</ul>
+<hr>
+<h2 id="3内部类的用法">3.内部类的用法
+</h2><ul>
+<li>
+<p>如果声明内部类时不使用任何修饰符，那么默认是public static（静态内部类）</p>
+</li>
+<li>
+<p>声明在接口中的内部类，默认是public static。</p>
+</li>
+</ul>
+<hr>
+<h3 id="31成员内部类">3.1.成员内部类
+</h3><p>成员内部类的用法类似于实例变量。所以创建成员内部类需要先创建了外部类实例才行。</p>
+<h4 id="311加载顺序此处与静态内部类不同">3.1.1<strong>加载顺序</strong>（此处与静态内部类不同！）
+</h4><p>生成一个内部实例的执行顺序为：</p>
+<ol>
+<li>先加载外部类的静态代码块（按照上下顺序）</li>
+<li>加载外部类的构造方法</li>
+<li>先加载内部类的静态代码块（按照上下顺序）</li>
+<li>加载内部类的构造方法</li>
+</ol>
+<h4 id="312-实例化格式此处与静态内部类不同">3.1.2 实例化格式（此处与静态内部类不同！）
+</h4><p>先实例化一个外部类，再通过外部类的实例new 一个内部类的实例，该内部类实例的类型为 Outer.Inner。（成员内部类是依附外部类而存在的）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 格式 外部类实例.new 内部类的构造函数（）；</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Inner</span><span class="p">{}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c1">//方式一： 先创建非匿名外部实例，再用外部实例 new 成员内部类实例</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//先创建非匿名外部实例</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Outer</span><span class="w"> </span><span class="n">outer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outer</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//再通过这个外部类的实例来实例化内部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outer</span><span class="p">.</span><span class="na">new</span><span class="w"> </span><span class="nf">Inner</span><span class="p">();</span><span class="c1">//注意new的位置,成员内部类与静态内部类不同</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c1">// Outer.Inner inner = new outer.Inner();//错误的格式</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c1">//方式二：通过匿名外部类实例直接 new 成员内部类实例</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outer</span><span class="p">().</span><span class="na">new</span><span class="w"> </span><span class="n">Inner</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="313-内部类外部类的访问逻辑与范围">3.1.3 内部类外部类的访问逻辑与范围
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">outerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sameOut</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;外部类同名的方法被调用&#34;</span><span class="p">);}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">outerOut</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;外部类非同名的方法被调用&#34;</span><span class="p">);}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="cm">/* **********外部类如何调用内部类的属性与方法*********** */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/*public int getInnerId(){ //错误示范
+</span></span></span><span class="line"><span class="cl"><span class="cm">    	innerOut();//报错
+</span></span></span><span class="line"><span class="cl"><span class="cm">    	return innerId;//报错,不能直接通过不到innerId 
+</span></span></span><span class="line"><span class="cl"><span class="cm">    	}*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getInnerId</span><span class="p">(</span><span class="n">Inner</span><span class="w"> </span><span class="n">in</span><span class="p">){</span><span class="w"> </span><span class="c1">//通过实例来调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">in</span><span class="p">.</span><span class="na">innerOut</span><span class="p">();</span><span class="c1">//成功</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">innerId</span><span class="p">;</span><span class="c1">//成功</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="cm">/*外部类调用成员内部类的总结：
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		1. 不能通过属性名或者方法名直接获取内部类的属性。因为成员内部类加载在外部类之后，无法直接找到
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		2. 只能通过内部类的实例来调用内部类的属性或者方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		3. 也就是说外部类无法访问内部类的属性名或者方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">   
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Inner</span><span class="p">{</span><span class="w"> </span><span class="c1">//内部类也可以是public!!!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">innerId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sameOut</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;内部类同名的方法被调用&#34;</span><span class="p">);}</span><span class="c1">//与外部类方法同名没报错！</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">innerOut</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;内部类非同名的方法被调用&#34;</span><span class="p">);}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* **********内部类如何调用外部类的属性与方法*********** */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">       	</span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getOuterId</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">//outerOut();//报错</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Outer</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">outerOut</span><span class="p">();</span><span class="c1">//成功</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">outerId</span><span class="p">;</span><span class="c1">//outerId是private,所以内部类可以获取外部类的私有属性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*成员内部类调用外部类的总结：
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		1. 可以通过属性名直接获取外部类的属性，甚至包括访问权限为private的部分。因为内部类也在外部类声明中
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		2. 不能通过方法名直接获取外部类的方法，这点与继承不同。从成员的角度看应该能访问到才对，所以java提供了以下3.中的是实现方式。
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		3. 可以通过 `外部类名.this.外部方法()` 来直接调用外部类的方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">    		4. 内部类中的 this 指内部类自己的引用；外部类名.this 才是内部类对应外部类的引用
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="err">；</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">main</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* ***********同名同参方法的调用*************** */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Outer</span><span class="w"> </span><span class="n">outer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outer</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//再通过这个外部类的实例来实例化内部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outer</span><span class="p">.</span><span class="na">new</span><span class="w"> </span><span class="nf">Inner</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">outer</span><span class="p">.</span><span class="na">sameOut</span><span class="p">();</span><span class="c1">//外部类同名的方法被调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">inner</span><span class="p">.</span><span class="na">sameOut</span><span class="p">();</span><span class="c1">//内部类同名的方法被调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* ***********不同名方法的调用*************** */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//自己调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">outer</span><span class="p">.</span><span class="na">outerOut</span><span class="p">();</span><span class="c1">//外部类非同名的方法被调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">inner</span><span class="p">.</span><span class="na">innerOut</span><span class="p">();</span><span class="c1">//内部类非同名的方法被调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//交叉调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//inner.outerOut();//报错</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//outer.innerOut();//报错</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">inner</span><span class="p">.</span><span class="na">getOuterId</span><span class="p">();</span><span class="c1">//外部类非同名的方法被调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">outer</span><span class="p">.</span><span class="na">getInnerId</span><span class="p">(</span><span class="n">inner</span><span class="p">);</span><span class="c1">//内部类非同名的方法被调用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*成员内部类与外部类的调用的总结：
+</span></span></span><span class="line"><span class="cl"><span class="cm">        		1. 外部类与成员内部类可以有同名同参的方法，不会报错
+</span></span></span><span class="line"><span class="cl"><span class="cm">        		2. 用方法名调用同名同参方法，外部类、内部类引用会调用各自的方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">        		3. 外部类只能通过成员内部类的实例来调用内部类的方法，无论是否同名同参
+</span></span></span><span class="line"><span class="cl"><span class="cm">        		4. 成员内部类可以通过 `外部类名.this.外部方法()` 来直接调用外部类的方法
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="32-静态内部类编译器源码用的比较多">3.2 静态内部类（编译器源码用的比较多）
+</h3><ul>
+<li>
+<p>static可以修饰内部类，非内部类不能被它修饰</p>
+</li>
+<li>
+<p>使用static修饰符修饰的内部类称之为静态内部类，也有人称静态内部类为静态嵌套类（其他三者为非静态嵌套类）</p>
+</li>
+<li>
+<p>创建静态内部类不会加载外部类的静态代码块，不会调用外部类的构造方法，所有内部类无妨访问外部类非静态成员属性</p>
+</li>
+<li>
+<p>内部类中只有静态内部类才可以有静态属性或者方法（JDK16之前的版本）</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="p">{</span><span class="c1">//外部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">B</span><span class="p">{</span><span class="c1">//静态内部类 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getOuterId</span><span class="p">(){</span><span class="c1">//获取外部类的私有属性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">id</span><span class="p">;</span><span class="c1">//报错，静态内部类无法访问外部类的非静态属性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="321-加载顺序">3.2.1 加载顺序
+</h4><p>创建静态内部类不会加载外部类的静态代码块，不会调用外部类的构造方法</p>
+<ol>
+<li>先加载内部类的静态代码块（按照上下顺序）</li>
+<li>加载内部类的构造方法</li>
+</ol>
+<h4 id="322-实例化格式">3.2.2 实例化格式
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">// 格式 new 外部类名.内部类的构造函数（）；</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="p">{</span><span class="c1">//外部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">B</span><span class="p">{</span><span class="c1">//静态内部类 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c1">//直接通过new 静态内部类的构造函数创建实例，但是需要用`外部类.内部类`为了表明内部类的声明位置，此处的 `外部类.`相当于作用域</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="c1">//Warning：通过匿名外部类实例直接 new 成员内部类实例</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    	</span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outer</span><span class="p">().</span><span class="na">new</span><span class="w"> </span><span class="n">Inner</span><span class="p">();</span><span class="c1">//不推荐，通过实例调用静态属性或者方法编译器都会Warning</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="323-调用逻辑">3.2.3 调用逻辑
+</h4><ul>
+<li>静态内部类可以直接访问外部类的静态成员，如果访问外部类的实例成员，必须通过外部类的实例去访问。</li>
+<li>可以通过完整的类名直接访问静态内部类的静态成员，完整类名指 外部类名.内部类名</li>
+</ul>
+<hr>
+<h3 id="33-局部内部类可以认为是函数内部类">3.3. 局部内部类（可以认为是函数内部类）
+</h3><ul>
+<li>
+<p>定义在方法内的内部类，我们称之为局部内部类。</p>
+</li>
+<li>
+<p>局部类不能用public或private修饰符进行声明。它的作用域被限定在声明这个局部类的块中。</p>
+</li>
+<li>
+<p>局部类有一个优势, 即对外部世界可以完全地隐藏起来。</p>
+</li>
+</ul>
+<hr>
+<h3 id="34匿名内部类">3.4.匿名内部类
+</h3><p>匿名内部类就是继承了某个接口或者某个类的没有名字的局部内部类。相当于在局部给某个接口或者某个类写了个没有名字的子类。</p>
+<ul>
+<li>它是局部内部类，一般写在方法体中，临时创建并调用，作用时长就是方法的时长</li>
+<li>它是一个没有名字的类，通常用重写它的父类来定义</li>
+<li>它必须是某个已经定义的接口或类的子类。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">MyIntertface</span><span class="p">{</span><span class="c1">//定义了一个接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//在测试类的方法中创建一个该接口的匿名实现类，即匿名内部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//创建匿名内部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">MyInterface</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyInterface</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;success&#34;</span><span class="p">);}</span><span class="c1">//重写接口的方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/* 显然 Interface 接口不应该有构造方法，而且接口不能直接创建实现类。那么上述代码怎么解释呢？
+</span></span></span><span class="line"><span class="cl"><span class="cm">        *	1. 等号左边的 MyInterface a 实际上是在用父类的引用指向子类的对象 
+</span></span></span><span class="line"><span class="cl"><span class="cm">        *	2. 等号又边的 new MyInterface(){//重写} 实质上创建了一个接口的是实现类。
+</span></span></span><span class="line"><span class="cl"><span class="cm">        *   3. 显然等号右边这个类是没有类名的
+</span></span></span><span class="line"><span class="cl"><span class="cm">        *  如果有类名的话，相当于如下代码：
+</span></span></span><span class="line"><span class="cl"><span class="cm">        */</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="na">fun</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//如下代码可以实现上述的等价效果</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">MyIntertface</span><span class="p">{</span><span class="c1">//定义了一个接口</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">abstract</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MyInterfaceInmpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">MyInterface</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(){</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;success&#34;</span><span class="p">);}</span><span class="c1">//重写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//在测试类的方法中创建一个该接口的匿名实现类，即匿名内部类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Test</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//创建实现类实例,且用接口的引用指向其实现类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="n">MyInterface</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyInterfaceInmpl</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      	</span><span class="n">a</span><span class="p">.</span><span class="na">fun</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/* 在上面的代码中，实现类MyInterfaceInmpl全程只使用一次，
+</span></span></span><span class="line"><span class="cl"><span class="cm">*  为了这一次的使用要去创建一个类，未免太过麻烦。那么我们可以使用匿名内部类
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wa
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+
+
+     
+    :root{
+        --waline-theme-color: #34495e;  
+        --waline-active-color: #bababa;  
+        --waline-badge-color: #34495e;  
+        --waline-avatar-size: 5rem;
+        --waline-dark-grey: #34495e;  
+    }
+
+     
+    :root[data-scheme="dark"] {
+        --waline-theme-color: #acc6e0;
+        --waline-white: #34495e;  
+        --waline-active-color: #8ab1d8;
+        --waline-light-grey: #666;
+        --waline-dark-grey: #acc6e0;  
+        --waline-badge-color: #acc6e0;
+
+         
+        --waline-text-color: rgba(255, 255, 255, 0.7);
+        --waline-bgcolor: #515151;
+        --waline-bgcolor-light: #66696b; 
+        --waline-border-color: #9B9C9C;
+        --waline-disable-bgcolor: #444;
+        --waline-disable-color: #272727;
+
+         
+        --waline-bq-color:  #9B9C9C;  
+
+         
+        --waline-info-bgcolor: #acc6e0;
+        --waline-info-color: #9B9C9C;
+    }
+    .waline-container[data-v-app] .wl-content .wl-emoji {
+        width:3.7em;  
+        height: 3.7em;
+
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili@1.0.6"],"locale":{"admin":"博主","placeholder":"有什么新点子？（上方留下邮箱可以收到通知哦）"},"requiredMeta":["name","email","url"]});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
+         <br />
+        
+    </section>
+
+
+
+
+
+
+
+
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-内部类的含义">1. 内部类的含义</a>
+      <ol>
+        <li><a href="#11-关于非静态内部类是否支持-static-的探讨">1.1 关于非静态内部类是否支持 static 的探讨</a></li>
+        <li><a href="#12-内部类编译文件解析">1.2 内部类编译文件解析</a></li>
+      </ol>
+    </li>
+    <li><a href="#2内部类的作用">2.内部类的作用</a></li>
+    <li><a href="#3内部类的用法">3.内部类的用法</a>
+      <ol>
+        <li><a href="#31成员内部类">3.1.成员内部类</a>
+          <ol>
+            <li><a href="#311加载顺序此处与静态内部类不同">3.1.1<strong>加载顺序</strong>（此处与静态内部类不同！）</a></li>
+            <li><a href="#312-实例化格式此处与静态内部类不同">3.1.2 实例化格式（此处与静态内部类不同！）</a></li>
+            <li><a href="#313-内部类外部类的访问逻辑与范围">3.1.3 内部类外部类的访问逻辑与范围</a></li>
+          </ol>
+        </li>
+        <li><a href="#32-静态内部类编译器源码用的比较多">3.2 静态内部类（编译器源码用的比较多）</a>
+          <ol>
+            <li><a href="#321-加载顺序">3.2.1 加载顺序</a></li>
+            <li><a href="#322-实例化格式">3.2.2 实例化格式</a></li>
+            <li><a href="#323-调用逻辑">3.2.3 调用逻辑</a></li>
+          </ol>
+        </li>
+        <li><a href="#33-局部内部类可以认为是函数内部类">3.3. 局部内部类（可以认为是函数内部类）</a></li>
+        <li><a href="#34匿名内部类">3.4.匿名内部类</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

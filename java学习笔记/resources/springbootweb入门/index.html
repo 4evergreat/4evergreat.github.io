@@ -1,86 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBoot基础 课程内容 SpringBootWeb入门
-HTTP协议
-Web服务器-Tomcat
-前言 下面我们将进入SpringBoot基础阶段的学习。
-在没有正式的学习SpringBoot之前，我们要先来了解下什么是Spring。
-我们可以打开Spring的官网(https://spring.io)，去看一下Spring的简介：Spring makes Java simple。
-Spring的官方提供很多开源的项目，我们可以点击上面的projects，看到spring家族旗下的项目，按照流行程度排序为：
-Spring发展到今天已经形成了一种开发生态圈，Spring提供了若干个子项目，每个项目用于完成特定的功能。而我们在项目开发时，一般会偏向于选择这一套spring家族的技术，来解决对应领域的问题，那我们称这一套技术为spring全家桶。
-而Spring家族旗下这么多的技术，最基础、最核心的是 SpringFramework。其他的spring家族的技术，都是基于SpringFramework的，SpringFramework中提供很多实用功能，如：依赖注入、事务管理、web开发支持、数据访问、消息服务等等。
-而如果我们在项目中，直接基于SpringFramework进行开发，存在两个问题：配置繁琐、入门难度大。
-所以基于此呢，spring官方推荐我们从另外一个项目开始学习，那就是目前最火爆的SpringBoot。
-通过springboot就可以快速的帮我们构建应用程序，所以springboot呢，最大的特点有两个 ：
-简化配置 快速开发 Spring Boot 可以帮助我们非常快速的构建应用程序、简化开发、提高效率 。
-接下来，我们就直接通过一个SpringBoot的web入门程序，让大家快速感受一下，基于SpringBoot进行Web开发的便捷性。
-1. SpringBootWeb快速入门 1.1 需求 需求：基于SpringBoot的方式开发一个web应用，浏览器发起请求/hello后，给浏览器返回字符串 “Hello World ~”。
-1.2 开发步骤 第1步：创建SpringBoot工程项目
-第2步：定义HelloController类，添加方法hello，并添加注解
-第3步：测试运行
-1.2.1 创建SpringBoot工程（需要联网） 基于Spring官方骨架，创建SpringBoot工程。
-基本信息描述完毕之后，勾选web开发相关依赖。
-点击Finish之后，就会联网创建这个SpringBoot工程，创建好之后，结构如下：
-==注意：在联网创建过程中，会下载相关资源(请耐心等待)== 1.2.2 定义请求处理类 在com.itheima这个包下创建一个子包controller
-然后在controller包下新建一个类：HelloController
-1 2 3 4 5 6 7 8 9 10 11 12 13 package com.itheima.controller; import org.springframework.web.bind.annotation.*; @RestController public class HelloController { @RequestMapping(&amp;#34;/hello&amp;#34;) public String hello(){ System.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBoot基础 课程内容 SpringBootWeb入门 HTTP协议 Web服务器-Tomcat 前言 下面我们将进入SpringBoot基'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E5%85%A5%E9%97%A8/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E5%85%A5%E9%97%A8/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='SpringBoot基础 课程内容 SpringBootWeb入门
-HTTP协议
-Web服务器-Tomcat
-前言 下面我们将进入SpringBoot基础阶段的学习。
-在没有正式的学习SpringBoot之前，我们要先来了解下什么是Spring。
-我们可以打开Spring的官网(https://spring.io)，去看一下Spring的简介：Spring makes Java simple。
-Spring的官方提供很多开源的项目，我们可以点击上面的projects，看到spring家族旗下的项目，按照流行程度排序为：
-Spring发展到今天已经形成了一种开发生态圈，Spring提供了若干个子项目，每个项目用于完成特定的功能。而我们在项目开发时，一般会偏向于选择这一套spring家族的技术，来解决对应领域的问题，那我们称这一套技术为spring全家桶。
-而Spring家族旗下这么多的技术，最基础、最核心的是 SpringFramework。其他的spring家族的技术，都是基于SpringFramework的，SpringFramework中提供很多实用功能，如：依赖注入、事务管理、web开发支持、数据访问、消息服务等等。
-而如果我们在项目中，直接基于SpringFramework进行开发，存在两个问题：配置繁琐、入门难度大。
-所以基于此呢，spring官方推荐我们从另外一个项目开始学习，那就是目前最火爆的SpringBoot。
-通过springboot就可以快速的帮我们构建应用程序，所以springboot呢，最大的特点有两个 ：
-简化配置 快速开发 Spring Boot 可以帮助我们非常快速的构建应用程序、简化开发、提高效率 。
-接下来，我们就直接通过一个SpringBoot的web入门程序，让大家快速感受一下，基于SpringBoot进行Web开发的便捷性。
-1. SpringBootWeb快速入门 1.1 需求 需求：基于SpringBoot的方式开发一个web应用，浏览器发起请求/hello后，给浏览器返回字符串 “Hello World ~”。
-1.2 开发步骤 第1步：创建SpringBoot工程项目
-第2步：定义HelloController类，添加方法hello，并添加注解
-第3步：测试运行
-1.2.1 创建SpringBoot工程（需要联网） 基于Spring官方骨架，创建SpringBoot工程。
-基本信息描述完毕之后，勾选web开发相关依赖。
-点击Finish之后，就会联网创建这个SpringBoot工程，创建好之后，结构如下：
-==注意：在联网创建过程中，会下载相关资源(请耐心等待)== 1.2.2 定义请求处理类 在com.itheima这个包下创建一个子包controller
-然后在controller包下新建一个类：HelloController
-1 2 3 4 5 6 7 8 9 10 11 12 13 package com.itheima.controller; import org.springframework.web.bind.annotation.*; @RestController public class HelloController { @RequestMapping(&amp;#34;/hello&amp;#34;) public String hello(){ System.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E5%85%A5%E9%97%A8/'>
+<meta property='og:description' content='SpringBoot基础 课程内容 SpringBootWeb入门 HTTP协议 Web服务器-Tomcat 前言 下面我们将进入SpringBoot基'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E5%85%A5%E9%97%A8/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="SpringBoot基础 课程内容 SpringBootWeb入门
-HTTP协议
-Web服务器-Tomcat
-前言 下面我们将进入SpringBoot基础阶段的学习。
-在没有正式的学习SpringBoot之前，我们要先来了解下什么是Spring。
-我们可以打开Spring的官网(https://spring.io)，去看一下Spring的简介：Spring makes Java simple。
-Spring的官方提供很多开源的项目，我们可以点击上面的projects，看到spring家族旗下的项目，按照流行程度排序为：
-Spring发展到今天已经形成了一种开发生态圈，Spring提供了若干个子项目，每个项目用于完成特定的功能。而我们在项目开发时，一般会偏向于选择这一套spring家族的技术，来解决对应领域的问题，那我们称这一套技术为spring全家桶。
-而Spring家族旗下这么多的技术，最基础、最核心的是 SpringFramework。其他的spring家族的技术，都是基于SpringFramework的，SpringFramework中提供很多实用功能，如：依赖注入、事务管理、web开发支持、数据访问、消息服务等等。
-而如果我们在项目中，直接基于SpringFramework进行开发，存在两个问题：配置繁琐、入门难度大。
-所以基于此呢，spring官方推荐我们从另外一个项目开始学习，那就是目前最火爆的SpringBoot。
-通过springboot就可以快速的帮我们构建应用程序，所以springboot呢，最大的特点有两个 ：
-简化配置 快速开发 Spring Boot 可以帮助我们非常快速的构建应用程序、简化开发、提高效率 。
-接下来，我们就直接通过一个SpringBoot的web入门程序，让大家快速感受一下，基于SpringBoot进行Web开发的便捷性。
-1. SpringBootWeb快速入门 1.1 需求 需求：基于SpringBoot的方式开发一个web应用，浏览器发起请求/hello后，给浏览器返回字符串 “Hello World ~”。
-1.2 开发步骤 第1步：创建SpringBoot工程项目
-第2步：定义HelloController类，添加方法hello，并添加注解
-第3步：测试运行
-1.2.1 创建SpringBoot工程（需要联网） 基于Spring官方骨架，创建SpringBoot工程。
-基本信息描述完毕之后，勾选web开发相关依赖。
-点击Finish之后，就会联网创建这个SpringBoot工程，创建好之后，结构如下：
-==注意：在联网创建过程中，会下载相关资源(请耐心等待)== 1.2.2 定义请求处理类 在com.itheima这个包下创建一个子包controller
-然后在controller包下新建一个类：HelloController
-1 2 3 4 5 6 7 8 9 10 11 12 13 package com.itheima.controller; import org.springframework.web.bind.annotation.*; @RestController public class HelloController { @RequestMapping(&amp;#34;/hello&amp;#34;) public String hello(){ System.">
+<meta name="twitter:description" content="SpringBoot基础 课程内容 SpringBootWeb入门 HTTP协议 Web服务器-Tomcat 前言 下面我们将进入SpringBoot基">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -119,7 +50,7 @@ Spring发展到今天已经形成了一种开发生态圈，Spring提供了若�
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -1167,6 +1098,8 @@ Spring发展到今天已经形成了一种开发生态圈，Spring提供了若�
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 数组声明 1 2 3 4 //方法一：首选 dataType[] arrayName; //方法二：非首选，像c&#43;&#43; dataType arrayName[]; 2. 数组创建 2.1 动态初始化 1 2 //不初始化，大小自行决定 dataType[] array = new dataType[arraySize]; 如果动态初始化会赋予该类型元素的默认值：0，0.0，false 可以指定数组长度，其中数组长度：arrayName.length; 1 2 3 4 5 //例如： //int[] a = new int[10];//创建了一个长为10的int型数组 int[] a; a = new int[10];// 4-5与3等价 System.out.println(a);//输出[I@1b6d3586 2.2 静态初始化 1 2 3 4 //不简写格式： dataType[] arrayName = new dataType[]{value1, value2, value3, ... }; //简写格式： dataType[] arrayName = {value1, value2, value3, ... }; 静态初始化，数组大小由系统根据初始赋值数量计算自动得出 不能手动给arraySize，即使和赋值数量相等也不行，也就是说第二个[]内不可以有参数 此种方式也保留了更改数组内每个值的权利 3.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 数组声明 1 2 3 4 //方法一：首选 dataType[] arrayName; //方法二：非首选，像c&#43;&#43; dataType arrayName[]; 2. 数组创建 2.1 动态初始化 1 2 //不初始化，大小自行决定 dataType[] array = new dataType[arraySize]; 如果动态'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day10-%E6%95%B0%E7%BB%84/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day10-%E6%95%B0%E7%BB%84/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1. 数组声明 1 2 3 4 //方法一：首选 dataType[] arrayName; //方法二：非首选，像c&#43;&#43; dataType arrayName[]; 2. 数组创建 2.1 动态初始化 1 2 //不初始化，大小自行决定 dataType[] array = new dataType[arraySize]; 如果动态初始化会赋予该类型元素的默认值：0，0.0，false 可以指定数组长度，其中数组长度：arrayName.length; 1 2 3 4 5 //例如： //int[] a = new int[10];//创建了一个长为10的int型数组 int[] a; a = new int[10];// 4-5与3等价 System.out.println(a);//输出[I@1b6d3586 2.2 静态初始化 1 2 3 4 //不简写格式： dataType[] arrayName = new dataType[]{value1, value2, value3, ... }; //简写格式： dataType[] arrayName = {value1, value2, value3, ... }; 静态初始化，数组大小由系统根据初始赋值数量计算自动得出 不能手动给arraySize，即使和赋值数量相等也不行，也就是说第二个[]内不可以有参数 此种方式也保留了更改数组内每个值的权利 3.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day10-%E6%95%B0%E7%BB%84/'>
+<meta property='og:description' content='1. 数组声明 1 2 3 4 //方法一：首选 dataType[] arrayName; //方法二：非首选，像c&#43;&#43; dataType arrayName[]; 2. 数组创建 2.1 动态初始化 1 2 //不初始化，大小自行决定 dataType[] array = new dataType[arraySize]; 如果动态'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day10-%E6%95%B0%E7%BB%84/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="1. 数组声明 1 2 3 4 //方法一：首选 dataType[] arrayName; //方法二：非首选，像c&#43;&#43; dataType arrayName[]; 2. 数组创建 2.1 动态初始化 1 2 //不初始化，大小自行决定 dataType[] array = new dataType[arraySize]; 如果动态初始化会赋予该类型元素的默认值：0，0.0，false 可以指定数组长度，其中数组长度：arrayName.length; 1 2 3 4 5 //例如： //int[] a = new int[10];//创建了一个长为10的int型数组 int[] a; a = new int[10];// 4-5与3等价 System.out.println(a);//输出[I@1b6d3586 2.2 静态初始化 1 2 3 4 //不简写格式： dataType[] arrayName = new dataType[]{value1, value2, value3, ... }; //简写格式： dataType[] arrayName = {value1, value2, value3, ... }; 静态初始化，数组大小由系统根据初始赋值数量计算自动得出 不能手动给arraySize，即使和赋值数量相等也不行，也就是说第二个[]内不可以有参数 此种方式也保留了更改数组内每个值的权利 3.">
+<meta name="twitter:description" content="1. 数组声明 1 2 3 4 //方法一：首选 dataType[] arrayName; //方法二：非首选，像c&#43;&#43; dataType arrayName[]; 2. 数组创建 2.1 动态初始化 1 2 //不初始化，大小自行决定 dataType[] array = new dataType[arraySize]; 如果动态">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -50,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -307,6 +307,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

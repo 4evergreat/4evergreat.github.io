@@ -1,56 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='apache 开源项目清单
-1. maven的作用 1.依赖管理 直接在pop.xml中管理依赖的信息。maven自动下载替换
-2. 统一项目结构 各种不同的IDE中拥有相同的项目结构，实现跨IDE导入导出
-3. 项目构建 标准跨平台（Linux、Win、Mac）的自动化项目构建方式。清理、编译、测试、打包、发布
-2. maven的介绍 maven 基于项目对象模型POM（project object model）的概念，通过一小段描述信息，来管理项目的构建。 maven官网 仓库:用于存储资源，管理各种jar包。
-本地仓库:自己计算机上的一个目录。 D:\JavaProject\Maven\repository 中央仓库:由Maven团队维护的全球唯一的。仓库地址:https://repo1.maven.org/maven2/ 远程仓库(私服):一般由公司团队搭建的私有仓库。 3.maven的安装 安装步骤:
-下载源码包。以apache-maven-3.6.1-bin.zip为例子
-解压 apache-maven-3.6.1-bin.zip。
-配置本地仓库:修改 conf/settings.xml中的为一个指定目录
-1 2 3 4 //例子：推荐格式： &amp;lt;localRepository&amp;gt;E:\apache-maven-3.6.1\mvn_repo&amp;lt;/localRepository&amp;gt; //例子：自用的记录 &amp;lt;localRepository&amp;gt;D:\JavaProject\Maven\repository&amp;lt;/localRepository&amp;gt; 配置阿里云私服(远程仓库):修改 conf/settings.xml中的标签，为其添加如下子标签
-1 2 3 4 5 &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;	&amp;lt;mirrorOf&amp;gt;centrals/mirrorOf&amp;gt;&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; 配置环境变量:MAVEN HOME为maven的解压目录，并将其bin目录加入PATH环境变量。
-配置环境变量 MAVEN_HOME 和 maven包下 %MAVEN_HOME%\bin
-测试
-1 2 3 4 5 6 C:\Users\Administrator&amp;gt;mvn -v Apache Maven 3.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='apache 开源项目清单 1. maven的作用 1.依赖管理 直接在pop.xml中管理依赖的信息。maven自动下载替换 2. 统一项目结构 各种不同的IDE中拥有'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day20maven/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day20maven/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='apache 开源项目清单
-1. maven的作用 1.依赖管理 直接在pop.xml中管理依赖的信息。maven自动下载替换
-2. 统一项目结构 各种不同的IDE中拥有相同的项目结构，实现跨IDE导入导出
-3. 项目构建 标准跨平台（Linux、Win、Mac）的自动化项目构建方式。清理、编译、测试、打包、发布
-2. maven的介绍 maven 基于项目对象模型POM（project object model）的概念，通过一小段描述信息，来管理项目的构建。 maven官网 仓库:用于存储资源，管理各种jar包。
-本地仓库:自己计算机上的一个目录。 D:\JavaProject\Maven\repository 中央仓库:由Maven团队维护的全球唯一的。仓库地址:https://repo1.maven.org/maven2/ 远程仓库(私服):一般由公司团队搭建的私有仓库。 3.maven的安装 安装步骤:
-下载源码包。以apache-maven-3.6.1-bin.zip为例子
-解压 apache-maven-3.6.1-bin.zip。
-配置本地仓库:修改 conf/settings.xml中的为一个指定目录
-1 2 3 4 //例子：推荐格式： &amp;lt;localRepository&amp;gt;E:\apache-maven-3.6.1\mvn_repo&amp;lt;/localRepository&amp;gt; //例子：自用的记录 &amp;lt;localRepository&amp;gt;D:\JavaProject\Maven\repository&amp;lt;/localRepository&amp;gt; 配置阿里云私服(远程仓库):修改 conf/settings.xml中的标签，为其添加如下子标签
-1 2 3 4 5 &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;	&amp;lt;mirrorOf&amp;gt;centrals/mirrorOf&amp;gt;&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; 配置环境变量:MAVEN HOME为maven的解压目录，并将其bin目录加入PATH环境变量。
-配置环境变量 MAVEN_HOME 和 maven包下 %MAVEN_HOME%\bin
-测试
-1 2 3 4 5 6 C:\Users\Administrator&amp;gt;mvn -v Apache Maven 3.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day20maven/'>
+<meta property='og:description' content='apache 开源项目清单 1. maven的作用 1.依赖管理 直接在pop.xml中管理依赖的信息。maven自动下载替换 2. 统一项目结构 各种不同的IDE中拥有'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day20maven/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="apache 开源项目清单
-1. maven的作用 1.依赖管理 直接在pop.xml中管理依赖的信息。maven自动下载替换
-2. 统一项目结构 各种不同的IDE中拥有相同的项目结构，实现跨IDE导入导出
-3. 项目构建 标准跨平台（Linux、Win、Mac）的自动化项目构建方式。清理、编译、测试、打包、发布
-2. maven的介绍 maven 基于项目对象模型POM（project object model）的概念，通过一小段描述信息，来管理项目的构建。 maven官网 仓库:用于存储资源，管理各种jar包。
-本地仓库:自己计算机上的一个目录。 D:\JavaProject\Maven\repository 中央仓库:由Maven团队维护的全球唯一的。仓库地址:https://repo1.maven.org/maven2/ 远程仓库(私服):一般由公司团队搭建的私有仓库。 3.maven的安装 安装步骤:
-下载源码包。以apache-maven-3.6.1-bin.zip为例子
-解压 apache-maven-3.6.1-bin.zip。
-配置本地仓库:修改 conf/settings.xml中的为一个指定目录
-1 2 3 4 //例子：推荐格式： &amp;lt;localRepository&amp;gt;E:\apache-maven-3.6.1\mvn_repo&amp;lt;/localRepository&amp;gt; //例子：自用的记录 &amp;lt;localRepository&amp;gt;D:\JavaProject\Maven\repository&amp;lt;/localRepository&amp;gt; 配置阿里云私服(远程仓库):修改 conf/settings.xml中的标签，为其添加如下子标签
-1 2 3 4 5 &amp;lt;mirror&amp;gt; &amp;lt;id&amp;gt;alimaven&amp;lt;/id&amp;gt; &amp;lt;name&amp;gt;aliyun maven&amp;lt;/name&amp;gt; &amp;lt;url&amp;gt;http://maven.aliyun.com/nexus/content/groups/public/&amp;lt;/url&amp;gt;	&amp;lt;mirrorOf&amp;gt;centrals/mirrorOf&amp;gt;&amp;lt;/mirrorOf&amp;gt; &amp;lt;/mirror&amp;gt; 配置环境变量:MAVEN HOME为maven的解压目录，并将其bin目录加入PATH环境变量。
-配置环境变量 MAVEN_HOME 和 maven包下 %MAVEN_HOME%\bin
-测试
-1 2 3 4 5 6 C:\Users\Administrator&amp;gt;mvn -v Apache Maven 3.">
+<meta name="twitter:description" content="apache 开源项目清单 1. maven的作用 1.依赖管理 直接在pop.xml中管理依赖的信息。maven自动下载替换 2. 统一项目结构 各种不同的IDE中拥有">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -89,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -517,6 +478,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

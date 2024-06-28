@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 * 异或： * A^B = 0011 0001;//只有一个1的才是1 * 非： * ~A = 1100 0011;//所有位取反 */ 1 2 3 4 5 //	&amp;lt;&amp;lt; : a&amp;lt;&amp;lt;n, a（转二进制后）左移n位 相当于乘了2^n System.out.println(&amp;#34;2*8 = 2&amp;lt;&amp;lt;3 = &amp;#34; &#43; (2&amp;lt;&amp;lt;3));//16 //	&amp;gt;&amp;gt; ：a&amp;gt;&amp;gt;n, a（转二进制后）右移n位 相当于除了2^n System.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 *'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day06-%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day06-%E8%BF%90%E7%AE%97%E7%AC%A6/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 * 异或： * A^B = 0011 0001;//只有一个1的才是1 * 非： * ~A = 1100 0011;//所有位取反 */ 1 2 3 4 5 //	&amp;lt;&amp;lt; : a&amp;lt;&amp;lt;n, a（转二进制后）左移n位 相当于乘了2^n System.out.println(&amp;#34;2*8 = 2&amp;lt;&amp;lt;3 = &amp;#34; &#43; (2&amp;lt;&amp;lt;3));//16 //	&amp;gt;&amp;gt; ：a&amp;gt;&amp;gt;n, a（转二进制后）右移n位 相当于除了2^n System.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day06-%E8%BF%90%E7%AE%97%E7%AC%A6/'>
+<meta property='og:description' content='1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 *'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day06-%E8%BF%90%E7%AE%97%E7%AC%A6/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 * 异或： * A^B = 0011 0001;//只有一个1的才是1 * 非： * ~A = 1100 0011;//所有位取反 */ 1 2 3 4 5 //	&amp;lt;&amp;lt; : a&amp;lt;&amp;lt;n, a（转二进制后）左移n位 相当于乘了2^n System.out.println(&amp;#34;2*8 = 2&amp;lt;&amp;lt;3 = &amp;#34; &#43; (2&amp;lt;&amp;lt;3));//16 //	&amp;gt;&amp;gt; ：a&amp;gt;&amp;gt;n, a（转二进制后）右移n位 相当于除了2^n System.">
+<meta name="twitter:description" content="1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 *">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -50,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -344,6 +344,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

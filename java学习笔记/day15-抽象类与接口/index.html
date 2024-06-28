@@ -1,41 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1.抽象类格式 关键字： abstract 1.1抽象类： 1 2 3 4 5 abstract class 类名{} public abstract class ClassName{ int a; public abstract void fun(); } 除非该继承的子类也是抽象类，否则继承了抽象类的所有类都要重写抽象类的抽象方法
-不能 new 一个 java 抽象类，有点像c&#43;&#43;中的抽象类，即含纯虚函数的抽象类，需要子类完全重载（java中的重写）后才能生成实例
-抽象类内可以有变量，变量写法与普通类一致
-抽象类中有构造方法
-1.2 抽象类内的抽象方法 1 2 3 修饰符 abstract 返回值类型 方法名(参数列表)； public abstract void fun();//不能写函数体代码块 抽象类不一定有抽象方法，但是有抽象方法的类必须定义成抽象类
-不包含抽象方法的抽象类，目的就是不想让调用者实例化该对象，通常用于某些特殊的类的结构设计
-抽象方法的修饰符可以是 public 或者是 protected, 省缺情况下默认是 public
-抽象类的构造方法能不能是抽象方法？
-1 2 3 4 5 6 7 public abstract class Student { String name; abstract Student();//直接报错！ } /*抽象类的构造方法不能是抽象方法 原因很简单：执行子类构造函数之前需要执行父类的构造函数，如果父类的构造函数可以是抽象方法的话，需要在子类重写，但是调用父类构造函数时，子类的构造函数尚未执行，哪来的重写？ */ 1.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1.抽象类格式 关键字： abstract 1.1抽象类： 1 2 3 4 5 abstract class 类名{} public abstract class ClassName{ int a; public abstract void fun(); } 除非该继承的子类也是抽象类，否则继承了抽象类的所有类都要重'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day15-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day15-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1.抽象类格式 关键字： abstract 1.1抽象类： 1 2 3 4 5 abstract class 类名{} public abstract class ClassName{ int a; public abstract void fun(); } 除非该继承的子类也是抽象类，否则继承了抽象类的所有类都要重写抽象类的抽象方法
-不能 new 一个 java 抽象类，有点像c&#43;&#43;中的抽象类，即含纯虚函数的抽象类，需要子类完全重载（java中的重写）后才能生成实例
-抽象类内可以有变量，变量写法与普通类一致
-抽象类中有构造方法
-1.2 抽象类内的抽象方法 1 2 3 修饰符 abstract 返回值类型 方法名(参数列表)； public abstract void fun();//不能写函数体代码块 抽象类不一定有抽象方法，但是有抽象方法的类必须定义成抽象类
-不包含抽象方法的抽象类，目的就是不想让调用者实例化该对象，通常用于某些特殊的类的结构设计
-抽象方法的修饰符可以是 public 或者是 protected, 省缺情况下默认是 public
-抽象类的构造方法能不能是抽象方法？
-1 2 3 4 5 6 7 public abstract class Student { String name; abstract Student();//直接报错！ } /*抽象类的构造方法不能是抽象方法 原因很简单：执行子类构造函数之前需要执行父类的构造函数，如果父类的构造函数可以是抽象方法的话，需要在子类重写，但是调用父类构造函数时，子类的构造函数尚未执行，哪来的重写？ */ 1.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day15-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/'>
+<meta property='og:description' content='1.抽象类格式 关键字： abstract 1.1抽象类： 1 2 3 4 5 abstract class 类名{} public abstract class ClassName{ int a; public abstract void fun(); } 除非该继承的子类也是抽象类，否则继承了抽象类的所有类都要重'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day15-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="1.抽象类格式 关键字： abstract 1.1抽象类： 1 2 3 4 5 abstract class 类名{} public abstract class ClassName{ int a; public abstract void fun(); } 除非该继承的子类也是抽象类，否则继承了抽象类的所有类都要重写抽象类的抽象方法
-不能 new 一个 java 抽象类，有点像c&#43;&#43;中的抽象类，即含纯虚函数的抽象类，需要子类完全重载（java中的重写）后才能生成实例
-抽象类内可以有变量，变量写法与普通类一致
-抽象类中有构造方法
-1.2 抽象类内的抽象方法 1 2 3 修饰符 abstract 返回值类型 方法名(参数列表)； public abstract void fun();//不能写函数体代码块 抽象类不一定有抽象方法，但是有抽象方法的类必须定义成抽象类
-不包含抽象方法的抽象类，目的就是不想让调用者实例化该对象，通常用于某些特殊的类的结构设计
-抽象方法的修饰符可以是 public 或者是 protected, 省缺情况下默认是 public
-抽象类的构造方法能不能是抽象方法？
-1 2 3 4 5 6 7 public abstract class Student { String name; abstract Student();//直接报错！ } /*抽象类的构造方法不能是抽象方法 原因很简单：执行子类构造函数之前需要执行父类的构造函数，如果父类的构造函数可以是抽象方法的话，需要在子类重写，但是调用父类构造函数时，子类的构造函数尚未执行，哪来的重写？ */ 1.">
+<meta name="twitter:description" content="1.抽象类格式 关键字： abstract 1.1抽象类： 1 2 3 4 5 abstract class 类名{} public abstract class ClassName{ int a; public abstract void fun(); } 除非该继承的子类也是抽象类，否则继承了抽象类的所有类都要重">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -74,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -658,6 +634,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

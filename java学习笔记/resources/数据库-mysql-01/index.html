@@ -1,92 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='数据库开发-MySQL 前言 在我们讲解SpringBootWeb基础知识(请求响应案例)的时候，我们讲到在web开发中，为了应用程序职责单一，方便维护，我们一般将web应用程序分为三层，即：Controller、Service、Dao 。
-之前我们的案例中，是这样子的请求流程：浏览器发起请求，先请求Controller；Controller接收到请求之后，调用Service进行业务逻辑处理；Service再调用Dao，Dao再解析user.xml中所存储的数据。
-xml文件中可以存储数据，但是在企业项目开发中不会使用xml文件存储数据，因为不便管理维护，操作难度大。 在真实的企业开发中呢，都会采用数据库来存储和管理数据，那此时，web开发调用流程图如下所示：
-首先来了解一下什么是数据库。
-数据库：英文为 DataBase，简称DB，它是存储和管理数据的仓库。 像我们日常访问的电商网站京东，企业内部的管理系统OA、ERP、CRM这类的系统，以及大家每天都会刷的头条、抖音类的app，那这些大家所看到的数据，其实都是存储在数据库中的。最终这些数据，只是在浏览器或app中展示出来而已，最终数据的存储和管理都是数据库负责的。
-数据是存储在数据库中的，那我们要如何来操作数据库以及数据库中所存放的数据呢？
-那这里呢，会涉及到一个软件：数据库管理系统（DataBase Management System，简称DBMS）
-DBMS是操作和管理数据库的大型软件。将来我们只需要操作这个软件，就可以通过这个软件来操纵和管理数据库了。 此时又出现一个问题：DBMS这个软件怎么知道要操作的是哪个数据库、哪个数据呢？是对数据做修改还是查询呢？
-需要给DBMS软件发送一条指令，告诉这个软件我们要执行的是什么样的操作，要对哪个数据进行操作。而这个指令就是SQL语句 SQL（Structured Query Language，简称SQL）：结构化查询语言，它是操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准。我们学习数据库开发，最为重要的就是学习SQL语句 。
-关系型数据库：我们后面会详细讲解，现在大家只需要知道我们学习的数据库属于关系型数据库即可。
-结论：程序员给数据库管理系统(DBMS)发送SQL语句，再由数据库管理系统操作数据库当中的数据。
-了解了数据库的一些简单概念之后，接下来我们再来介绍下目前主流的数据库，这里截取了排名前十的数据库：
-Oracle：大型的收费数据库，Oracle公司产品，价格昂贵。（通常是不差钱的公司会选择使用这个数据库） MySQL：开源免费的中小型数据库，后来Sun公司收购了MySQL，而Oracle又收购了Sun公司。目前Oracle推出两个版本的Mysql：社区版(开源免费)、商业版(收费)。 SQL Server：Microsoft 公司推出的收费的中型数据库，C#、.net等语言常用。 PostgreSQL：开源免费的中小型数据库。 DB2：IBM公司的大型收费数据库产品。 SQLLite：嵌入式的微型数据库。Android内置的数据库采用的就是该数据库。 MariaDB：开源免费的中小型数据库。是MySQL数据库的另外一个分支、另外一个衍生产品，与MySQL数据库有很好的兼容性。 那这么多数据库，我们全部都需要学习吗，其实并不用，我们只需要学习其中的一个就可以了，我们此次课程中学习的数据库是现在互联网公司开发使用最为流行的MySQL数据库。
-此时大家可能会有一个疑问，我们现在学习的是Mysql数据库，我们以后去公司做开发，如果用到的是Oracle数据库或SQL Server数据库该怎么办？其实大家完全不用担心这个问题，因为这些数据库都是属于关系型数据库，要操作关系型数据库都是通过 SQL语句来实现的，而SQL语句又是操作关系型数据库的统一标准。
-结论：只要我们学会了SQL语句，就可以通过SQL语句来操作Mysql，也可以通过SQL语句来操作Oracle或SQL Server
-课程内容安排：
-以上课程内容拆解为3部分知识点：
-接下来我们就先进入到第一天的Mysql概述学习。
-1. MySQL概述 官网：https://dev.mysql.com/
-1.1 安装 1.1.1 版本 MySQL官方提供了两个版本：
-商业版本（MySQL Enterprise Edition）
-该版本是收费的，我们可以使用30天。 官方会提供对应的技术支持。 社区版本（MySQL Community Server）
-该版本是免费的，但是MySQL不会提供任何的技术支持。 本课程，采用的是MySQL的社区版本（8.0.31）
-1.1.2 安装 官网下载地址：https://downloads.mysql.com/archives/community/
-这个安装包呢，大家可以不用下载，因为资料中已提供现成的安装包。 安装MySQL具体的步骤，参考资料中提供的 《MySQL安装文档》 ，进行软件的安装即可。
-1.1.3 连接 MySQL服务器启动完毕后，然后再使用如下指令，来连接MySQL服务器：'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='数据库开发-MySQL 前言 在我们讲解SpringBootWeb基础知识(请求响应案例)的时候，我们讲到在web开发中，为了应用程序职责单一，'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-01/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-01/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='数据库开发-MySQL 前言 在我们讲解SpringBootWeb基础知识(请求响应案例)的时候，我们讲到在web开发中，为了应用程序职责单一，方便维护，我们一般将web应用程序分为三层，即：Controller、Service、Dao 。
-之前我们的案例中，是这样子的请求流程：浏览器发起请求，先请求Controller；Controller接收到请求之后，调用Service进行业务逻辑处理；Service再调用Dao，Dao再解析user.xml中所存储的数据。
-xml文件中可以存储数据，但是在企业项目开发中不会使用xml文件存储数据，因为不便管理维护，操作难度大。 在真实的企业开发中呢，都会采用数据库来存储和管理数据，那此时，web开发调用流程图如下所示：
-首先来了解一下什么是数据库。
-数据库：英文为 DataBase，简称DB，它是存储和管理数据的仓库。 像我们日常访问的电商网站京东，企业内部的管理系统OA、ERP、CRM这类的系统，以及大家每天都会刷的头条、抖音类的app，那这些大家所看到的数据，其实都是存储在数据库中的。最终这些数据，只是在浏览器或app中展示出来而已，最终数据的存储和管理都是数据库负责的。
-数据是存储在数据库中的，那我们要如何来操作数据库以及数据库中所存放的数据呢？
-那这里呢，会涉及到一个软件：数据库管理系统（DataBase Management System，简称DBMS）
-DBMS是操作和管理数据库的大型软件。将来我们只需要操作这个软件，就可以通过这个软件来操纵和管理数据库了。 此时又出现一个问题：DBMS这个软件怎么知道要操作的是哪个数据库、哪个数据呢？是对数据做修改还是查询呢？
-需要给DBMS软件发送一条指令，告诉这个软件我们要执行的是什么样的操作，要对哪个数据进行操作。而这个指令就是SQL语句 SQL（Structured Query Language，简称SQL）：结构化查询语言，它是操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准。我们学习数据库开发，最为重要的就是学习SQL语句 。
-关系型数据库：我们后面会详细讲解，现在大家只需要知道我们学习的数据库属于关系型数据库即可。
-结论：程序员给数据库管理系统(DBMS)发送SQL语句，再由数据库管理系统操作数据库当中的数据。
-了解了数据库的一些简单概念之后，接下来我们再来介绍下目前主流的数据库，这里截取了排名前十的数据库：
-Oracle：大型的收费数据库，Oracle公司产品，价格昂贵。（通常是不差钱的公司会选择使用这个数据库） MySQL：开源免费的中小型数据库，后来Sun公司收购了MySQL，而Oracle又收购了Sun公司。目前Oracle推出两个版本的Mysql：社区版(开源免费)、商业版(收费)。 SQL Server：Microsoft 公司推出的收费的中型数据库，C#、.net等语言常用。 PostgreSQL：开源免费的中小型数据库。 DB2：IBM公司的大型收费数据库产品。 SQLLite：嵌入式的微型数据库。Android内置的数据库采用的就是该数据库。 MariaDB：开源免费的中小型数据库。是MySQL数据库的另外一个分支、另外一个衍生产品，与MySQL数据库有很好的兼容性。 那这么多数据库，我们全部都需要学习吗，其实并不用，我们只需要学习其中的一个就可以了，我们此次课程中学习的数据库是现在互联网公司开发使用最为流行的MySQL数据库。
-此时大家可能会有一个疑问，我们现在学习的是Mysql数据库，我们以后去公司做开发，如果用到的是Oracle数据库或SQL Server数据库该怎么办？其实大家完全不用担心这个问题，因为这些数据库都是属于关系型数据库，要操作关系型数据库都是通过 SQL语句来实现的，而SQL语句又是操作关系型数据库的统一标准。
-结论：只要我们学会了SQL语句，就可以通过SQL语句来操作Mysql，也可以通过SQL语句来操作Oracle或SQL Server
-课程内容安排：
-以上课程内容拆解为3部分知识点：
-接下来我们就先进入到第一天的Mysql概述学习。
-1. MySQL概述 官网：https://dev.mysql.com/
-1.1 安装 1.1.1 版本 MySQL官方提供了两个版本：
-商业版本（MySQL Enterprise Edition）
-该版本是收费的，我们可以使用30天。 官方会提供对应的技术支持。 社区版本（MySQL Community Server）
-该版本是免费的，但是MySQL不会提供任何的技术支持。 本课程，采用的是MySQL的社区版本（8.0.31）
-1.1.2 安装 官网下载地址：https://downloads.mysql.com/archives/community/
-这个安装包呢，大家可以不用下载，因为资料中已提供现成的安装包。 安装MySQL具体的步骤，参考资料中提供的 《MySQL安装文档》 ，进行软件的安装即可。
-1.1.3 连接 MySQL服务器启动完毕后，然后再使用如下指令，来连接MySQL服务器：'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-01/'>
+<meta property='og:description' content='数据库开发-MySQL 前言 在我们讲解SpringBootWeb基础知识(请求响应案例)的时候，我们讲到在web开发中，为了应用程序职责单一，'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-01/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="数据库开发-MySQL 前言 在我们讲解SpringBootWeb基础知识(请求响应案例)的时候，我们讲到在web开发中，为了应用程序职责单一，方便维护，我们一般将web应用程序分为三层，即：Controller、Service、Dao 。
-之前我们的案例中，是这样子的请求流程：浏览器发起请求，先请求Controller；Controller接收到请求之后，调用Service进行业务逻辑处理；Service再调用Dao，Dao再解析user.xml中所存储的数据。
-xml文件中可以存储数据，但是在企业项目开发中不会使用xml文件存储数据，因为不便管理维护，操作难度大。 在真实的企业开发中呢，都会采用数据库来存储和管理数据，那此时，web开发调用流程图如下所示：
-首先来了解一下什么是数据库。
-数据库：英文为 DataBase，简称DB，它是存储和管理数据的仓库。 像我们日常访问的电商网站京东，企业内部的管理系统OA、ERP、CRM这类的系统，以及大家每天都会刷的头条、抖音类的app，那这些大家所看到的数据，其实都是存储在数据库中的。最终这些数据，只是在浏览器或app中展示出来而已，最终数据的存储和管理都是数据库负责的。
-数据是存储在数据库中的，那我们要如何来操作数据库以及数据库中所存放的数据呢？
-那这里呢，会涉及到一个软件：数据库管理系统（DataBase Management System，简称DBMS）
-DBMS是操作和管理数据库的大型软件。将来我们只需要操作这个软件，就可以通过这个软件来操纵和管理数据库了。 此时又出现一个问题：DBMS这个软件怎么知道要操作的是哪个数据库、哪个数据呢？是对数据做修改还是查询呢？
-需要给DBMS软件发送一条指令，告诉这个软件我们要执行的是什么样的操作，要对哪个数据进行操作。而这个指令就是SQL语句 SQL（Structured Query Language，简称SQL）：结构化查询语言，它是操作关系型数据库的编程语言，定义了一套操作关系型数据库的统一标准。我们学习数据库开发，最为重要的就是学习SQL语句 。
-关系型数据库：我们后面会详细讲解，现在大家只需要知道我们学习的数据库属于关系型数据库即可。
-结论：程序员给数据库管理系统(DBMS)发送SQL语句，再由数据库管理系统操作数据库当中的数据。
-了解了数据库的一些简单概念之后，接下来我们再来介绍下目前主流的数据库，这里截取了排名前十的数据库：
-Oracle：大型的收费数据库，Oracle公司产品，价格昂贵。（通常是不差钱的公司会选择使用这个数据库） MySQL：开源免费的中小型数据库，后来Sun公司收购了MySQL，而Oracle又收购了Sun公司。目前Oracle推出两个版本的Mysql：社区版(开源免费)、商业版(收费)。 SQL Server：Microsoft 公司推出的收费的中型数据库，C#、.net等语言常用。 PostgreSQL：开源免费的中小型数据库。 DB2：IBM公司的大型收费数据库产品。 SQLLite：嵌入式的微型数据库。Android内置的数据库采用的就是该数据库。 MariaDB：开源免费的中小型数据库。是MySQL数据库的另外一个分支、另外一个衍生产品，与MySQL数据库有很好的兼容性。 那这么多数据库，我们全部都需要学习吗，其实并不用，我们只需要学习其中的一个就可以了，我们此次课程中学习的数据库是现在互联网公司开发使用最为流行的MySQL数据库。
-此时大家可能会有一个疑问，我们现在学习的是Mysql数据库，我们以后去公司做开发，如果用到的是Oracle数据库或SQL Server数据库该怎么办？其实大家完全不用担心这个问题，因为这些数据库都是属于关系型数据库，要操作关系型数据库都是通过 SQL语句来实现的，而SQL语句又是操作关系型数据库的统一标准。
-结论：只要我们学会了SQL语句，就可以通过SQL语句来操作Mysql，也可以通过SQL语句来操作Oracle或SQL Server
-课程内容安排：
-以上课程内容拆解为3部分知识点：
-接下来我们就先进入到第一天的Mysql概述学习。
-1. MySQL概述 官网：https://dev.mysql.com/
-1.1 安装 1.1.1 版本 MySQL官方提供了两个版本：
-商业版本（MySQL Enterprise Edition）
-该版本是收费的，我们可以使用30天。 官方会提供对应的技术支持。 社区版本（MySQL Community Server）
-该版本是免费的，但是MySQL不会提供任何的技术支持。 本课程，采用的是MySQL的社区版本（8.0.31）
-1.1.2 安装 官网下载地址：https://downloads.mysql.com/archives/community/
-这个安装包呢，大家可以不用下载，因为资料中已提供现成的安装包。 安装MySQL具体的步骤，参考资料中提供的 《MySQL安装文档》 ，进行软件的安装即可。
-1.1.3 连接 MySQL服务器启动完毕后，然后再使用如下指令，来连接MySQL服务器：">
+<meta name="twitter:description" content="数据库开发-MySQL 前言 在我们讲解SpringBootWeb基础知识(请求响应案例)的时候，我们讲到在web开发中，为了应用程序职责单一，">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -125,7 +50,7 @@ Oracle：大型的收费数据库，Oracle公司产品，价格昂贵。（通�
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -1514,6 +1439,8 @@ Oracle：大型的收费数据库，Oracle公司产品，价格昂贵。（通�
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

@@ -1,50 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='案例-登录认证 在前面的课程中，我们已经实现了部门管理、员工管理的基本功能，但是大家会发现，我们并没有登录，就直接访问到了Tlias智能学习辅助系统的后台。 这是不安全的，所以我们今天的主题就是登录认证。 最终我们要实现的效果就是用户必须登录之后，才可以访问后台系统中的功能。
-1. 登录功能 1.1 需求 在登录界面中，我们可以输入用户的用户名以及密码，然后点击 &amp;ldquo;登录&amp;rdquo; 按钮就要请求服务器，服务端判断用户输入的用户名或者密码是否正确。如果正确，则返回成功结果，前端跳转至系统首页面。
-1.2 接口文档 我们参照接口文档来开发登录功能
-基本信息
-1 2 3 4 5 请求路径：/login 请求方式：POST 接口描述：该接口用于员工登录Tlias智能学习辅助系统，登录完毕后，系统下发JWT令牌。 请求参数
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 备注 username string 必须 用户名 password string 必须 密码 请求数据样例：
-1 2 3 4 { &amp;#34;username&amp;#34;: &amp;#34;jinyong&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;123456&amp;#34; } 响应数据
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 默认值 备注 其他信息 code number 必须 响应码, 1 成功 ; 0 失败 msg string 非必须 提示信息 data string 必须 返回的数据 , jwt令牌 响应数据样例：'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='案例-登录认证 在前面的课程中，我们已经实现了部门管理、员工管理的基本功能，但是大家会发现，我们并没有登录，就直接访问到了Tlias智能学习辅'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='案例-登录认证 在前面的课程中，我们已经实现了部门管理、员工管理的基本功能，但是大家会发现，我们并没有登录，就直接访问到了Tlias智能学习辅助系统的后台。 这是不安全的，所以我们今天的主题就是登录认证。 最终我们要实现的效果就是用户必须登录之后，才可以访问后台系统中的功能。
-1. 登录功能 1.1 需求 在登录界面中，我们可以输入用户的用户名以及密码，然后点击 &amp;ldquo;登录&amp;rdquo; 按钮就要请求服务器，服务端判断用户输入的用户名或者密码是否正确。如果正确，则返回成功结果，前端跳转至系统首页面。
-1.2 接口文档 我们参照接口文档来开发登录功能
-基本信息
-1 2 3 4 5 请求路径：/login 请求方式：POST 接口描述：该接口用于员工登录Tlias智能学习辅助系统，登录完毕后，系统下发JWT令牌。 请求参数
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 备注 username string 必须 用户名 password string 必须 密码 请求数据样例：
-1 2 3 4 { &amp;#34;username&amp;#34;: &amp;#34;jinyong&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;123456&amp;#34; } 响应数据
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 默认值 备注 其他信息 code number 必须 响应码, 1 成功 ; 0 失败 msg string 非必须 提示信息 data string 必须 返回的数据 , jwt令牌 响应数据样例：'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/'>
+<meta property='og:description' content='案例-登录认证 在前面的课程中，我们已经实现了部门管理、员工管理的基本功能，但是大家会发现，我们并没有登录，就直接访问到了Tlias智能学习辅'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E7%99%BB%E5%BD%95%E8%AE%A4%E8%AF%81/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="案例-登录认证 在前面的课程中，我们已经实现了部门管理、员工管理的基本功能，但是大家会发现，我们并没有登录，就直接访问到了Tlias智能学习辅助系统的后台。 这是不安全的，所以我们今天的主题就是登录认证。 最终我们要实现的效果就是用户必须登录之后，才可以访问后台系统中的功能。
-1. 登录功能 1.1 需求 在登录界面中，我们可以输入用户的用户名以及密码，然后点击 &amp;ldquo;登录&amp;rdquo; 按钮就要请求服务器，服务端判断用户输入的用户名或者密码是否正确。如果正确，则返回成功结果，前端跳转至系统首页面。
-1.2 接口文档 我们参照接口文档来开发登录功能
-基本信息
-1 2 3 4 5 请求路径：/login 请求方式：POST 接口描述：该接口用于员工登录Tlias智能学习辅助系统，登录完毕后，系统下发JWT令牌。 请求参数
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 备注 username string 必须 用户名 password string 必须 密码 请求数据样例：
-1 2 3 4 { &amp;#34;username&amp;#34;: &amp;#34;jinyong&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;123456&amp;#34; } 响应数据
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 默认值 备注 其他信息 code number 必须 响应码, 1 成功 ; 0 失败 msg string 非必须 提示信息 data string 必须 返回的数据 , jwt令牌 响应数据样例：">
+<meta name="twitter:description" content="案例-登录认证 在前面的课程中，我们已经实现了部门管理、员工管理的基本功能，但是大家会发现，我们并没有登录，就直接访问到了Tlias智能学习辅">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -83,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -2784,6 +2751,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

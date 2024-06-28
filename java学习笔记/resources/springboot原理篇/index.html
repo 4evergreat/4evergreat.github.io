@@ -1,68 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpingBoot原理 在前面十多天的课程当中，我们学习的都是web开发的技术使用，都是面向应用层面的，我们学会了怎么样去用。而我们今天所要学习的是web后端开发的最后一个篇章springboot原理篇，主要偏向于底层原理。
-我们今天的课程安排包括这么三个部分：
-配置优先级：Springboot项目当中属性配置的常见方式以及配置的优先级 Bean的管理 剖析Springboot的底层原理 1. 配置优先级 在我们前面的课程当中，我们已经讲解了SpringBoot项目当中支持的三类配置文件：
-application.properties application.yml application.yaml 在SpringBoot项目当中，我们要想配置一个属性，可以通过这三种方式当中的任意一种来配置都可以，那么如果项目中同时存在这三种配置文件，且都配置了同一个属性，如：Tomcat端口号，到底哪一份配置文件生效呢？
-application.properties 1 server.port=8081 application.yml 1 2 server: port: 8082 application.yaml 1 2 server: port: 8082 我们启动SpringBoot程序，测试下三个配置文件中哪个Tomcat端口号生效：
-properties、yaml、yml三种配置文件同时存在 properties、yaml、yml三种配置文件，优先级最高的是properties
-yaml、yml两种配置文件同时存在 配置文件优先级排名（从高到低）：
-properties配置文件 yml配置文件 yaml配置文件 注意事项：虽然springboot支持多种格式配置文件，但是在项目开发时，推荐统一使用一种格式的配置。（yml是主流）
-在SpringBoot项目当中除了以上3种配置文件外，SpringBoot为了增强程序的扩展性，除了支持配置文件的配置方式以外，还支持另外两种常见的配置方式：
-Java系统属性配置 （格式： -Dkey=value）
-1 -Dserver.port=9000 命令行参数 （格式：&amp;ndash;key=value）
-1 --server.port=10010 那在idea当中运行程序时，如何来指定Java系统属性和命令行参数呢？
-编辑启动程序的配置信息 重启服务，同时配置Tomcat端口(三种配置文件、系统属性、命令行参数)，测试哪个Tomcat端口号生效：
-删除命令行参数配置，重启SpringBoot服务：
-优先级： 命令行参数 &amp;gt; 系统属性参数 &amp;gt; properties参数 &amp;gt; yml参数 &amp;gt; yaml参数
-思考：如果项目已经打包上线了，这个时候我们又如何来设置Java系统属性和命令行参数呢？
-1 java -Dserver.port=9000 -jar XXXXX.jar --server.port=10010 下面我们来演示下打包程序运行时指定Java系统属性和命令行参数：
-执行maven打包指令package，把项目打成jar文件 使用命令：java -jar 方式运行jar文件程序 项目打包：'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpingBoot原理 在前面十多天的课程当中，我们学习的都是web开发的技术使用，都是面向应用层面的，我们学会了怎么样去用。而我们今天所要学'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springboot%E5%8E%9F%E7%90%86%E7%AF%87/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springboot%E5%8E%9F%E7%90%86%E7%AF%87/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='SpingBoot原理 在前面十多天的课程当中，我们学习的都是web开发的技术使用，都是面向应用层面的，我们学会了怎么样去用。而我们今天所要学习的是web后端开发的最后一个篇章springboot原理篇，主要偏向于底层原理。
-我们今天的课程安排包括这么三个部分：
-配置优先级：Springboot项目当中属性配置的常见方式以及配置的优先级 Bean的管理 剖析Springboot的底层原理 1. 配置优先级 在我们前面的课程当中，我们已经讲解了SpringBoot项目当中支持的三类配置文件：
-application.properties application.yml application.yaml 在SpringBoot项目当中，我们要想配置一个属性，可以通过这三种方式当中的任意一种来配置都可以，那么如果项目中同时存在这三种配置文件，且都配置了同一个属性，如：Tomcat端口号，到底哪一份配置文件生效呢？
-application.properties 1 server.port=8081 application.yml 1 2 server: port: 8082 application.yaml 1 2 server: port: 8082 我们启动SpringBoot程序，测试下三个配置文件中哪个Tomcat端口号生效：
-properties、yaml、yml三种配置文件同时存在 properties、yaml、yml三种配置文件，优先级最高的是properties
-yaml、yml两种配置文件同时存在 配置文件优先级排名（从高到低）：
-properties配置文件 yml配置文件 yaml配置文件 注意事项：虽然springboot支持多种格式配置文件，但是在项目开发时，推荐统一使用一种格式的配置。（yml是主流）
-在SpringBoot项目当中除了以上3种配置文件外，SpringBoot为了增强程序的扩展性，除了支持配置文件的配置方式以外，还支持另外两种常见的配置方式：
-Java系统属性配置 （格式： -Dkey=value）
-1 -Dserver.port=9000 命令行参数 （格式：&amp;ndash;key=value）
-1 --server.port=10010 那在idea当中运行程序时，如何来指定Java系统属性和命令行参数呢？
-编辑启动程序的配置信息 重启服务，同时配置Tomcat端口(三种配置文件、系统属性、命令行参数)，测试哪个Tomcat端口号生效：
-删除命令行参数配置，重启SpringBoot服务：
-优先级： 命令行参数 &amp;gt; 系统属性参数 &amp;gt; properties参数 &amp;gt; yml参数 &amp;gt; yaml参数
-思考：如果项目已经打包上线了，这个时候我们又如何来设置Java系统属性和命令行参数呢？
-1 java -Dserver.port=9000 -jar XXXXX.jar --server.port=10010 下面我们来演示下打包程序运行时指定Java系统属性和命令行参数：
-执行maven打包指令package，把项目打成jar文件 使用命令：java -jar 方式运行jar文件程序 项目打包：'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springboot%E5%8E%9F%E7%90%86%E7%AF%87/'>
+<meta property='og:description' content='SpingBoot原理 在前面十多天的课程当中，我们学习的都是web开发的技术使用，都是面向应用层面的，我们学会了怎么样去用。而我们今天所要学'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springboot%E5%8E%9F%E7%90%86%E7%AF%87/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="SpingBoot原理 在前面十多天的课程当中，我们学习的都是web开发的技术使用，都是面向应用层面的，我们学会了怎么样去用。而我们今天所要学习的是web后端开发的最后一个篇章springboot原理篇，主要偏向于底层原理。
-我们今天的课程安排包括这么三个部分：
-配置优先级：Springboot项目当中属性配置的常见方式以及配置的优先级 Bean的管理 剖析Springboot的底层原理 1. 配置优先级 在我们前面的课程当中，我们已经讲解了SpringBoot项目当中支持的三类配置文件：
-application.properties application.yml application.yaml 在SpringBoot项目当中，我们要想配置一个属性，可以通过这三种方式当中的任意一种来配置都可以，那么如果项目中同时存在这三种配置文件，且都配置了同一个属性，如：Tomcat端口号，到底哪一份配置文件生效呢？
-application.properties 1 server.port=8081 application.yml 1 2 server: port: 8082 application.yaml 1 2 server: port: 8082 我们启动SpringBoot程序，测试下三个配置文件中哪个Tomcat端口号生效：
-properties、yaml、yml三种配置文件同时存在 properties、yaml、yml三种配置文件，优先级最高的是properties
-yaml、yml两种配置文件同时存在 配置文件优先级排名（从高到低）：
-properties配置文件 yml配置文件 yaml配置文件 注意事项：虽然springboot支持多种格式配置文件，但是在项目开发时，推荐统一使用一种格式的配置。（yml是主流）
-在SpringBoot项目当中除了以上3种配置文件外，SpringBoot为了增强程序的扩展性，除了支持配置文件的配置方式以外，还支持另外两种常见的配置方式：
-Java系统属性配置 （格式： -Dkey=value）
-1 -Dserver.port=9000 命令行参数 （格式：&amp;ndash;key=value）
-1 --server.port=10010 那在idea当中运行程序时，如何来指定Java系统属性和命令行参数呢？
-编辑启动程序的配置信息 重启服务，同时配置Tomcat端口(三种配置文件、系统属性、命令行参数)，测试哪个Tomcat端口号生效：
-删除命令行参数配置，重启SpringBoot服务：
-优先级： 命令行参数 &amp;gt; 系统属性参数 &amp;gt; properties参数 &amp;gt; yml参数 &amp;gt; yaml参数
-思考：如果项目已经打包上线了，这个时候我们又如何来设置Java系统属性和命令行参数呢？
-1 java -Dserver.port=9000 -jar XXXXX.jar --server.port=10010 下面我们来演示下打包程序运行时指定Java系统属性和命令行参数：
-执行maven打包指令package，把项目打成jar文件 使用命令：java -jar 方式运行jar文件程序 项目打包：">
+<meta name="twitter:description" content="SpingBoot原理 在前面十多天的课程当中，我们学习的都是web开发的技术使用，都是面向应用层面的，我们学会了怎么样去用。而我们今天所要学">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -101,7 +50,7 @@ Java系统属性配置 （格式： -Dkey=value）
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -2742,6 +2691,8 @@ Java系统属性配置 （格式： -Dkey=value）
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

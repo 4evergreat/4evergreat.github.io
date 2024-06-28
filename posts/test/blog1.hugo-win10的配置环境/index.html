@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=53936&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='hugo-win10环境的搭建 一、前言 当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案： 动'><title></title>
+
+<link rel='canonical' href='http://localhost:53936/posts/test/blog1.hugo-win10%E7%9A%84%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
+<meta property='og:description' content='hugo-win10环境的搭建 一、前言 当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案： 动'>
+<meta property='og:url' content='http://localhost:53936/posts/test/blog1.hugo-win10%E7%9A%84%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="hugo-win10环境的搭建 一、前言 当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案： 动">
+    <link rel="shortcut icon" href="/static/photo.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="http://localhost:53936/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/test/blog1.hugo-win10%E7%9A%84%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83/"></a>
+    </h2>
+
+    </div>
+</header>
+
+    <section class="article-content">
+    <h1 id="hugo-win10环境的搭建">hugo-win10环境的搭建
+</h1><h2 id="一前言">一、前言
+</h2><p>当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案：</p>
+<p><code>动态博客</code></p>
+<ul>
+<li>wordpress由php语言开发，使用了mysql作为数据库，属于动态博客，即根据数据库内容动态渲染网页。其官网上提供了许多收费（主）或免费的主题和模板，自带用户界面以及管理后台，上面还提供了丰富的插件扩展，用户可以根据个人喜好进行配置。可见wordpress是一个易用的、动态的、灵活的博客选型方案。但是需要注意的是wordpress加载速度会随插件主题的复杂程增加而变慢，例如市面上用户大量投诉字体加载慢的问题。</li>
+<li>halo是一个开源的博客，有java语言开发，使用了springboot框架。也有官方社区论坛，上面提供了一些收费的或免费的主题和模板。支持markdown格式、评论模块、网站统计等丰富的功能。当前这个开源项目还在不断更新当中，学习过java SSM的朋友可以考虑在这个项目的基础上个人再开发定制自己喜欢的内容。需要注意的是，halo使用了java springboot，对服务器内存的需求较大。</li>
+</ul>
+<p><code>静态博客</code></p>
+<ul>
+<li>hexo是一个基于node.js的静态开源博客框架，支持使用markdown来解析文章。网上可以找到其官网，上面提供了丰富的主题和插件，个人比较推荐butterfly主题。静态的博客的优点与缺点都集中在静态二字，静态意味着网页是预先就编译好的，直接加载已经编译的内容就行，而且无需额外安装数据库也能搭建博客，所以这种方案对服务器的要求很小，搭建环境也比较简单。但是需要注意到静态网页的每个改动都需要重新编译网页。由于博客是静态的，还是用的node.js，特别推荐给学过前端的朋友，博客的外观和风格可以高度个性化！</li>
+<li>hugoHugo是一个由Go语言编写的静态网站生成器，它的主要功能是将Markdown或其他格式的内容转换为静态的HTML、CSS和JavaScript文件。这些文件可以直接部署到Web服务器上，从而快速、高效地展示内容。需要注意的是Hugo主要关注于生成静态网站，因此它不支持原生注册登录、原生评论等动态功能。这些功能通常需要依赖第三方服务或插件来实现，对个人动手能力有一定的要求。</li>
+</ul>
+<p><code>关于我为什么选择hugo</code></p>
+<blockquote>
+<ol>
+<li>我个人是使用java的，深知 java 虚拟机占用的内存相当可观。个人博客主要是为了记录与分享一些个人学习的内容，没有打算在服务器上花多少钱。也许以后会该也说不定~先这样用着好吧</li>
+<li>静态博客的内容保存在本地，方便后期迁移。不怕丢失。可以直接推送到git或者gitee上。</li>
+<li>被一款叫stack的主题吸引，淡雅的风格。(全在我的审美点上，简直是梦中情博！！！</li>
+</ol>
+</blockquote>
+<p><img src="/resources/%e5%8d%9a%e5%ae%a2%e5%b1%95%e7%a4%ba.png" alt="博客展示"  /></p>
+<h2 id="二在windows10上搭建hugo环境">二、在windows10上搭建hugo环境
+</h2><h3 id="1-下载安装gitgo并安装">1. 下载安装git、go并安装
+</h3><p>[go下载链接](<a class="link" href="https://golang.google.cn/dl/"  target="_blank" rel="noopener"
+    >https://golang.google.cn/dl/</a> ])</p>
+<p><a class="link" href="https://git-scm.com/download/win"  target="_blank" rel="noopener"
+    >git下载链接</a></p>
+<blockquote>
+<p>注意事项！！！！</p>
+<ol>
+<li>推荐配置环境变量，把 上述文件的.exe文件与bin文件夹添加到系统环境变量当中</li>
+<li>git的网页有些玄学，有时候会被墙。打不开就百度上找，随便装一个，安装最新版就行！</li>
+</ol>
+</blockquote>
+<h3 id="2下载hugo解压">2.下载hugo解压
+</h3><p><a class="link" href="https://github.com/gohugoio/hugo/releases"  target="_blank" rel="noopener"
+    >hugo下载链接</a></p>
+<p>选择系统对应的版本号进行下载，这里我需选择 xxx_windowns-amd64.zip</p>
+<ul>
+<li>我实际装的是hugo_extended_0.128.0_windows-amd64.zip，<a class="link" href="https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_windows-amd64.zip"  target="_blank" rel="noopener"
+    >下载链接</a></li>
+</ul>
+<blockquote>
+<p>注意事项！！！！</p>
+<ol>
+<li>hugo分extend与普通版。extend只是比普通版多了一些可以自己操作的东西。具体区别可以参考<a class="link" href="https://gohugo.io/installation/windows/"  target="_blank" rel="noopener"
+    >官方文档</a></li>
+</ol>
+</blockquote>
+<p>懒人可以直接看以下内容，我把主要的内容剪切过来了：</p>
+<blockquote>
+<h2 id="editions">Editions
+</h2><p>Hugo is available in two editions: standard and extended. With the extended edition you can:</p>
+<ul>
+<li>Encode to the WebP format when <a class="link" href="https://gohugo.io/content-management/image-processing/"  target="_blank" rel="noopener"
+    >processing images</a>. You can decode WebP images with either edition.</li>
+<li><a class="link" href="https://gohugo.io/hugo-pipes/transpile-sass-to-css/"  target="_blank" rel="noopener"
+    >Transpile Sass to CSS</a> using the embedded LibSass transpiler. The extended edition is not required to use the <a class="link" href="https://gohugo.io/hugo-pipes/transpile-sass-to-css/#dart-sass"  target="_blank" rel="noopener"
+    >Dart Sass</a> transpiler.</li>
+</ul>
+<p>We recommend that you install the extended edition.</p>
+<h3 id="版本">版本
+</h3><hr>
+<p>Hugo有两个版本：标准版和扩展版。使用扩展版，您可以：</p>
+<ul>
+<li>处理图像时编码为WebP格式。您可以使用任一版本解码WebP图像。</li>
+<li>使用嵌入式LibSass Transpile将Sass转换为CSS。扩展版不需要使用Dart Sass transpiler。
+我们建议您安装扩展版。</li>
+</ul>
+</blockquote>
+<h3 id="3安装验证">3.安装验证
+</h3><p>任意位置打开cmd终端输入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 验证go
+</span></span><span class="line"><span class="cl">go version
+</span></span><span class="line"><span class="cl"># 验证hugo
+</span></span><span class="line"><span class="cl">hugo version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装成功的效果：</p>
+<p><img src="/resources/go%e4%b8%8ehugo%e5%ae%89%e8%a3%85%e9%aa%8c%e8%af%81.png" alt="go与hugo安装验证"  /></p>
+<p><code>可能存在的问题：</code></p>
+<ol>
+<li>go或hugo不是命令。答：没有配置环境变量。打开系统高级设置-&gt;环境变量，点击用户变量中的Path，点击编辑，点击右上角新建，输入上面go\hugo安装后的bin文件夹，或者.exe的地址，点击确定。</li>
+<li>github类的下载链接无法打开。答：这些链接能不能打开确实是个玄学。建议隔一段时间试试、或者用手机热点、或者使用魔法梯子。</li>
+</ol>
+<h2 id="四总结">四、总结
+</h2><p>如果上述步骤都没有问题，恭喜你！！！hugo环境已经搭建好了！下一篇笔记我将讲解网页搭建过程。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wa
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+
+
+     
+    :root{
+        --waline-theme-color: #34495e;  
+        --waline-active-color: #bababa;  
+        --waline-badge-color: #34495e;  
+        --waline-avatar-size: 5rem;
+        --waline-dark-grey: #34495e;  
+    }
+
+     
+    :root[data-scheme="dark"] {
+        --waline-theme-color: #acc6e0;
+        --waline-white: #34495e;  
+        --waline-active-color: #8ab1d8;
+        --waline-light-grey: #666;
+        --waline-dark-grey: #acc6e0;  
+        --waline-badge-color: #acc6e0;
+
+         
+        --waline-text-color: rgba(255, 255, 255, 0.7);
+        --waline-bgcolor: #515151;
+        --waline-bgcolor-light: #66696b; 
+        --waline-border-color: #9B9C9C;
+        --waline-disable-bgcolor: #444;
+        --waline-disable-color: #272727;
+
+         
+        --waline-bq-color:  #9B9C9C;  
+
+         
+        --waline-info-bgcolor: #acc6e0;
+        --waline-info-color: #9B9C9C;
+    }
+    .waline-container[data-v-app] .wl-content .wl-emoji {
+        width:3.7em;  
+        height: 3.7em;
+
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili@1.0.6"],"locale":{"admin":"博主","placeholder":"有什么新点子？（上方留下邮箱可以收到通知哦）"},"requiredMeta":["name","email","url"]});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
+         <br />
+        
+    </section>
+
+
+
+
+
+
+
+
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#一前言">一、前言</a></li>
+    <li><a href="#二在windows10上搭建hugo环境">二、在windows10上搭建hugo环境</a>
+      <ol>
+        <li><a href="#1-下载安装gitgo并安装">1. 下载安装git、go并安装</a></li>
+        <li><a href="#2下载hugo解压">2.下载hugo解压</a></li>
+      </ol>
+    </li>
+    <li><a href="#editions">Editions</a>
+      <ol>
+        <li><a href="#版本">版本</a></li>
+        <li><a href="#3安装验证">3.安装验证</a></li>
+      </ol>
+    </li>
+    <li><a href="#四总结">四、总结</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

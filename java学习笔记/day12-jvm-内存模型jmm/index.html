@@ -1,50 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. jvm 内存模型 JMM 原帖链接 JMM控制 Java 线程之间的通信，决定一个线程对共享变量的写入何时对另一个线程可见。 每条线程在自己的工作内存中对共享变量（副本）进行操作，JMM再负责把这些操作同步到主内存中 JVM1.8 用Meta space（元空间）（在JVM外的本地内存中）取代了方法区（Method Area）（在JVM堆中） 1.1 Java heap Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）
-1.1.2 字符串常量池 字符串常量池原本存放于方法区，jdk7开始放置于堆中。 字符串常量池存储的是string对象的直接引用，而不是直接存放的对象，是一张string table 1.1.3 对象实例 类初始化生成的对象 基本数据类型的数组也是对象实例 1.1.4 线程分配缓冲区 增加线程分配缓冲区是为了提升对象分配时的效率 1.2 本地内存(元空间实现的方法区) 元空间并不在虚拟机中，而是使用本地内存
-JDK8开始用元空间实现原来java heap中的方法区
--XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC（garbage collection）会对改值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。
--XX:MaxMetaspaceSize，最大空间，默认是没有限制的
-1.2.1类元信息（Klass）(有点类定义的意思) 类元信息在类编译期间放入方法区，里面放置了类的基本信息，包括类的版本、字段、方法、接口以及常量池表（Constant Pool Table） 常量池表（Constant Pool Table）存储了类在编译期间生成的字面量、符号引用，这些信息在类加载完后会被解析到运行时常量池中 1.2.2运行时常量池（Runtime Constant Pool) 运行时常量池主要存放在类加载后被解析的字面量与符号引用 1.3 本地方法栈 本地方法栈则是为执行本地方法（Native Method）服务的。简单地讲，一个Native Method就是一个java调用非java代码的接口。一个Native Method是这样一个java的方法：该方法的实现由非java语言实现，比如C。这个特征并非java所特有，很多其它的编程语言都有这一机制。
-2.TLAB机制 堆是全局共享的，因此在同一时间，可能有多个线程在堆上申请空间，在并发场景中，就会存在两个线程先后把对象引用指向了同一个内存区域，所以对象的内存分配过程需要一个同步机制，但是无论是使用哪种同步方案（实际上虚拟机使用的可能CAS），都会影响内存的分配效率。所以HotSpot虚拟机的提供了一个解决方案：TLAB分配，即Thread Local Allocation Buffer。（TLAB只是的一个优化方案，不代表所有的虚拟机都有这个特性）
-每个线程在Java堆中预先分配一小块内存，然后再给对象分配内存的时候，直接在自己这块”私有”内存中分配，当这部分区域用完之后，再分配新的”私有”内存。 因为有了TLAB技术，堆内存是线程共享的这个命题是不准确的
-3. 对象在JVM中的内存布局 推荐看以下链接
-Java对象实例化过程以及对象实例内存分布
-Java对象实例内存分布
-在new一个对象时，jvm创建instanceOopDesc，来表示这个对象，存放在堆区，其引用存放在栈区；平时说的Java Object Layout就是instanceOopDesc，它用来表示对象的实例信息；instanceOopDesc对应java中的对象实例。'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. jvm 内存模型 JMM 原帖链接 JMM控制 Java 线程之间的通信，决定一个线程对共享变量的写入何时对另一个线程可见。 每条线程在自己的工作内存中对共享变量（副'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day12-jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8Bjmm/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day12-jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8Bjmm/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1. jvm 内存模型 JMM 原帖链接 JMM控制 Java 线程之间的通信，决定一个线程对共享变量的写入何时对另一个线程可见。 每条线程在自己的工作内存中对共享变量（副本）进行操作，JMM再负责把这些操作同步到主内存中 JVM1.8 用Meta space（元空间）（在JVM外的本地内存中）取代了方法区（Method Area）（在JVM堆中） 1.1 Java heap Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）
-1.1.2 字符串常量池 字符串常量池原本存放于方法区，jdk7开始放置于堆中。 字符串常量池存储的是string对象的直接引用，而不是直接存放的对象，是一张string table 1.1.3 对象实例 类初始化生成的对象 基本数据类型的数组也是对象实例 1.1.4 线程分配缓冲区 增加线程分配缓冲区是为了提升对象分配时的效率 1.2 本地内存(元空间实现的方法区) 元空间并不在虚拟机中，而是使用本地内存
-JDK8开始用元空间实现原来java heap中的方法区
--XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC（garbage collection）会对改值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。
--XX:MaxMetaspaceSize，最大空间，默认是没有限制的
-1.2.1类元信息（Klass）(有点类定义的意思) 类元信息在类编译期间放入方法区，里面放置了类的基本信息，包括类的版本、字段、方法、接口以及常量池表（Constant Pool Table） 常量池表（Constant Pool Table）存储了类在编译期间生成的字面量、符号引用，这些信息在类加载完后会被解析到运行时常量池中 1.2.2运行时常量池（Runtime Constant Pool) 运行时常量池主要存放在类加载后被解析的字面量与符号引用 1.3 本地方法栈 本地方法栈则是为执行本地方法（Native Method）服务的。简单地讲，一个Native Method就是一个java调用非java代码的接口。一个Native Method是这样一个java的方法：该方法的实现由非java语言实现，比如C。这个特征并非java所特有，很多其它的编程语言都有这一机制。
-2.TLAB机制 堆是全局共享的，因此在同一时间，可能有多个线程在堆上申请空间，在并发场景中，就会存在两个线程先后把对象引用指向了同一个内存区域，所以对象的内存分配过程需要一个同步机制，但是无论是使用哪种同步方案（实际上虚拟机使用的可能CAS），都会影响内存的分配效率。所以HotSpot虚拟机的提供了一个解决方案：TLAB分配，即Thread Local Allocation Buffer。（TLAB只是的一个优化方案，不代表所有的虚拟机都有这个特性）
-每个线程在Java堆中预先分配一小块内存，然后再给对象分配内存的时候，直接在自己这块”私有”内存中分配，当这部分区域用完之后，再分配新的”私有”内存。 因为有了TLAB技术，堆内存是线程共享的这个命题是不准确的
-3. 对象在JVM中的内存布局 推荐看以下链接
-Java对象实例化过程以及对象实例内存分布
-Java对象实例内存分布
-在new一个对象时，jvm创建instanceOopDesc，来表示这个对象，存放在堆区，其引用存放在栈区；平时说的Java Object Layout就是instanceOopDesc，它用来表示对象的实例信息；instanceOopDesc对应java中的对象实例。'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day12-jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8Bjmm/'>
+<meta property='og:description' content='1. jvm 内存模型 JMM 原帖链接 JMM控制 Java 线程之间的通信，决定一个线程对共享变量的写入何时对另一个线程可见。 每条线程在自己的工作内存中对共享变量（副'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day12-jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8Bjmm/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="1. jvm 内存模型 JMM 原帖链接 JMM控制 Java 线程之间的通信，决定一个线程对共享变量的写入何时对另一个线程可见。 每条线程在自己的工作内存中对共享变量（副本）进行操作，JMM再负责把这些操作同步到主内存中 JVM1.8 用Meta space（元空间）（在JVM外的本地内存中）取代了方法区（Method Area）（在JVM堆中） 1.1 Java heap Java 堆是垃圾收集器管理的主要区域，因此也被称作GC堆（Garbage Collected Heap）
-1.1.2 字符串常量池 字符串常量池原本存放于方法区，jdk7开始放置于堆中。 字符串常量池存储的是string对象的直接引用，而不是直接存放的对象，是一张string table 1.1.3 对象实例 类初始化生成的对象 基本数据类型的数组也是对象实例 1.1.4 线程分配缓冲区 增加线程分配缓冲区是为了提升对象分配时的效率 1.2 本地内存(元空间实现的方法区) 元空间并不在虚拟机中，而是使用本地内存
-JDK8开始用元空间实现原来java heap中的方法区
--XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC（garbage collection）会对改值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。
--XX:MaxMetaspaceSize，最大空间，默认是没有限制的
-1.2.1类元信息（Klass）(有点类定义的意思) 类元信息在类编译期间放入方法区，里面放置了类的基本信息，包括类的版本、字段、方法、接口以及常量池表（Constant Pool Table） 常量池表（Constant Pool Table）存储了类在编译期间生成的字面量、符号引用，这些信息在类加载完后会被解析到运行时常量池中 1.2.2运行时常量池（Runtime Constant Pool) 运行时常量池主要存放在类加载后被解析的字面量与符号引用 1.3 本地方法栈 本地方法栈则是为执行本地方法（Native Method）服务的。简单地讲，一个Native Method就是一个java调用非java代码的接口。一个Native Method是这样一个java的方法：该方法的实现由非java语言实现，比如C。这个特征并非java所特有，很多其它的编程语言都有这一机制。
-2.TLAB机制 堆是全局共享的，因此在同一时间，可能有多个线程在堆上申请空间，在并发场景中，就会存在两个线程先后把对象引用指向了同一个内存区域，所以对象的内存分配过程需要一个同步机制，但是无论是使用哪种同步方案（实际上虚拟机使用的可能CAS），都会影响内存的分配效率。所以HotSpot虚拟机的提供了一个解决方案：TLAB分配，即Thread Local Allocation Buffer。（TLAB只是的一个优化方案，不代表所有的虚拟机都有这个特性）
-每个线程在Java堆中预先分配一小块内存，然后再给对象分配内存的时候，直接在自己这块”私有”内存中分配，当这部分区域用完之后，再分配新的”私有”内存。 因为有了TLAB技术，堆内存是线程共享的这个命题是不准确的
-3. 对象在JVM中的内存布局 推荐看以下链接
-Java对象实例化过程以及对象实例内存分布
-Java对象实例内存分布
-在new一个对象时，jvm创建instanceOopDesc，来表示这个对象，存放在堆区，其引用存放在栈区；平时说的Java Object Layout就是instanceOopDesc，它用来表示对象的实例信息；instanceOopDesc对应java中的对象实例。">
+<meta name="twitter:description" content="1. jvm 内存模型 JMM 原帖链接 JMM控制 Java 线程之间的通信，决定一个线程对共享变量的写入何时对另一个线程可见。 每条线程在自己的工作内存中对共享变量（副">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -83,7 +50,7 @@ Java对象实例内存分布
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -265,6 +232,8 @@ Java对象实例内存分布
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

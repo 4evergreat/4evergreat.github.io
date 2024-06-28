@@ -1,53 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBootWeb案例 前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。 那接下来，我们就通过一个案例，来将前端开发、后端开发、数据库整合起来。 而这个案例呢，就是我们前面提到的Tlias智能学习辅助系统。
-在这个案例中，前端开发人员已经将前端工程开发完毕了。 我们需要做的，就是参考接口文档完成后端功能的开发，然后结合前端工程进行联调测试即可。
-完成后的成品效果展示：
-今天的主要内容如下：
-准备工作 部门管理 员工管理 下面我们就进入到今天的第1个内容准备工作的学习。
-1. 准备工作 准备工作的学习，我们先从&amp;quot;需求&amp;quot;和&amp;quot;环境搭建&amp;quot;开始入手。
-1.1 需求&amp;amp;环境搭建 1.1.1 需求说明 1、部门管理
-部门管理功能开发包括：
-查询部门列表 删除部门 新增部门 修改部门 2、员工管理
-员工管理功能开发包括：
-查询员工列表(分页、条件) 删除员工 新增员工 修改员工 1.1.2 环境搭建 步骤：
-准备数据库表(dept、emp) 创建springboot工程，引入对应的起步依赖（web、mybatis、mysql驱动、lombok） 配置文件application.properties中引入mybatis的配置信息，准备对应的实体类 准备对应的Mapper、Service(接口、实现类)、Controller基础结构 第1步：准备数据库表
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 -- 部门管理 create table dept( id int unsigned primary key auto_increment comment &amp;#39;主键ID&amp;#39;, name varchar(10) not null unique comment &amp;#39;部门名称&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;部门表&amp;#39;; -- 部门表测试数据 insert into dept (id, name, create_time, update_time) values(1,&amp;#39;学工部&amp;#39;,now(),now()),(2,&amp;#39;教研部&amp;#39;,now(),now()),(3,&amp;#39;咨询部&amp;#39;,now(),now()), (4,&amp;#39;就业部&amp;#39;,now(),now()),(5,&amp;#39;人事部&amp;#39;,now(),now()); -- 员工管理(带约束) create table emp ( id int unsigned primary key auto_increment comment &amp;#39;ID&amp;#39;, username varchar(20) not null unique comment &amp;#39;用户名&amp;#39;, password varchar(32) default &amp;#39;123456&amp;#39; comment &amp;#39;密码&amp;#39;, name varchar(10) not null comment &amp;#39;姓名&amp;#39;, gender tinyint unsigned not null comment &amp;#39;性别, 说明: 1 男, 2 女&amp;#39;, image varchar(300) comment &amp;#39;图像&amp;#39;, job tinyint unsigned comment &amp;#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师&amp;#39;, entrydate date comment &amp;#39;入职时间&amp;#39;, dept_id int unsigned comment &amp;#39;部门ID&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;员工表&amp;#39;; -- 员工表测试数据 INSERT INTO emp (id, username, password, name, gender, image, job, entrydate,dept_id, create_time, update_time) VALUES (1,&amp;#39;jinyong&amp;#39;,&amp;#39;123456&amp;#39;,&amp;#39;金庸&amp;#39;,1,&amp;#39;1.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBootWeb案例 前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-1/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-1/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='SpringBootWeb案例 前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。 那接下来，我们就通过一个案例，来将前端开发、后端开发、数据库整合起来。 而这个案例呢，就是我们前面提到的Tlias智能学习辅助系统。
-在这个案例中，前端开发人员已经将前端工程开发完毕了。 我们需要做的，就是参考接口文档完成后端功能的开发，然后结合前端工程进行联调测试即可。
-完成后的成品效果展示：
-今天的主要内容如下：
-准备工作 部门管理 员工管理 下面我们就进入到今天的第1个内容准备工作的学习。
-1. 准备工作 准备工作的学习，我们先从&amp;quot;需求&amp;quot;和&amp;quot;环境搭建&amp;quot;开始入手。
-1.1 需求&amp;amp;环境搭建 1.1.1 需求说明 1、部门管理
-部门管理功能开发包括：
-查询部门列表 删除部门 新增部门 修改部门 2、员工管理
-员工管理功能开发包括：
-查询员工列表(分页、条件) 删除员工 新增员工 修改员工 1.1.2 环境搭建 步骤：
-准备数据库表(dept、emp) 创建springboot工程，引入对应的起步依赖（web、mybatis、mysql驱动、lombok） 配置文件application.properties中引入mybatis的配置信息，准备对应的实体类 准备对应的Mapper、Service(接口、实现类)、Controller基础结构 第1步：准备数据库表
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 -- 部门管理 create table dept( id int unsigned primary key auto_increment comment &amp;#39;主键ID&amp;#39;, name varchar(10) not null unique comment &amp;#39;部门名称&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;部门表&amp;#39;; -- 部门表测试数据 insert into dept (id, name, create_time, update_time) values(1,&amp;#39;学工部&amp;#39;,now(),now()),(2,&amp;#39;教研部&amp;#39;,now(),now()),(3,&amp;#39;咨询部&amp;#39;,now(),now()), (4,&amp;#39;就业部&amp;#39;,now(),now()),(5,&amp;#39;人事部&amp;#39;,now(),now()); -- 员工管理(带约束) create table emp ( id int unsigned primary key auto_increment comment &amp;#39;ID&amp;#39;, username varchar(20) not null unique comment &amp;#39;用户名&amp;#39;, password varchar(32) default &amp;#39;123456&amp;#39; comment &amp;#39;密码&amp;#39;, name varchar(10) not null comment &amp;#39;姓名&amp;#39;, gender tinyint unsigned not null comment &amp;#39;性别, 说明: 1 男, 2 女&amp;#39;, image varchar(300) comment &amp;#39;图像&amp;#39;, job tinyint unsigned comment &amp;#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师&amp;#39;, entrydate date comment &amp;#39;入职时间&amp;#39;, dept_id int unsigned comment &amp;#39;部门ID&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;员工表&amp;#39;; -- 员工表测试数据 INSERT INTO emp (id, username, password, name, gender, image, job, entrydate,dept_id, create_time, update_time) VALUES (1,&amp;#39;jinyong&amp;#39;,&amp;#39;123456&amp;#39;,&amp;#39;金庸&amp;#39;,1,&amp;#39;1.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-1/'>
+<meta property='og:description' content='SpringBootWeb案例 前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-1/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="SpringBootWeb案例 前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解了数据库MySQL，以及通过Mybatis框架如何来完成数据库的基本操作。 那接下来，我们就通过一个案例，来将前端开发、后端开发、数据库整合起来。 而这个案例呢，就是我们前面提到的Tlias智能学习辅助系统。
-在这个案例中，前端开发人员已经将前端工程开发完毕了。 我们需要做的，就是参考接口文档完成后端功能的开发，然后结合前端工程进行联调测试即可。
-完成后的成品效果展示：
-今天的主要内容如下：
-准备工作 部门管理 员工管理 下面我们就进入到今天的第1个内容准备工作的学习。
-1. 准备工作 准备工作的学习，我们先从&amp;quot;需求&amp;quot;和&amp;quot;环境搭建&amp;quot;开始入手。
-1.1 需求&amp;amp;环境搭建 1.1.1 需求说明 1、部门管理
-部门管理功能开发包括：
-查询部门列表 删除部门 新增部门 修改部门 2、员工管理
-员工管理功能开发包括：
-查询员工列表(分页、条件) 删除员工 新增员工 修改员工 1.1.2 环境搭建 步骤：
-准备数据库表(dept、emp) 创建springboot工程，引入对应的起步依赖（web、mybatis、mysql驱动、lombok） 配置文件application.properties中引入mybatis的配置信息，准备对应的实体类 准备对应的Mapper、Service(接口、实现类)、Controller基础结构 第1步：准备数据库表
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 -- 部门管理 create table dept( id int unsigned primary key auto_increment comment &amp;#39;主键ID&amp;#39;, name varchar(10) not null unique comment &amp;#39;部门名称&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;部门表&amp;#39;; -- 部门表测试数据 insert into dept (id, name, create_time, update_time) values(1,&amp;#39;学工部&amp;#39;,now(),now()),(2,&amp;#39;教研部&amp;#39;,now(),now()),(3,&amp;#39;咨询部&amp;#39;,now(),now()), (4,&amp;#39;就业部&amp;#39;,now(),now()),(5,&amp;#39;人事部&amp;#39;,now(),now()); -- 员工管理(带约束) create table emp ( id int unsigned primary key auto_increment comment &amp;#39;ID&amp;#39;, username varchar(20) not null unique comment &amp;#39;用户名&amp;#39;, password varchar(32) default &amp;#39;123456&amp;#39; comment &amp;#39;密码&amp;#39;, name varchar(10) not null comment &amp;#39;姓名&amp;#39;, gender tinyint unsigned not null comment &amp;#39;性别, 说明: 1 男, 2 女&amp;#39;, image varchar(300) comment &amp;#39;图像&amp;#39;, job tinyint unsigned comment &amp;#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师&amp;#39;, entrydate date comment &amp;#39;入职时间&amp;#39;, dept_id int unsigned comment &amp;#39;部门ID&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;员工表&amp;#39;; -- 员工表测试数据 INSERT INTO emp (id, username, password, name, gender, image, job, entrydate,dept_id, create_time, update_time) VALUES (1,&amp;#39;jinyong&amp;#39;,&amp;#39;123456&amp;#39;,&amp;#39;金庸&amp;#39;,1,&amp;#39;1.">
+<meta name="twitter:description" content="SpringBootWeb案例 前面我们已经讲解了Web前端开发的基础知识，也讲解了Web后端开发的基础(HTTP协议、请求响应)，并且也讲解">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -86,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -3176,6 +3140,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

@@ -1,41 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='事务&amp;amp;AOP 1. 事务管理 1.1 事务回顾 在数据库阶段我们已学习过事务了，我们讲到：
-事务是一组操作的集合，它是一个不可分割的工作单位。事务会把所有的操作作为一个整体，一起向数据库提交或者是撤销操作请求。所以这组操作要么同时成功，要么同时失败。
-怎么样来控制这组操作，让这组操作同时成功或同时失败呢？此时就要涉及到事务的具体操作了。
-事务的操作主要有三步：
-开启事务（一组操作开始前，开启事务）：start transaction / begin ; 提交事务（这组操作全部成功后，提交事务）：commit ; 回滚事务（中间任何一个操作出现异常，回滚事务）：rollback ; 1.2 Spring事务管理 1.2.1 案例 简单的回顾了事务的概念以及事务的基本操作之后，接下来我们看一个事务管理案例：解散部门 （解散部门就是删除部门）
-需求：当部门解散了不仅需要把部门信息删除了，还需要把该部门下的员工数据也删除了。
-步骤：
-根据ID删除部门数据 根据部门ID删除该部门下的员工 代码实现：
-DeptServiceImpl 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 @Slf4j @Service public class DeptServiceImpl implements DeptService { @Autowired private DeptMapper deptMapper; @Autowired private EmpMapper empMapper; //根据部门id，删除部门信息及部门下的所有员工 @Override public void delete(Integer id){ //根据部门id删除部门信息 deptMapper.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='事务&amp;amp;AOP 1. 事务管理 1.1 事务回顾 在数据库阶段我们已学习过事务了，我们讲到： 事务是一组操作的集合，它是一个不可分割的工作单位。事务会把'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb-aop/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb-aop/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='事务&amp;amp;AOP 1. 事务管理 1.1 事务回顾 在数据库阶段我们已学习过事务了，我们讲到：
-事务是一组操作的集合，它是一个不可分割的工作单位。事务会把所有的操作作为一个整体，一起向数据库提交或者是撤销操作请求。所以这组操作要么同时成功，要么同时失败。
-怎么样来控制这组操作，让这组操作同时成功或同时失败呢？此时就要涉及到事务的具体操作了。
-事务的操作主要有三步：
-开启事务（一组操作开始前，开启事务）：start transaction / begin ; 提交事务（这组操作全部成功后，提交事务）：commit ; 回滚事务（中间任何一个操作出现异常，回滚事务）：rollback ; 1.2 Spring事务管理 1.2.1 案例 简单的回顾了事务的概念以及事务的基本操作之后，接下来我们看一个事务管理案例：解散部门 （解散部门就是删除部门）
-需求：当部门解散了不仅需要把部门信息删除了，还需要把该部门下的员工数据也删除了。
-步骤：
-根据ID删除部门数据 根据部门ID删除该部门下的员工 代码实现：
-DeptServiceImpl 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 @Slf4j @Service public class DeptServiceImpl implements DeptService { @Autowired private DeptMapper deptMapper; @Autowired private EmpMapper empMapper; //根据部门id，删除部门信息及部门下的所有员工 @Override public void delete(Integer id){ //根据部门id删除部门信息 deptMapper.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb-aop/'>
+<meta property='og:description' content='事务&amp;amp;AOP 1. 事务管理 1.1 事务回顾 在数据库阶段我们已学习过事务了，我们讲到： 事务是一组操作的集合，它是一个不可分割的工作单位。事务会把'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb-aop/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="事务&amp;amp;AOP 1. 事务管理 1.1 事务回顾 在数据库阶段我们已学习过事务了，我们讲到：
-事务是一组操作的集合，它是一个不可分割的工作单位。事务会把所有的操作作为一个整体，一起向数据库提交或者是撤销操作请求。所以这组操作要么同时成功，要么同时失败。
-怎么样来控制这组操作，让这组操作同时成功或同时失败呢？此时就要涉及到事务的具体操作了。
-事务的操作主要有三步：
-开启事务（一组操作开始前，开启事务）：start transaction / begin ; 提交事务（这组操作全部成功后，提交事务）：commit ; 回滚事务（中间任何一个操作出现异常，回滚事务）：rollback ; 1.2 Spring事务管理 1.2.1 案例 简单的回顾了事务的概念以及事务的基本操作之后，接下来我们看一个事务管理案例：解散部门 （解散部门就是删除部门）
-需求：当部门解散了不仅需要把部门信息删除了，还需要把该部门下的员工数据也删除了。
-步骤：
-根据ID删除部门数据 根据部门ID删除该部门下的员工 代码实现：
-DeptServiceImpl 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 @Slf4j @Service public class DeptServiceImpl implements DeptService { @Autowired private DeptMapper deptMapper; @Autowired private EmpMapper empMapper; //根据部门id，删除部门信息及部门下的所有员工 @Override public void delete(Integer id){ //根据部门id删除部门信息 deptMapper.">
+<meta name="twitter:description" content="事务&amp;amp;AOP 1. 事务管理 1.1 事务回顾 在数据库阶段我们已学习过事务了，我们讲到： 事务是一组操作的集合，它是一个不可分割的工作单位。事务会把">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -74,7 +50,7 @@ DeptServiceImpl 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 @Slf4j @Servi
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -2796,6 +2772,8 @@ DeptServiceImpl 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 @Slf4j @Servi
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

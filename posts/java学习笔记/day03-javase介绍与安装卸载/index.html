@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发） JavaME：精简版（嵌入式开发） javaEE：企业级开发（web开发，服务器开发）'><title></title>
+
+<link rel='canonical' href='http://localhost:1313/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
+<meta property='og:description' content='1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发） JavaME：精简版（嵌入式开发） javaEE：企业级开发（web开发，服务器开发）'>
+<meta property='og:url' content='http://localhost:1313/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="1.Java三大版本 javaSE: 标准版（桌面程序，控制台程序开发） JavaME：精简版（嵌入式开发） javaEE：企业级开发（web开发，服务器开发）">
+    <link rel="shortcut icon" href="/static/photo.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="http://localhost:1313/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day03-javase%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%AE%89%E8%A3%85%E5%8D%B8%E8%BD%BD/"></a>
+    </h2>
+
+    </div>
+</header>
+
+    <section class="article-content">
+    <h3 id="1java三大版本">1.Java三大版本
+</h3><p>javaSE: 标准版（桌面程序，控制台程序开发）</p>
+<p>JavaME：精简版（嵌入式开发）</p>
+<p>javaEE：企业级开发（web开发，服务器开发）</p>
+<h3 id="2jdkjrejvm">2.JDK、JRE、JVM
+</h3><p>JDK: java development kit</p>
+<p>JRE : java runtime envirnment</p>
+<p>JVM : java virtual machine</p>
+<p>其中 JDK包含了JRE与JVM。JRE包含了JVM。</p>
+<p>安装了JRE后既可以运行java程序。JDK比JRE 多了一些开发工具，所以开发需要装JDK。</p>
+<p>JDK包含的基本组件包括:</p>
+<ul>
+<li>javac – 编译器，将源程序转成字节码</li>
+<li>javadoc – 文档生成器，从源码注释中提取文档</li>
+<li>jdb – debugger，查错工具</li>
+<li>jar – 打包工具，将相关的类文件打包成一个文件</li>
+</ul>
+<p><img src="/resources/photo/JDK_JRE_JVM%e4%b9%8b%e9%97%b4%e7%9a%84%e5%85%b3%e7%b3%bb.jpg" alt="三者的关系"  /></p>
+<h3 id="3安装jdk">3.安装JDK
+</h3><h4 id="1如果openjdk输入-java--version显示的版本信息为">1.如果Openjdk，输入 java -version显示的版本信息为
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[machao@dev ~]$ java -version
+</span></span><span class="line"><span class="cl">openjdk version &#34;1.8.0_144&#34;
+</span></span><span class="line"><span class="cl">OpenJDK Runtime Environment (build 1.8.0_144-b01)
+</span></span><span class="line"><span class="cl">OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2如果是sunoraclejdk-输入的java--version-显示的版本信息为">2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为
+</h4><p>注意：java  hotspot（TM） 64-BIT是说用的是64位的hotspot虚拟机  server 是说虚拟机运行在server模				 式下。 虚拟机有server 和client两种模式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\Windows\system32&gt;java -version
+</span></span><span class="line"><span class="cl">java version &#34;1.8.0_391&#34;
+</span></span><span class="line"><span class="cl">Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+</span></span><span class="line"><span class="cl">Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3在命令窗口输入-java--verbose就可以查看安装路径">3.在命令窗口输入 java -verbose，就可以查看安装路径
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\Windows\system32&gt;java -verbose
+</span></span><span class="line"><span class="cl">[Opened C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.lang.Object from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.io.Serializable from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">有关详细信息, 请参阅 http://www.oracle.com/technetwork/java/javase/documentation/index.html。
+</span></span><span class="line"><span class="cl">[Loaded jdk.internal.misc.TerminatingThreadLocal$1 from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.lang.Shutdown from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.lang.Shutdown$Lock from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4-安装jdk">4. 安装JDK
+</h4><p>建议下载JDK8, JDK11和JDK17, 其中企业运用JDK8比较多</p>
+<ol>
+<li>下载安装包 <a class="link" href="https://www.oracle.com/java/technologies/downloads/#java8-windows"  target="_blank" rel="noopener"
+    >windows x86 JDK8</a></li>
+<li>添加环境变量 JAVA_HOME</li>
+<li>添加path 变量
+<ul>
+<li>%JAVA_HOME%\bin  //%%是路径引用</li>
+<li>%JAVA_HOME%\jre\bin</li>
+</ul>
+</li>
+<li>用java -version检验</li>
+</ol>
+<h4 id="5卸载jdk">5.卸载JDK
+</h4><ol>
+<li>
+<p>删除Java的安装目录</p>
+</li>
+<li>
+<p>删除JAVA_HOME</p>
+</li>
+<li>
+<p>删除环境变量 PATH 下关于Java的目录</p>
+</li>
+<li>
+<p>用java -version检验</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wa
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+
+
+     
+    :root{
+        --waline-theme-color: #34495e;  
+        --waline-active-color: #bababa;  
+        --waline-badge-color: #34495e;  
+        --waline-avatar-size: 5rem;
+        --waline-dark-grey: #34495e;  
+    }
+
+     
+    :root[data-scheme="dark"] {
+        --waline-theme-color: #acc6e0;
+        --waline-white: #34495e;  
+        --waline-active-color: #8ab1d8;
+        --waline-light-grey: #666;
+        --waline-dark-grey: #acc6e0;  
+        --waline-badge-color: #acc6e0;
+
+         
+        --waline-text-color: rgba(255, 255, 255, 0.7);
+        --waline-bgcolor: #515151;
+        --waline-bgcolor-light: #66696b; 
+        --waline-border-color: #9B9C9C;
+        --waline-disable-bgcolor: #444;
+        --waline-disable-color: #272727;
+
+         
+        --waline-bq-color:  #9B9C9C;  
+
+         
+        --waline-info-bgcolor: #acc6e0;
+        --waline-info-color: #9B9C9C;
+    }
+    .waline-container[data-v-app] .wl-content .wl-emoji {
+        width:3.7em;  
+        height: 3.7em;
+
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili@1.0.6"],"locale":{"admin":"博主","placeholder":"有什么新点子？（上方留下邮箱可以收到通知哦）"},"requiredMeta":["name","email","url"]});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
+         <br />
+        
+    </section>
+
+
+
+
+
+
+
+
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1java三大版本">1.Java三大版本</a></li>
+        <li><a href="#2jdkjrejvm">2.JDK、JRE、JVM</a></li>
+        <li><a href="#3安装jdk">3.安装JDK</a>
+          <ol>
+            <li><a href="#1如果openjdk输入-java--version显示的版本信息为">1.如果Openjdk，输入 java -version显示的版本信息为</a></li>
+            <li><a href="#2如果是sunoraclejdk-输入的java--version-显示的版本信息为">2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为</a></li>
+            <li><a href="#3在命令窗口输入-java--verbose就可以查看安装路径">3.在命令窗口输入 java -verbose，就可以查看安装路径</a></li>
+            <li><a href="#4-安装jdk">4. 安装JDK</a></li>
+            <li><a href="#5卸载jdk">5.卸载JDK</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

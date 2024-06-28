@@ -1,35 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='反射 （1）Java反射机制的核心是在程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法。本质是JVM得到class对象之后，再通过class对象进行反编译，从而获取对象的各种信息。
-（2）Java属于先编译再运行的语言，程序中对象的类型在编译期就确定下来了，**而当程序在运行时可能需要动态加载某些类，这些类因为之前用不到，所以没有被加载到JVM。**通过反射，可以在运行时动态地获取类、创建其对象并调用其属性，不需要提前在编译期知道运行的对象是谁。
-1.获取Class实例的几种方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 //1.调用运行时类的静态方法 Class myClass1 = String.class; /* *注意一开始是Class而不是class。Class是一个类，每一个普通类加载到方法区后都是 *一个Class实例。 */ //2.调用运行时类的对象的getClass()方法 //getClass()方法定义在Object类中 String str= new String(); Class myClass2 =str.getClass(); //3.调用Class类的静态方法forName(String className) //String source = &amp;#34;packageName.className&amp;#34;;//全类名，即类在包中的路径&#43;类名//不用写后缀 String source = &amp;#34;java.lang.String&amp;#34;; Class&amp;lt;?&amp;gt; myClass3=Class.forName(source); //上述三种myClass指向都是相同的。下面第四种和第三种差不多，使用场景差不多 //4.使用类的记载器 //source = &amp;#34;java.lang.String&amp;#34;; Class&amp;lt;?&amp;gt;myClass4=ClassLoader.getSystemClassLoader().loadClass(source); 三种方法中，第三种应用较广。第一种需要class已经加载到了内存中，限制较大。第二种都已经能创建对象了，再反过来获取类，有点多此一举的意味。
-使用第三种方式，就算source对应的类不存在，IDEA中也不会报错，只有运行到此处才会发现问题。运行时再加载这一点体现了面向对象的动态性。
-2. Class类的实例 Class类是反射的基础
-哪些类型可以是Class的对象 所有的 java 类型：
-class : 外部类、成员（成员内部类、静态内部类），局部内部类、匿名内部类'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='反射 （1）Java反射机制的核心是在程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法。本质是JVM得到class对象之后'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day19%E5%8F%8D%E5%B0%84/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day19%E5%8F%8D%E5%B0%84/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='反射 （1）Java反射机制的核心是在程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法。本质是JVM得到class对象之后，再通过class对象进行反编译，从而获取对象的各种信息。
-（2）Java属于先编译再运行的语言，程序中对象的类型在编译期就确定下来了，**而当程序在运行时可能需要动态加载某些类，这些类因为之前用不到，所以没有被加载到JVM。**通过反射，可以在运行时动态地获取类、创建其对象并调用其属性，不需要提前在编译期知道运行的对象是谁。
-1.获取Class实例的几种方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 //1.调用运行时类的静态方法 Class myClass1 = String.class; /* *注意一开始是Class而不是class。Class是一个类，每一个普通类加载到方法区后都是 *一个Class实例。 */ //2.调用运行时类的对象的getClass()方法 //getClass()方法定义在Object类中 String str= new String(); Class myClass2 =str.getClass(); //3.调用Class类的静态方法forName(String className) //String source = &amp;#34;packageName.className&amp;#34;;//全类名，即类在包中的路径&#43;类名//不用写后缀 String source = &amp;#34;java.lang.String&amp;#34;; Class&amp;lt;?&amp;gt; myClass3=Class.forName(source); //上述三种myClass指向都是相同的。下面第四种和第三种差不多，使用场景差不多 //4.使用类的记载器 //source = &amp;#34;java.lang.String&amp;#34;; Class&amp;lt;?&amp;gt;myClass4=ClassLoader.getSystemClassLoader().loadClass(source); 三种方法中，第三种应用较广。第一种需要class已经加载到了内存中，限制较大。第二种都已经能创建对象了，再反过来获取类，有点多此一举的意味。
-使用第三种方式，就算source对应的类不存在，IDEA中也不会报错，只有运行到此处才会发现问题。运行时再加载这一点体现了面向对象的动态性。
-2. Class类的实例 Class类是反射的基础
-哪些类型可以是Class的对象 所有的 java 类型：
-class : 外部类、成员（成员内部类、静态内部类），局部内部类、匿名内部类'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day19%E5%8F%8D%E5%B0%84/'>
+<meta property='og:description' content='反射 （1）Java反射机制的核心是在程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法。本质是JVM得到class对象之后'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day19%E5%8F%8D%E5%B0%84/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="反射 （1）Java反射机制的核心是在程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法。本质是JVM得到class对象之后，再通过class对象进行反编译，从而获取对象的各种信息。
-（2）Java属于先编译再运行的语言，程序中对象的类型在编译期就确定下来了，**而当程序在运行时可能需要动态加载某些类，这些类因为之前用不到，所以没有被加载到JVM。**通过反射，可以在运行时动态地获取类、创建其对象并调用其属性，不需要提前在编译期知道运行的对象是谁。
-1.获取Class实例的几种方法 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 //1.调用运行时类的静态方法 Class myClass1 = String.class; /* *注意一开始是Class而不是class。Class是一个类，每一个普通类加载到方法区后都是 *一个Class实例。 */ //2.调用运行时类的对象的getClass()方法 //getClass()方法定义在Object类中 String str= new String(); Class myClass2 =str.getClass(); //3.调用Class类的静态方法forName(String className) //String source = &amp;#34;packageName.className&amp;#34;;//全类名，即类在包中的路径&#43;类名//不用写后缀 String source = &amp;#34;java.lang.String&amp;#34;; Class&amp;lt;?&amp;gt; myClass3=Class.forName(source); //上述三种myClass指向都是相同的。下面第四种和第三种差不多，使用场景差不多 //4.使用类的记载器 //source = &amp;#34;java.lang.String&amp;#34;; Class&amp;lt;?&amp;gt;myClass4=ClassLoader.getSystemClassLoader().loadClass(source); 三种方法中，第三种应用较广。第一种需要class已经加载到了内存中，限制较大。第二种都已经能创建对象了，再反过来获取类，有点多此一举的意味。
-使用第三种方式，就算source对应的类不存在，IDEA中也不会报错，只有运行到此处才会发现问题。运行时再加载这一点体现了面向对象的动态性。
-2. Class类的实例 Class类是反射的基础
-哪些类型可以是Class的对象 所有的 java 类型：
-class : 外部类、成员（成员内部类、静态内部类），局部内部类、匿名内部类">
+<meta name="twitter:description" content="反射 （1）Java反射机制的核心是在程序运行时动态加载类并获取类的详细信息，从而操作类或对象的属性和方法。本质是JVM得到class对象之后">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -68,7 +50,7 @@ class : 外部类、成员（成员内部类、静态内部类），局部内部
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -321,6 +303,8 @@ class : 外部类、成员（成员内部类、静态内部类），局部内部
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

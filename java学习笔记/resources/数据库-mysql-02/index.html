@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='数据库开发-MySQL 在上次学习的内容中，我们讲解了：
-使用DDL语句来操作数据库以及表结构（数据库设计） 使用DML语句来完成数据库中数据的增、删、改操作（数据库操作） 我们今天还是继续学习数据库操作方面的内容：查询（DQL语句）。
-查询操作我们分为两部分学习：
-DQL语句-单表操作 DQL语句-多表操作 1. 数据库操作-DQL 1.1 介绍 DQL英文全称是Data Query Language(数据查询语言)，用来查询数据库表中的记录。
-查询关键字：SELECT
-查询操作是所有SQL语句当中最为常见，也是最为重要的操作。在一个正常的业务系统中，查询操作的使用频次是要远高于增删改操作的。当我们打开某个网站或APP所看到的展示信息，都是通过从数据库中查询得到的，而在这个查询过程中，还会涉及到条件、排序、分页等操作。
-1.2 语法 DQL查询语句，语法结构如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 SELECT 字段列表 FROM 表名列表 WHERE 条件列表 GROUP BY 分组字段列表 HAVING 分组后条件列表 ORDER BY 排序字段列表 LIMIT 分页参数 我们今天会将上面的完整语法拆分为以下几个部分学习：
-基本查询（不带任何条件） 条件查询（where） 分组查询（group by） 排序查询（order by） 分页查询（limit） 准备一些测试数据用于查询操作：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 create database db02; -- 创建数据库 use db02; -- 切换数据库 -- 员工管理(带约束) create table tb_emp ( id int unsigned primary key auto_increment comment &amp;#39;ID&amp;#39;, username varchar(20) not null unique comment &amp;#39;用户名&amp;#39;, password varchar(32) default &amp;#39;123456&amp;#39; comment &amp;#39;密码&amp;#39;, name varchar(10) not null comment &amp;#39;姓名&amp;#39;, gender tinyint unsigned not null comment &amp;#39;性别, 说明: 1 男, 2 女&amp;#39;, image varchar(300) comment &amp;#39;图像&amp;#39;, job tinyint unsigned comment &amp;#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管&amp;#39;, entrydate date comment &amp;#39;入职时间&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;员工表&amp;#39;; -- 准备测试数据 INSERT INTO tb_emp (id, username, password, name, gender, image, job, entrydate, create_time, update_time) VALUES (1, &amp;#39;jinyong&amp;#39;, &amp;#39;123456&amp;#39;, &amp;#39;金庸&amp;#39;, 1, &amp;#39;1.'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='数据库开发-MySQL 在上次学习的内容中，我们讲解了： 使用DDL语句来操作数据库以及表结构（数据库设计） 使用DML语句来完成数据库中数据的增'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-02/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-02/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='数据库开发-MySQL 在上次学习的内容中，我们讲解了：
-使用DDL语句来操作数据库以及表结构（数据库设计） 使用DML语句来完成数据库中数据的增、删、改操作（数据库操作） 我们今天还是继续学习数据库操作方面的内容：查询（DQL语句）。
-查询操作我们分为两部分学习：
-DQL语句-单表操作 DQL语句-多表操作 1. 数据库操作-DQL 1.1 介绍 DQL英文全称是Data Query Language(数据查询语言)，用来查询数据库表中的记录。
-查询关键字：SELECT
-查询操作是所有SQL语句当中最为常见，也是最为重要的操作。在一个正常的业务系统中，查询操作的使用频次是要远高于增删改操作的。当我们打开某个网站或APP所看到的展示信息，都是通过从数据库中查询得到的，而在这个查询过程中，还会涉及到条件、排序、分页等操作。
-1.2 语法 DQL查询语句，语法结构如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 SELECT 字段列表 FROM 表名列表 WHERE 条件列表 GROUP BY 分组字段列表 HAVING 分组后条件列表 ORDER BY 排序字段列表 LIMIT 分页参数 我们今天会将上面的完整语法拆分为以下几个部分学习：
-基本查询（不带任何条件） 条件查询（where） 分组查询（group by） 排序查询（order by） 分页查询（limit） 准备一些测试数据用于查询操作：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 create database db02; -- 创建数据库 use db02; -- 切换数据库 -- 员工管理(带约束) create table tb_emp ( id int unsigned primary key auto_increment comment &amp;#39;ID&amp;#39;, username varchar(20) not null unique comment &amp;#39;用户名&amp;#39;, password varchar(32) default &amp;#39;123456&amp;#39; comment &amp;#39;密码&amp;#39;, name varchar(10) not null comment &amp;#39;姓名&amp;#39;, gender tinyint unsigned not null comment &amp;#39;性别, 说明: 1 男, 2 女&amp;#39;, image varchar(300) comment &amp;#39;图像&amp;#39;, job tinyint unsigned comment &amp;#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管&amp;#39;, entrydate date comment &amp;#39;入职时间&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;员工表&amp;#39;; -- 准备测试数据 INSERT INTO tb_emp (id, username, password, name, gender, image, job, entrydate, create_time, update_time) VALUES (1, &amp;#39;jinyong&amp;#39;, &amp;#39;123456&amp;#39;, &amp;#39;金庸&amp;#39;, 1, &amp;#39;1.'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-02/'>
+<meta property='og:description' content='数据库开发-MySQL 在上次学习的内容中，我们讲解了： 使用DDL语句来操作数据库以及表结构（数据库设计） 使用DML语句来完成数据库中数据的增'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/%E6%95%B0%E6%8D%AE%E5%BA%93-mysql-02/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="数据库开发-MySQL 在上次学习的内容中，我们讲解了：
-使用DDL语句来操作数据库以及表结构（数据库设计） 使用DML语句来完成数据库中数据的增、删、改操作（数据库操作） 我们今天还是继续学习数据库操作方面的内容：查询（DQL语句）。
-查询操作我们分为两部分学习：
-DQL语句-单表操作 DQL语句-多表操作 1. 数据库操作-DQL 1.1 介绍 DQL英文全称是Data Query Language(数据查询语言)，用来查询数据库表中的记录。
-查询关键字：SELECT
-查询操作是所有SQL语句当中最为常见，也是最为重要的操作。在一个正常的业务系统中，查询操作的使用频次是要远高于增删改操作的。当我们打开某个网站或APP所看到的展示信息，都是通过从数据库中查询得到的，而在这个查询过程中，还会涉及到条件、排序、分页等操作。
-1.2 语法 DQL查询语句，语法结构如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 SELECT 字段列表 FROM 表名列表 WHERE 条件列表 GROUP BY 分组字段列表 HAVING 分组后条件列表 ORDER BY 排序字段列表 LIMIT 分页参数 我们今天会将上面的完整语法拆分为以下几个部分学习：
-基本查询（不带任何条件） 条件查询（where） 分组查询（group by） 排序查询（order by） 分页查询（limit） 准备一些测试数据用于查询操作：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 create database db02; -- 创建数据库 use db02; -- 切换数据库 -- 员工管理(带约束) create table tb_emp ( id int unsigned primary key auto_increment comment &amp;#39;ID&amp;#39;, username varchar(20) not null unique comment &amp;#39;用户名&amp;#39;, password varchar(32) default &amp;#39;123456&amp;#39; comment &amp;#39;密码&amp;#39;, name varchar(10) not null comment &amp;#39;姓名&amp;#39;, gender tinyint unsigned not null comment &amp;#39;性别, 说明: 1 男, 2 女&amp;#39;, image varchar(300) comment &amp;#39;图像&amp;#39;, job tinyint unsigned comment &amp;#39;职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管&amp;#39;, entrydate date comment &amp;#39;入职时间&amp;#39;, create_time datetime not null comment &amp;#39;创建时间&amp;#39;, update_time datetime not null comment &amp;#39;修改时间&amp;#39; ) comment &amp;#39;员工表&amp;#39;; -- 准备测试数据 INSERT INTO tb_emp (id, username, password, name, gender, image, job, entrydate, create_time, update_time) VALUES (1, &amp;#39;jinyong&amp;#39;, &amp;#39;123456&amp;#39;, &amp;#39;金庸&amp;#39;, 1, &amp;#39;1.">
+<meta name="twitter:description" content="数据库开发-MySQL 在上次学习的内容中，我们讲解了： 使用DDL语句来操作数据库以及表结构（数据库设计） 使用DML语句来完成数据库中数据的增">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -77,7 +50,7 @@ DQL语句-单表操作 DQL语句-多表操作 1. 数据库操作-DQL 1.1 介绍 
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -1831,6 +1804,8 @@ DQL语句-单表操作 DQL语句-多表操作 1. 数据库操作-DQL 1.1 介绍 
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

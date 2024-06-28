@@ -1,44 +1,17 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBootWeb案例 前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：
-新增员工 修改员工 首先我们先完成&amp;quot;新增员工&amp;quot;的功能开发，再完成&amp;quot;修改员工&amp;quot;的功能开发。而在&amp;quot;新增员工&amp;quot;中，需要添加头像，而头像需要用到&amp;quot;文件上传&amp;quot;技术。 当整个员工管理功能全部开发完成之后，我们再通过配置文件来优化一些内容。
-综上所述，我们今天的课程内容包含以下四个部分：
-新增员工 文件上传 修改员工 配置文件 1. 新增员工 1.1 需求 在新增用户时，我们需要保存用户的基本信息，并且还需要上传的员工的图片，目前我们先完成第一步操作，保存用户的基本信息。
-1.2 接口文档 我们参照接口文档来开发新增员工功能
-基本信息
-1 2 3 4 5 请求路径：/emps 请求方式：POST 接口描述：该接口用于添加员工的信息 请求参数
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 备注 username string 必须 用户名 name string 必须 姓名 gender number 必须 性别, 说明: 1 男, 2 女 image string 非必须 图像 deptId number 非必须 部门id entrydate string 非必须 入职日期 job number 非必须 职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师 请求数据样例：'><title></title>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=64235&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='SpringBootWeb案例 前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现： 新增员工 修改员工 首'><title></title>
 
-<link rel='canonical' href='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-2/'>
+<link rel='canonical' href='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-2/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
-<meta property='og:description' content='SpringBootWeb案例 前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：
-新增员工 修改员工 首先我们先完成&amp;quot;新增员工&amp;quot;的功能开发，再完成&amp;quot;修改员工&amp;quot;的功能开发。而在&amp;quot;新增员工&amp;quot;中，需要添加头像，而头像需要用到&amp;quot;文件上传&amp;quot;技术。 当整个员工管理功能全部开发完成之后，我们再通过配置文件来优化一些内容。
-综上所述，我们今天的课程内容包含以下四个部分：
-新增员工 文件上传 修改员工 配置文件 1. 新增员工 1.1 需求 在新增用户时，我们需要保存用户的基本信息，并且还需要上传的员工的图片，目前我们先完成第一步操作，保存用户的基本信息。
-1.2 接口文档 我们参照接口文档来开发新增员工功能
-基本信息
-1 2 3 4 5 请求路径：/emps 请求方式：POST 接口描述：该接口用于添加员工的信息 请求参数
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 备注 username string 必须 用户名 name string 必须 姓名 gender number 必须 性别, 说明: 1 男, 2 女 image string 非必须 图像 deptId number 非必须 部门id entrydate string 非必须 入职日期 job number 非必须 职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师 请求数据样例：'>
-<meta property='og:url' content='http://localhost:1313/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-2/'>
+<meta property='og:description' content='SpringBootWeb案例 前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现： 新增员工 修改员工 首'>
+<meta property='og:url' content='http://localhost:64235/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/resources/springbootweb%E6%A1%88%E4%BE%8B-2/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Java学习笔记' />
 <meta name="twitter:title" content="">
-<meta name="twitter:description" content="SpringBootWeb案例 前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现：
-新增员工 修改员工 首先我们先完成&amp;quot;新增员工&amp;quot;的功能开发，再完成&amp;quot;修改员工&amp;quot;的功能开发。而在&amp;quot;新增员工&amp;quot;中，需要添加头像，而头像需要用到&amp;quot;文件上传&amp;quot;技术。 当整个员工管理功能全部开发完成之后，我们再通过配置文件来优化一些内容。
-综上所述，我们今天的课程内容包含以下四个部分：
-新增员工 文件上传 修改员工 配置文件 1. 新增员工 1.1 需求 在新增用户时，我们需要保存用户的基本信息，并且还需要上传的员工的图片，目前我们先完成第一步操作，保存用户的基本信息。
-1.2 接口文档 我们参照接口文档来开发新增员工功能
-基本信息
-1 2 3 4 5 请求路径：/emps 请求方式：POST 接口描述：该接口用于添加员工的信息 请求参数
-参数格式：application/json
-参数说明：
-名称 类型 是否必须 备注 username string 必须 用户名 name string 必须 姓名 gender number 必须 性别, 说明: 1 男, 2 女 image string 非必须 图像 deptId number 非必须 部门id entrydate string 非必须 入职日期 job number 非必须 职位, 说明: 1 班主任,2 讲师, 3 学工主管, 4 教研主管, 5 咨询师 请求数据样例：">
+<meta name="twitter:description" content="SpringBootWeb案例 前面我们已经实现了员工信息的条件分页查询以及删除操作。 关于员工管理的功能，还有两个需要实现： 新增员工 修改员工 首">
     <link rel="shortcut icon" href="/static/photo.ico" />
 
   
@@ -77,7 +50,7 @@
 ">
     
         <div id="article-toolbar">
-            <a href="http://localhost:1313/" class="back-home">
+            <a href="http://localhost:64235/" class="back-home">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <polyline points="15 6 9 12 15 18" />
@@ -2578,6 +2551,8 @@
     </section>
     
     <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
          <br />
         
     </section>

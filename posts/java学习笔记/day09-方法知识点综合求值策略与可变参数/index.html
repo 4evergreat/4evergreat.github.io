@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 求值策略 编程语言中方法之间进行参数传递时有个传递策略，该策略就被称为求值策略（Evaluation strategies）。求值策略分为两大'><title></title>
+
+<link rel='canonical' href='http://localhost:1313/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day09-%E6%96%B9%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9%E7%BB%BC%E5%90%88%E6%B1%82%E5%80%BC%E7%AD%96%E7%95%A5%E4%B8%8E%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content=''>
+<meta property='og:description' content='1. 求值策略 编程语言中方法之间进行参数传递时有个传递策略，该策略就被称为求值策略（Evaluation strategies）。求值策略分为两大'>
+<meta property='og:url' content='http://localhost:1313/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day09-%E6%96%B9%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9%E7%BB%BC%E5%90%88%E6%B1%82%E5%80%BC%E7%AD%96%E7%95%A5%E4%B8%8E%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' />
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="1. 求值策略 编程语言中方法之间进行参数传递时有个传递策略，该策略就被称为求值策略（Evaluation strategies）。求值策略分为两大">
+    <link rel="shortcut icon" href="/static/photo.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="http://localhost:1313/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/posts/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/day09-%E6%96%B9%E6%B3%95%E7%9F%A5%E8%AF%86%E7%82%B9%E7%BB%BC%E5%90%88%E6%B1%82%E5%80%BC%E7%AD%96%E7%95%A5%E4%B8%8E%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/"></a>
+    </h2>
+
+    </div>
+</header>
+
+    <section class="article-content">
+    <h3 id="1-求值策略">1. 求值策略
+</h3><p>编程语言中方法之间进行参数传递时有个传递策略，该策略就被称为求值策略（Evaluation strategies）。求值策略分为两大基本类型，如果按照如何处理传递给方法的实际参数，分为<strong>严格的和非严格的两种求值策略</strong>。</p>
+<h4 id="11-严格求值策略">1.1 严格求值策略
+</h4><ul>
+<li>
+<p>传值调用(Call by value)</p>
+<p>将实参复制一份给形参，修改形参不会对实参造成影响。形式参数拿到的只是一个&quot;局部拷贝&quot;。</p>
+</li>
+<li>
+<p>传引用调用(Call by reference)</p>
+<p>在方法调用时将引用类型的实参地址值 复制 一份传递给形参，相当于形参和实参指向了同一个内存地址。引用传递会将实参的地址传递给形参，修改形参也就是在修改实参。</p>
+</li>
+<li>
+<p>传共享对象调用(Call by sharing)</p>
+<p>在传共享对象调用中，先获取到实际参数的地址，然后将其复制，并把该地址的拷贝传递给被调方法的形式参数。因为参数的地址都指向同一个对象</p>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>用类类型做形参时c++是调用拷贝构造函数创建整个类的副本，所以不会影响原值。</li>
+<li>java 用类类型做形参时, 传的是原值的地址，修改形参会影响原值</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ShareObject</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//待共享对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ShareObject</span><span class="w"> </span><span class="n">shObj</span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ShareObject</span><span class="p">(</span><span class="n">10</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;修改前的值&#34;</span><span class="o">+</span><span class="w"> </span><span class="n">shObj</span><span class="p">.</span><span class="na">geti</span><span class="p">());</span><span class="c1">//修改前的值10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">changeByShareObject</span><span class="p">(</span><span class="n">shObj</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;通过共享对象传递修改后的值&#34;</span><span class="o">+</span><span class="w"> </span><span class="n">shObj</span><span class="p">.</span><span class="na">geti</span><span class="p">());</span><span class="c1">//通过共享对象传递修改后的值20</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">        * 1.创建了一个共享对象的类 shareObject，该类包含了一个私有成员变量i,
+</span></span></span><span class="line"><span class="cl"><span class="cm">        * 2.调用 changeByShareObject 方法传递了 shObj 的引用在该方法中，修改了 i 的值为20.
+</span></span></span><span class="line"><span class="cl"><span class="cm">        * 3.比较调用 changeByShareObject(ShareObject Obj) 前后 i 的值可以得出 Obj 可以改变 shObj 中 i 的值
+</span></span></span><span class="line"><span class="cl"><span class="cm">        * */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="c1">//私有实例变量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">seti</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">i</span><span class="o">=</span><span class="n">value</span><span class="p">;</span><span class="c1">//通过方法修改实例变量的值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">geti</span><span class="p">(){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">i</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ShareObject</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">i</span><span class="o">=</span><span class="n">value</span><span class="p">;</span><span class="c1">//构造函数</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w">  </span><span class="nf">changeByShareObject</span><span class="p">(</span><span class="w"> </span><span class="n">ShareObject</span><span class="w"> </span><span class="n">Obj</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Obj</span><span class="p">.</span><span class="na">seti</span><span class="p">(</span><span class="n">20</span><span class="p">);</span><span class="c1">//共享对象调用改值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<h5 id="111--传共享对象调用-到底是-传值调用-还是-传引用调用-的特例">1.1.1  传共享对象调用 到底是 传值调用 还是 传引用调用 的特例
+</h5><p>从过程来看，都是复制了实参的地址传给形参，通过修改形参也可以实现修改实参。所以 传共享对象调用 会是传引用调用吗？</p>
+<p>《The Java™ Tutorials》中Reference data type parameters, such as objects, are also passed into methods by value. This means that when the method returns, the passed-in reference still references the same object as before. However, the values of the object’s fields can be changed in the method, if they have the proper access level.</p>
+<p>java 把传对象也认为是传值，应该把其归类为传值调用。其实也很好理解：</p>
+<ol>
+<li>new 出来的对象是地址映射型的，[key] [addr]。把该实参的本质当作是一种映射关系</li>
+<li>把地址复制过去的这一步不就是在赋值映射关系吗，这也就成了传值调用。</li>
+<li>一句话：共享对象传递就是值传递，传递的值是对象的引用</li>
+</ol>
+<h5 id="112-总结">1.1.2 总结
+</h5><p>总之，在Java方法传参时，无论传递的参数是基本类型还是引用类型，都是值传递！切记一点，Java里面只有值传递，没有引用传递！</p>
+<h4 id="12-非严格求值策略">1.2 非严格求值策略
+</h4><h3 id="2可变参数">2.可变参数
+</h3><p>Java中的方法是可以带有多个参数的，理论上是可以无限个。但实际上一个方法的参数最好不要超过5个。在Java 5中提供了一个可变长参数，该参数允许我们在调用方法时传入不定长度的参数。其实本质上是基于数组来实现的。所以当我们不确定一个方法需要处理的参数个数时，都可以使用可变长参数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">方法名</span><span class="err">（</span><span class="n">形参1</span><span class="p">,</span><span class="w"> </span><span class="n">形参2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="err">）</span><span class="p">{}</span><span class="w"> </span><span class="c1">// 此处点点点就是可变参数的意思</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>可变参数的格式，就是在方法最后一个形参的后面加上三个点 “…“，表示该形参可以接受 <strong>0个参数值</strong>， 也可以是1个或者多个参数值，多个参数值会被当成数组传入。</p>
+</li>
+<li>
+<p>可变参数只能作为方法的最后一个参数，该参数的前面可以有也可以没有其他参数</p>
+</li>
+<li>
+<p>由于可变参数必须是 <strong>最后一个参数</strong>，所以一个方法最多只能有一个可变参数</p>
+</li>
+<li>
+<p>Java的可变参数，会被编译器转型为对应类型的数组</p>
+</li>
+<li>
+<p>可变参数在编译为字节码后，在方法签名中是以数组形态出现的。这两个方法的签名是一致的，不能作为方法的重载。如果同时出现，是不能编译通过的。可变参数可以兼容数组，反之则不成立。</p>
+</li>
+<li>
+<p>可变参数与其他参数列表非数组的同名方法构成重载</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//不兼容下面式子</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//兼容上式子，等价于上式</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//已有可变参数的方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="kt">int</span><span class="p">...</span><span class="w"> </span><span class="n">a</span><span class="p">){}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//验证重载可行性</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">){}</span><span class="c1">//成功重载</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">){}</span><span class="c1">//成功重载</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="kt">int</span><span class="p">...</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">){}</span><span class="c1">//成功重载,不建议</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">fun</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">a</span><span class="p">){}</span><span class="c1">//重载失败</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+     
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+wa
+<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+
+
+     
+    :root{
+        --waline-theme-color: #34495e;  
+        --waline-active-color: #bababa;  
+        --waline-badge-color: #34495e;  
+        --waline-avatar-size: 5rem;
+        --waline-dark-grey: #34495e;  
+    }
+
+     
+    :root[data-scheme="dark"] {
+        --waline-theme-color: #acc6e0;
+        --waline-white: #34495e;  
+        --waline-active-color: #8ab1d8;
+        --waline-light-grey: #666;
+        --waline-dark-grey: #acc6e0;  
+        --waline-badge-color: #acc6e0;
+
+         
+        --waline-text-color: rgba(255, 255, 255, 0.7);
+        --waline-bgcolor: #515151;
+        --waline-bgcolor-light: #66696b; 
+        --waline-border-color: #9B9C9C;
+        --waline-disable-bgcolor: #444;
+        --waline-disable-color: #272727;
+
+         
+        --waline-bq-color:  #9B9C9C;  
+
+         
+        --waline-info-bgcolor: #acc6e0;
+        --waline-info-color: #9B9C9C;
+    }
+    .waline-container[data-v-app] .wl-content .wl-emoji {
+        width:3.7em;  
+        height: 3.7em;
+
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili@1.0.6"],"locale":{"admin":"博主","placeholder":"有什么新点子？（上方留下邮箱可以收到通知哦）"},"requiredMeta":["name","email","url"]});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 <br/>
+         <br />
+        
+    </section>
+
+
+
+
+
+
+
+
+
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1-求值策略">1. 求值策略</a>
+          <ol>
+            <li><a href="#11-严格求值策略">1.1 严格求值策略</a></li>
+            <li><a href="#12-非严格求值策略">1.2 非严格求值策略</a></li>
+          </ol>
+        </li>
+        <li><a href="#2可变参数">2.可变参数</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
