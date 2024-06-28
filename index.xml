@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>alwaysGreat&#39;s blog</title>
-        <link>http://localhost:1313/</link>
+        <link>https://4evergreat.github.io/</link>
         <description>Recent content on alwaysGreat&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>alwaysGreat</copyright>
-        <lastBuildDate>Fri, 28 Jun 2024 04:17:41 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 28 Jun 2024 04:17:41 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>hugo-win10环境的搭建</title>
-        <link>http://localhost:1313/p/first/</link>
+        <link>https://4evergreat.github.io/p/first/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/p/first/</guid>
+        <guid>https://4evergreat.github.io/p/first/</guid>
         <description>&lt;img src="https://c-ssl.duitang.com/uploads/item/201812/01/20181201215623_KerlR.jpeg" alt="Featured image of post hugo-win10环境的搭建" /&gt;&lt;h1 id=&#34;hugo-win10环境的搭建&#34;&gt;hugo-win10环境的搭建
 &lt;/h1&gt;&lt;h2 id=&#34;一前言&#34;&gt;一、前言
 &lt;/h2&gt;&lt;p&gt;当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案：&lt;/p&gt;
@@ -34,7 +34,7 @@
 &lt;li&gt;被一款叫stack的主题吸引，淡雅的风格。(全在我的审美点上，简直是梦中情博！！！&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/resources/%e5%8d%9a%e5%ae%a2%e5%b1%95%e7%a4%ba.png&#34; alt=&#34;博客展示&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://4evergreat.github.io/resources/%e5%8d%9a%e5%ae%a2%e5%b1%95%e7%a4%ba.png&#34; alt=&#34;博客展示&#34;  /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;二在windows10上搭建hugo环境&#34;&gt;二、在windows10上搭建hugo环境
 &lt;/h2&gt;&lt;h3 id=&#34;1-下载安装gitgo并安装&#34;&gt;1. 下载安装git、go并安装
 &lt;/h3&gt;&lt;p&gt;[go下载链接](&lt;a class=&#34;link&#34; href=&#34;https://golang.google.cn/dl/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -101,7 +101,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;安装成功的效果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/resources/go%e4%b8%8ehugo%e5%ae%89%e8%a3%85%e9%aa%8c%e8%af%81.png&#34; alt=&#34;go与hugo安装验证&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://4evergreat.github.io/resources/go%e4%b8%8ehugo%e5%ae%89%e8%a3%85%e9%aa%8c%e8%af%81.png&#34; alt=&#34;go与hugo安装验证&#34;  /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;可能存在的问题：&lt;/code&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;go或hugo不是命令。答：没有配置环境变量。打开系统高级设置-&amp;gt;环境变量，点击用户变量中的Path，点击编辑，点击右上角新建，输入上面go\hugo安装后的bin文件夹，或者.exe的地址，点击确定。&lt;/li&gt;

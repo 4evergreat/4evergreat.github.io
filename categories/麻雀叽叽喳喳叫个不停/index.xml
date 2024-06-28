@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>麻雀叽叽喳喳叫个不停 on alwaysGreat&#39;s blog</title>
-        <link>http://localhost:1313/categories/%E9%BA%BB%E9%9B%80%E5%8F%BD%E5%8F%BD%E5%96%B3%E5%96%B3%E5%8F%AB%E4%B8%AA%E4%B8%8D%E5%81%9C/</link>
+        <link>https://4evergreat.github.io/categories/%E9%BA%BB%E9%9B%80%E5%8F%BD%E5%8F%BD%E5%96%B3%E5%96%B3%E5%8F%AB%E4%B8%AA%E4%B8%8D%E5%81%9C/</link>
         <description>Recent content in 麻雀叽叽喳喳叫个不停 on alwaysGreat&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>alwaysGreat</copyright><atom:link href="http://localhost:1313/categories/%E9%BA%BB%E9%9B%80%E5%8F%BD%E5%8F%BD%E5%96%B3%E5%96%B3%E5%8F%AB%E4%B8%AA%E4%B8%8D%E5%81%9C/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>alwaysGreat</copyright><atom:link href="https://4evergreat.github.io/categories/%E9%BA%BB%E9%9B%80%E5%8F%BD%E5%8F%BD%E5%96%B3%E5%96%B3%E5%8F%AB%E4%B8%AA%E4%B8%8D%E5%81%9C/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
