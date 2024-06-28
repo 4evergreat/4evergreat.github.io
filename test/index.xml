@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Tests on alwaysGreat&#39;s blog</title>
-        <link>http://localhost:1313/test/</link>
+        <link>https://4evergreat.github.io/test/</link>
         <description>Recent content in Tests on alwaysGreat&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>alwaysGreat</copyright>
-        <lastBuildDate>Fri, 28 Jun 2024 04:17:41 +0800</lastBuildDate><atom:link href="http://localhost:1313/test/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 28 Jun 2024 04:17:41 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/test/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Firstblog</title>
-        <link>http://localhost:1313/test/firstblog/</link>
+        <link>https://4evergreat.github.io/test/firstblog/</link>
         <pubDate>Fri, 28 Jun 2024 04:17:41 +0800</pubDate>
         
-        <guid>http://localhost:1313/test/firstblog/</guid>
+        <guid>https://4evergreat.github.io/test/firstblog/</guid>
         <description>&lt;p&gt;用git命令操作
 git add . （注意add空格后面有个点, 把新的改动添加到git仓库）
 git commit -m &amp;ldquo;注释信息&amp;rdquo; （提交改动到git仓库）
