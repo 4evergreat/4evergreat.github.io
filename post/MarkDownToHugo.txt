@@ -1,0 +1,48 @@
+import java.io.*;
+import java.nio.file.*;
+
+public class MarkdownYamlInserter {
+
+    private static final String YAML_FRONT_MATTER_TEMPLATE = "---\ntitle: '%s'\ndate: 'YYYY-MM-DDTHH:MM:SS+00:00'\ndraft: true\n---\n";
+
+    public static void main(String[] args) {
+        if (args.length != 1) {
+            System.out.println("Usage: java MarkdownYamlInserter <markdown-directory>");
+            return;
+        }
+
+        Path markdownDirectory = Paths.get(args[0]);
+
+        if (!Files.exists(markdownDirectory) || !Files.isDirectory(markdownDirectory)) {
+            System.out.println("Error: Directory not found: " + markdownDirectory);
+            return;
+        }
+
+        try {
+            Files.walk(markdownDirectory)
+                    .filter(Files::isRegularFile)
+                    .filter(path -> path.toString().endsWith(".md"))
+                    .forEach(MarkdownYamlInserter::insertYamlFrontMatter);
+
+            System.out.println("All Markdown files have been processed.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void insertYamlFrontMatter(Path file) throws IOException {
+        String fileNameWithoutExtension = file.getFileName().toString().substring(0, file.getFileName().toString().lastIndexOf("."));
+        String yamlFrontMatter = String.format(YAML_FRONT_MATTER_TEMPLATE, fileNameWithoutExtension);
+
+        List<String> lines = Files.readAllLines(file);
+
+        StringBuilder newContent = new StringBuilder(yamlFrontMatter);
+        for (String line : lines) {
+            newContent.append(line).append("\n");
+        }
+
+        Files.write(file, newContent.toString().getBytes());
+
+        System.out.println("Processed: " + file);
+    }
+}
