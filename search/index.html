@@ -16,7 +16,24 @@
 
   
 
-<link rel="preload" href="http://localhost:1313/search/index.json" as="fetch" crossorigin="anonymous">
+<style>
+     
+    :root {
+        --article-font-family: "Merriweather", var(--base-font-family);
+    }
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script><link rel="preload" href="http://localhost:1313/search/index.json" as="fetch" crossorigin="anonymous">
     </head>
     <body class="template-search">
     <script>
@@ -201,6 +218,8 @@
 
 
 
+
+  
 </footer>
 
             </main>

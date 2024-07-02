@@ -3,14 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-07-01T22:26:20+08:00</lastmod>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/blog/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/p/hugo02/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hugo/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/win10/</loc>
+    <lastmod>2024-07-01T22:27:20+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/p/firstblog/</loc>
     <lastmod>2024-07-01T22:26:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2024-07-01T22:26:20+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/p/</loc>
   </url><url>
     <loc>http://localhost:1313/p/</loc>
@@ -100,16 +121,8 @@
     <loc>http://localhost:1313/p/</loc>
   </url><url>
     <loc>http://localhost:1313/p/</loc>
-  </url><url>
-    <loc>http://localhost:1313/p/</loc>
-  </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
   </url><url>
     <loc>http://localhost:1313/page/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/%E6%B5%8B%E8%AF%95%E5%90%96/</loc>
   </url><url>

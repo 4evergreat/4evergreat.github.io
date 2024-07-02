@@ -6,6 +6,31 @@
         <description>Recent content in Tags on alwaysGreat&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>alwaysGreat</copyright><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+        <copyright>alwaysGreat</copyright>
+        <lastBuildDate>Mon, 01 Jul 2024 22:27:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Blog</title>
+        <link>http://localhost:1313/tags/blog/</link>
+        <pubDate>Mon, 01 Jul 2024 22:27:20 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/blog/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Hugo</title>
+        <link>http://localhost:1313/tags/hugo/</link>
+        <pubDate>Mon, 01 Jul 2024 22:27:20 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/hugo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Win10</title>
+        <link>http://localhost:1313/tags/win10/</link>
+        <pubDate>Mon, 01 Jul 2024 22:27:20 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/win10/</guid>
+        <description></description>
+        </item>
+        
     </channel>
 </rss>

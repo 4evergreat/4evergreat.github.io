@@ -1,0 +1,21 @@
+.copy-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px 10px;
+    background: #a9b0b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    .copy-button:hover {
+    background: #ece23552;
+    }
+    
+    pre {
+    position: relative;
+    overflow: hidden;
+    padding-top: 20px; /* Adjust if necessary to avoid overlapping */
+    }

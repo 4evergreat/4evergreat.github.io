@@ -16,7 +16,24 @@
 
   
 
+<style>
+     
+    :root {
+        --article-font-family: "Merriweather", var(--base-font-family);
+    }
+</style>
 
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script>
     </head>
     <body class="
     article-page has-toc
@@ -1914,6 +1931,8 @@ wa
 
 
 
+
+  
 </footer>
 
     
