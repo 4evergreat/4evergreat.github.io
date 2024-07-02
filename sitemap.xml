@@ -3,15 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2024-07-02T03:26:20+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2024-07-02T03:26:20+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/p/test%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98%E6%B5%8B%E8%AF%95/</loc>
-    <lastmod>2024-07-02T03:26:20+08:00</lastmod>
+    <lastmod>2024-07-01T22:26:20+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/p/firstblog/</loc>
+    <lastmod>2024-07-01T22:26:20+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/</loc>
     <lastmod>2024-07-01T22:26:20+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/p/</loc>
@@ -112,14 +109,18 @@
   </url><url>
     <loc>http://localhost:1313/page/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
-  </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/%E6%B5%8B%E8%AF%95%E5%90%96/</loc>
   </url><url>
     <loc>http://localhost:1313/tools/</loc>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
   </url><url>
     <loc>http://localhost:1313/archives/</loc>
+  </url><url>
+    <loc>http://localhost:1313/friends/</loc>
+  </url><url>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>
