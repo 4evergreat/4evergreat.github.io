@@ -6,13 +6,13 @@
         <description>Recent content in Win10 on alwaysGreat&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>alwaysGreat</copyright>
+        <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
         <lastBuildDate>Mon, 01 Jul 2024 22:27:20 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/win10/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>blog2本地搭建hugo网站</title>
-        <link>http://localhost:1313/p/hugo02/</link>
+        <link>http://localhost:1313/2024/hugo02/</link>
         <pubDate>Mon, 01 Jul 2024 22:27:20 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/hugo02/</guid>
+        <guid>http://localhost:1313/2024/hugo02/</guid>
         <description>&lt;img src="http://localhost:1313/cover/t01d389c22b38efbadc.jpg" alt="Featured image of post blog2本地搭建hugo网站" /&gt;&lt;h1 id=&#34;本地搭建hugo网站&#34;&gt;本地搭建hugo网站
 &lt;/h1&gt;&lt;h2 id=&#34;1初始化hugo&#34;&gt;1.初始化hugo
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -2038,10 +2038,10 @@
         </item>
         <item>
         <title>blog1hugo-win10环境的搭建</title>
-        <link>http://localhost:1313/p/firstblog/</link>
+        <link>http://localhost:1313/2024/firstblog/</link>
         <pubDate>Mon, 01 Jul 2024 22:26:20 +0800</pubDate>
         
-        <guid>http://localhost:1313/p/firstblog/</guid>
+        <guid>http://localhost:1313/2024/firstblog/</guid>
         <description>&lt;img src="http://localhost:1313/cover/R%281%29.jpg" alt="Featured image of post blog1hugo-win10环境的搭建" /&gt;&lt;h1 id=&#34;hugo-win10环境的搭建&#34;&gt;hugo-win10环境的搭建
 &lt;/h1&gt;&lt;h2 id=&#34;一前言&#34;&gt;一、前言
 &lt;/h2&gt;&lt;p&gt;当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案：&lt;/p&gt;
