@@ -5,7 +5,7 @@
 
 <link rel='canonical' href='https://4evergreat.github.io/2024/hugo03/'>
 
-<link rel="stylesheet" href="/scss/style.min.564365770c602b99dc6b486d776a2da1a5bde662c9ae1374411e91b251077fe5.css"><meta property='og:title' content='blog3hugo博客推送到服务器'>
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='blog3hugo博客推送到服务器'>
 <meta property='og:description' content='hugo--部署到github page'>
 <meta property='og:url' content='https://4evergreat.github.io/2024/hugo03/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
@@ -68,10 +68,10 @@
     })();
 </script>
 <div class="container main-container flex 
-    <!-- 
+    
         extended
-     -->
-    on-phone--column extended
+    
+    <!-- on-phone--column extended -->
 ">
     
         <div id="article-toolbar">
@@ -86,6 +86,7 @@
                 <span>返回</span>
             </a>
         </div>
+    
     
 <main class="main full-width">
     <article class="has-image main-article">
@@ -620,9 +621,36 @@
   </ol>
 </nav>
                 </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
             </section>
         </aside>
+
+
     
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
 
         </div>
         <script 
