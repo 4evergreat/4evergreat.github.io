@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='记录常见的cmd命令'><title>win-blog-1常见的Terminal命令</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2023/win-blog-1/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='win-blog-1常见的Terminal命令'>
+<meta property='og:description' content='记录常见的cmd命令'>
+<meta property='og:url' content='https://4evergreat.github.io/2023/win-blog-1/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='cmd' /><meta property='article:tag' content='win' /><meta property='article:tag' content='生产力' /><meta property='article:published_time' content='2023-11-24T22:27:20&#43;08:00'/><meta property='article:modified_time' content='2023-11-24T22:27:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/01cf6858635528a8012060c8b33f77.jpg@2o.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="win-blog-1常见的Terminal命令">
+<meta name="twitter:description" content="记录常见的cmd命令"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/01cf6858635528a8012060c8b33f77.jpg@2o.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    <!-- on-phone--column extended -->
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2023/win-blog-1/">
+                
+                    <img src="/cover/01cf6858635528a8012060c8b33f77.jpg@2o.jpg" loading="lazy" alt="Featured image of post win-blog-1常见的Terminal命令" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%94%9F%E4%BA%A7%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/" style="background-color: #2a9d8f; color: #fff;">
+                生产工具的使用
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2023/win-blog-1/">win-blog-1常见的Terminal命令</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            记录常见的cmd命令
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">11月24日, 2023年</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/cmd/">Cmd</a>
+        
+            <a href="/tags/win/">Win</a>
+        
+            <a href="/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/">生产力</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h3 id="常见的terminal命令">常见的Terminal命令：
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># 盘符切换： 直接输入盘符，不区分大小写
+</span></span><span class="line"><span class="cl">	直接输入 E: 等
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"># 查看当前目录下的所有文件：dir
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 切换目录： cd newdirectory 
+</span></span><span class="line"><span class="cl">				只返回目标路径但不会跳转
+</span></span><span class="line"><span class="cl">		   cd \d newdirectory 
+</span></span><span class="line"><span class="cl">		  		跨盘符切换的话要加\d参数后才会切换到目标路径，
+</span></span><span class="line"><span class="cl">		  		Linux 用 cd [路径] 即可切换到目标路径
+</span></span><span class="line"><span class="cl">		   cd .. 切换到上一级目录
+</span></span><span class="line"><span class="cl">		   cd ./ 切换代当前目录（原地）
+</span></span><span class="line"><span class="cl">	cd \d C:\Windows\System32
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 查看当前路径内的所有文件： dir
+</span></span><span class="line"><span class="cl">	Linux是ls ： 只写ls，默认查看当前工作目录的所有文件夹(不含隐藏文件夹),也可加以下一个或多个参数：
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">		-a，即-all，所有的意思，表示查看当前目录所有文件夹(包含隐藏的文件夹)，这些隐藏文件夹主要是以 				. 开头的文件夹和默认隐藏的文件夹
+</span></span><span class="line"><span class="cl">		-l 表示以竖向形式展示内容，并展示更多的信息
+</span></span><span class="line"><span class="cl">		-h，是展示出所有文件的大小，如KB，MB，GB，如果不展示则为Byte
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl"># 査看当前所在目录的命令: pwd
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"># 清理屏幕： c1s  
+</span></span><span class="line"><span class="cl">	clear screen的缩写
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"># 退出终端： exit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 查看电脑的ip：ipconfig
+</span></span><span class="line"><span class="cl"> 		如果没识别，需要添加PATH C:\Windows\System32
+</span></span><span class="line"><span class="cl"> 		
+</span></span><span class="line"><span class="cl"># 打开常见的应用：
+</span></span><span class="line"><span class="cl"> 	calc ：计算器
+</span></span><span class="line"><span class="cl"> 	mspaint ： 画图软件
+</span></span><span class="line"><span class="cl"> 	notepad ： notepad记事本
+</span></span><span class="line"><span class="cl"> 	
+</span></span><span class="line"><span class="cl"># ping 命令
+</span></span><span class="line"><span class="cl">	ping www.baidu .com
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"># 文件操作
+</span></span><span class="line"><span class="cl">	md [目录名] ： 当前路径下创建目标文件夹; 
+</span></span><span class="line"><span class="cl">				  Linux是mkdir [文件夹]
+</span></span><span class="line"><span class="cl">    rd [目录名] ： 移除当前路径下的目标文件夹，直接使用 rd 只能删除空目录，如果要删除的目录有子目录或					文件，就必须使用 /s 选项	
+</span></span><span class="line"><span class="cl">    			  Linux是rm -r [文件夹], 其中 -r：递归删除目录及其子目录下的所有文件
+</span></span><span class="line"><span class="cl">    cd&gt;[文件名] ： 在当前路径下创建目标文件; 
+</span></span><span class="line"><span class="cl">    			  Linux是touch [文件名]
+</span></span><span class="line"><span class="cl">    			  或者 vim [文件名]
+</span></span><span class="line"><span class="cl">    del [文件名] ：在当前路径下删除目标文件
+</span></span><span class="line"><span class="cl">    			  Linux是rm -f [文件名], 其中 -f：强制删除文件，不提示确认信息
+</span></span><span class="line"><span class="cl">  
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/cmd/">Cmd</a>
+        
+            <a href="/tags/win/">Win</a>
+        
+            <a href="/tags/%E7%94%9F%E4%BA%A7%E5%8A%9B/">生产力</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2023/idea-blog-1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/01eb6558dc7021a801219c77252192.jpg@3000w_1l_0o_100sh.jpg" loading="lazy" data-key="IDEA-blog-1" data-hash="/cover/01eb6558dc7021a801219c77252192.jpg@3000w_1l_0o_100sh.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">IDEA-blog-1 IDEA常见的命令</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2023/typora-blog-1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/01a3015d9a83a2a801211d537434e4.jpg@2o.jpg" loading="lazy" data-key="typora-blog-1" data-hash="/cover/01a3015d9a83a2a801211d537434e4.jpg@2o.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">typora-blog-1typora基本语法</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.17.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#常见的terminal命令">常见的Terminal命令：</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

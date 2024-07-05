@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='记录关于本站从界面搭建成功后遇到的问题，包括：页面的修改、插件的引入等'><title>hugo-blog-4网站插件安装与性能优化</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2024/hugo-blog-4/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='hugo-blog-4网站插件安装与性能优化'>
+<meta property='og:description' content='记录关于本站从界面搭建成功后遇到的问题，包括：页面的修改、插件的引入等'>
+<meta property='og:url' content='https://4evergreat.github.io/2024/hugo-blog-4/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='blog' /><meta property='article:tag' content='hugo' /><meta property='article:published_time' content='2024-07-01T23:29:20&#43;08:00'/><meta property='article:modified_time' content='2024-07-01T23:29:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/014b0b5c7e1b6ba801203d229d9893.jpg@3000w_1l_0o_100sh.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="hugo-blog-4网站插件安装与性能优化">
+<meta name="twitter:description" content="记录关于本站从界面搭建成功后遇到的问题，包括：页面的修改、插件的引入等"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/014b0b5c7e1b6ba801203d229d9893.jpg@3000w_1l_0o_100sh.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    <!-- on-phone--column extended -->
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2024/hugo-blog-4/">
+                
+                    <img src="/cover/014b0b5c7e1b6ba801203d229d9893.jpg@3000w_1l_0o_100sh.jpg" loading="lazy" alt="Featured image of post hugo-blog-4网站插件安装与性能优化" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="background-color: #2a9d8f; color: #fff;">
+                Hugo博客搭建
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2024/hugo-blog-4/">hugo-blog-4网站插件安装与性能优化</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            记录关于本站从界面搭建成功后遇到的问题，包括：页面的修改、插件的引入等
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">07月01日, 2024年</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/blog/">Blog</a>
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h1 id="网站插件安装与性能优化">网站插件安装与性能优化
+</h1><h2 id="1遇到的问题">1.遇到的问题
+</h2><h3 id="11-推送到服务器后发现一些跳转链接不是实际页面地址而是localhost1313">1.1 推送到服务器后，发现一些跳转链接不是实际页面地址，而是localhost1313
+</h3><blockquote>
+<p>原因： 推送前使用了hugo server 命令，/public 文件夹中存放的是搭建本地网站生成的文件。
+处理： 第一步，先执行 hugo &ndash;gc 命令清楚缓存。注意不同版本hugo的清除命令会有一定的区别。留意hugo help里面的具体参数描述即可。第二步，执行hugo命令，尔后把public文件夹推送到服务器。</p>
+</blockquote>
+<h3 id="12-markdown文件经过hugo编译成html后代码的部分没有复制按钮">1.2 markdown文件经过hugo编译成html后，代码的部分没有复制按钮
+</h3><blockquote>
+<p>一如markdown文件常用编译器typora原生不支持代码复制按钮一样。hugo引入的markdown插件也不提供这个功能。解决方法：
+在 ts\main.ts文件里添加如下代码段</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">  # 前文定位
+</span></span></span><span class="line"><span class="cl"><span class="cm">    let Stack = {
+</span></span></span><span class="line"><span class="cl"><span class="cm">    init: () =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="cm">        ....
+</span></span></span><span class="line"><span class="cl"><span class="cm">            observer.observe(articleTile)
+</span></span></span><span class="line"><span class="cl"><span class="cm">        }
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="err">添加代码段</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">    * Add copy button to code block
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">const</span><span class="w"> </span><span class="n">highlights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="nf">querySelectorAll</span><span class="p">(</span><span class="s1">&#39;.article-content div.highlight&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">const</span><span class="w"> </span><span class="n">copyText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">Copy</span><span class="o">`</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">copiedText</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="n">Copied</span><span class="o">!`</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">highlights</span><span class="p">.</span><span class="nf">forEach</span><span class="p">(</span><span class="n">highlight</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">const</span><span class="w"> </span><span class="n">copyButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">document</span><span class="p">.</span><span class="nf">createElement</span><span class="p">(</span><span class="s1">&#39;button&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">copyButton</span><span class="p">.</span><span class="n">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copyText</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">copyButton</span><span class="p">.</span><span class="n">classList</span><span class="p">.</span><span class="k">add</span><span class="p">(</span><span class="s1">&#39;copyCodeButton&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">highlight</span><span class="p">.</span><span class="nf">appendChild</span><span class="p">(</span><span class="n">copyButton</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">const</span><span class="w"> </span><span class="n">codeBlock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">highlight</span><span class="p">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s1">&#39;code[data-lang]&#39;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">codeBlock</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">copyButton</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">navigator</span><span class="p">.</span><span class="n">clipboard</span><span class="p">.</span><span class="nf">writeText</span><span class="p">(</span><span class="n">codeBlock</span><span class="p">.</span><span class="n">textContent</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="k">then</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">copyButton</span><span class="p">.</span><span class="n">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copiedText</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nf">setTimeout</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                        </span><span class="n">copyButton</span><span class="p">.</span><span class="n">textContent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">copyText</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="err">}</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="nf">catch</span><span class="p">(</span><span class="n">err</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="err">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="nf">alert</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s1">&#39;Something went wrong&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">err</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="err">}</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="err">}</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">}</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">  # 后文定位
+</span></span></span><span class="line"><span class="cl"><span class="cm">    ...
+</span></span></span><span class="line"><span class="cl"><span class="cm">    new StackColorScheme(document.getElementById(&#39;dark-mode-toggle&#39;));
+</span></span></span><span class="line"><span class="cl"><span class="cm">    }
+</span></span></span><span class="line"><span class="cl"><span class="cm">}
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在成功添加copy button 后修改它的css样式。修改/assets/scss/partials/layout/article.scss文件.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="o">/*</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">article</span><span class="o">-</span><span class="n">content</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">highlight</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">*/</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">添加代码段</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&amp;</span><span class="p">:</span><span class="n">hover</span> <span class="p">{</span> <span class="o">//</span><span class="err">可选悬停样式变化</span>
+</span></span><span class="line"><span class="cl">            <span class="o">.</span><span class="n">copyCodeButton</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">opacity</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">/*</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">*/</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="err">添加代码段</span>
+</span></span><span class="line"><span class="cl">    <span class="o">.</span><span class="n">copyCodeButton</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">position</span><span class="p">:</span> <span class="n">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">card</span><span class="o">-</span><span class="n">padding</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">right</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">card</span><span class="o">-</span><span class="n">padding</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">card</span><span class="o">-</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">border</span><span class="p">:</span> <span class="n">none</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">shadow</span><span class="o">-</span><span class="n">l2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">tag</span><span class="o">-</span><span class="n">border</span><span class="o">-</span><span class="n">radius</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">padding</span><span class="p">:</span> <span class="mi">8</span><span class="n">px</span> <span class="mi">16</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">color</span><span class="p">:</span> <span class="k">var</span><span class="p">(</span><span class="o">--</span><span class="n">card</span><span class="o">-</span><span class="n">text</span><span class="o">-</span><span class="n">color</span><span class="o">-</span><span class="n">main</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cursor</span><span class="p">:</span> <span class="n">pointer</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">font</span><span class="o">-</span><span class="n">size</span><span class="p">:</span> <span class="mi">14</span><span class="n">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">opacity</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">transition</span><span class="p">:</span> <span class="n">opacity</span> <span class="mf">0.3</span><span class="n">s</span> <span class="nb">ease</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">/*</span>
+</span></span><span class="line"><span class="cl">    <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">*/</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3-博客内添加一键跳转到页头页尾的按钮">3. 博客内添加一键跳转到页头、页尾的按钮
+</h3><pre><code>&gt; 思路： 在/layouts/_default/single.html 中自定义按钮。我选择在right sidebar一侧添加该按钮
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">{{</span> <span class="n">define</span> <span class="s2">&#34;right-sidebar&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="k">if</span> <span class="p">(</span><span class="o">.</span><span class="n">Scratch</span><span class="o">.</span><span class="n">Get</span> <span class="s2">&#34;hasTOC&#34;</span><span class="p">)</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;</span><span class="n">aside</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;sidebar right-sidebar sticky&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;</span><span class="n">section</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;widget archives&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;widget-icon&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">{{</span> <span class="n">partial</span> <span class="s2">&#34;helper/icon&#34;</span> <span class="s2">&#34;hash&#34;</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">h2</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;widget-title section-title&#34;</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">T</span> <span class="s2">&#34;article.tableOfContents&#34;</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;widget--toc&#34;</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">{{</span> <span class="o">.</span><span class="n">TableOfContents</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="o">//</span> <span class="c1">###############新增代码段start######################</span>
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;scroll-buttons&#34;</span><span class="o">&gt;</span>  
+</span></span><span class="line"><span class="cl">                    <span class="o">&lt;!--</span> <span class="err">跳转页面顶部的按钮</span> <span class="o">--&gt;</span>  
+</span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">button</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;scrollToTopBtn&#34;</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;scroll-button&#34;</span><span class="o">&gt;</span><span class="err">返回顶部</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>  
+</span></span><span class="line"><span class="cl">                    <span class="o">&lt;!--</span> <span class="err">跳转页面底部的按钮</span> <span class="o">--&gt;</span>  
+</span></span><span class="line"><span class="cl">                    <span class="o">&lt;</span><span class="n">button</span> <span class="n">id</span><span class="o">=</span><span class="s2">&#34;scrollToBottomBtn&#34;</span> <span class="k">class</span><span class="o">=</span><span class="s2">&#34;scroll-button&#34;</span><span class="o">&gt;</span><span class="err">跳转底部</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>  
+</span></span><span class="line"><span class="cl">                <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="o">&lt;/</span><span class="n">section</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="o">&lt;/</span><span class="n">aside</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;!--</span> <span class="n">JavaScript</span> <span class="err">代码</span> <span class="o">--&gt;</span>  
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="n">script</span><span class="o">&gt;</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">document</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">            <span class="k">var</span> <span class="n">scrollToBottomBtn</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;scrollToBottomBtn&#39;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">scrollToBottomBtn</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">                <span class="n">window</span><span class="o">.</span><span class="n">scrollTo</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">document</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">scrollHeight</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">            <span class="p">});</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="k">var</span> <span class="n">scrollToTopBtn</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">getElementById</span><span class="p">(</span><span class="s1">&#39;scrollToTopBtn&#39;</span><span class="p">);</span>  
+</span></span><span class="line"><span class="cl">            <span class="n">scrollToTopBtn</span><span class="o">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="n">function</span><span class="p">()</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">                <span class="n">window</span><span class="o">.</span><span class="n">scrollTo</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">                    <span class="n">behavior</span><span class="p">:</span> <span class="s1">&#39;smooth&#39;</span> <span class="o">//</span> <span class="err">平滑滚动</span>
+</span></span><span class="line"><span class="cl">                <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">            <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">        <span class="p">});</span>  
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="c1">#################新增代码段end####################</span>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span> <span class="n">end</span> <span class="p">}}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>同样需要修改按钮的css样式。在/assets/scss/partials/layouts/article.scss 文件的文末添加如下代码段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.scroll-buttons {  
+</span></span><span class="line"><span class="cl">    position: fixed; /* 固定定位 */  
+</span></span><span class="line"><span class="cl">    bottom: 20px; /* 距离页面底部的距离 */  
+</span></span><span class="line"><span class="cl">    right: 20px; /* 距离页面右侧的距离 */  
+</span></span><span class="line"><span class="cl">    display: flex; /* 使用Flexbox进行布局 */  
+</span></span><span class="line"><span class="cl">    flex-direction: column; /* 垂直排列子元素 */  
+</span></span><span class="line"><span class="cl">    align-items: flex-end; /* 可选，如果按钮需要更靠近右边 */  
+</span></span><span class="line"><span class="cl">    gap: 10px; /* 子元素之间的间隔 */  
+</span></span><span class="line"><span class="cl">    z-index: 1000; /* 确保按钮位于其他元素之上 */  
+</span></span><span class="line"><span class="cl">}  
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">.scroll-button {  
+</span></span><span class="line"><span class="cl">     /* 按钮的基本样式 */  
+</span></span><span class="line"><span class="cl">     background-color: #acd6acb7; /* 按钮的背景颜色 */  
+</span></span><span class="line"><span class="cl">     color: rgb(4, 1, 17); /* 按钮上文字的颜色 */  
+</span></span><span class="line"><span class="cl">     padding: 10px 20px; /* 按钮的内边距 */  
+</span></span><span class="line"><span class="cl">     border: none; /* 去除边框 */  
+</span></span><span class="line"><span class="cl">     border-radius: 5px; /* 边框圆角 */  
+</span></span><span class="line"><span class="cl">     cursor: pointer; /* 鼠标悬停时的光标样式 */  
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">     /* 可选的：按钮的过渡效果 */  
+</span></span><span class="line"><span class="cl">     transition: background-color 0.3s ease;  
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">     /* 可选的：按钮悬停时的样式变化 */  
+</span></span><span class="line"><span class="cl">     &amp;:hover {  
+</span></span><span class="line"><span class="cl">         background-color: #b39200; /* 悬停时的背景颜色 */  
+</span></span><span class="line"><span class="cl">     } 
+</span></span><span class="line"><span class="cl">}  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2未解决的问题">2.未解决的问题
+</h2><ul>
+<li>博客内容实现可折叠功能</li>
+<li>right sidebar 的 categories wideget 样式修改实现小标签化，并一行双栏或多栏展示</li>
+<li>博客内，right sidebar 目录的数字编号重复问题</li>
+<li>博客内，目录太长时，没有滚动条</li>
+</ul>
+<h2 id="3引入插件">3.引入插件
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"> <span class="nx">A</span> <span class="nx">bunch</span> <span class="nx">of</span> <span class="nx">code</span> <span class="nx">here</span> 
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<!-- {% folding 参数（可选）, 标题 %}
+假装这里有代码块（代码块没法嵌套代码块）
+{% endfolding %} -->
+<blockquote>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><span class="cite"><span>― </span><span>A famous person, </span><a href="https://en.wikipedia.org/wiki/Book"><cite>The book they wrote</cite></a></span></blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/blog/">Blog</a>
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2024/hugo-blog-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/R.jpg" loading="lazy" data-key="hugo-blog-3" data-hash="/cover/R.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">hugo-blog-3hugo博客推送到服务器</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/hugo-blog-2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/t01d389c22b38efbadc.jpg" loading="lazy" data-key="hugo-blog-2" data-hash="/cover/t01d389c22b38efbadc.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">hugo-blog-2本地搭建hugo网站</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/hugo-blog-1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/R%281%29.jpg" loading="lazy" data-key="hugo-blog-1" data-hash="/cover/R(1).jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">hugo-blog-1hugo-win10环境的搭建</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.17.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1遇到的问题">1.遇到的问题</a>
+      <ol>
+        <li><a href="#11-推送到服务器后发现一些跳转链接不是实际页面地址而是localhost1313">1.1 推送到服务器后，发现一些跳转链接不是实际页面地址，而是localhost1313</a></li>
+        <li><a href="#12-markdown文件经过hugo编译成html后代码的部分没有复制按钮">1.2 markdown文件经过hugo编译成html后，代码的部分没有复制按钮</a></li>
+        <li><a href="#3-博客内添加一键跳转到页头页尾的按钮">3. 博客内添加一键跳转到页头、页尾的按钮</a></li>
+      </ol>
+    </li>
+    <li><a href="#2未解决的问题">2.未解决的问题</a></li>
+    <li><a href="#3引入插件">3.引入插件</a></li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

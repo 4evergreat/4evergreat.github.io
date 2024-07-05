@@ -8,12 +8,12 @@
         <language>zh-cn</language>
         <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
         <lastBuildDate>Mon, 01 Jul 2024 23:27:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/tags/win10/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>blog3hugo博客推送到服务器</title>
-        <link>https://4evergreat.github.io/2024/hugo03/</link>
+        <title>hugo-blog-3hugo博客推送到服务器</title>
+        <link>https://4evergreat.github.io/2024/hugo-blog-3/</link>
         <pubDate>Mon, 01 Jul 2024 23:27:20 +0800</pubDate>
         
-        <guid>https://4evergreat.github.io/2024/hugo03/</guid>
-        <description>&lt;img src="https://4evergreat.github.io/cover/R.jpg" alt="Featured image of post blog3hugo博客推送到服务器" /&gt;&lt;h1 id=&#34;hugo博客推送到服务器&#34;&gt;hugo博客推送到服务器
+        <guid>https://4evergreat.github.io/2024/hugo-blog-3/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/R.jpg" alt="Featured image of post hugo-blog-3hugo博客推送到服务器" /&gt;&lt;h1 id=&#34;hugo博客推送到服务器&#34;&gt;hugo博客推送到服务器
 &lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -103,12 +103,12 @@
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>blog2本地搭建hugo网站</title>
-        <link>https://4evergreat.github.io/2024/hugo02/</link>
+        <title>hugo-blog-2本地搭建hugo网站</title>
+        <link>https://4evergreat.github.io/2024/hugo-blog-2/</link>
         <pubDate>Mon, 01 Jul 2024 22:27:20 +0800</pubDate>
         
-        <guid>https://4evergreat.github.io/2024/hugo02/</guid>
-        <description>&lt;img src="https://4evergreat.github.io/cover/t01d389c22b38efbadc.jpg" alt="Featured image of post blog2本地搭建hugo网站" /&gt;&lt;h1 id=&#34;本地搭建hugo网站&#34;&gt;本地搭建hugo网站
+        <guid>https://4evergreat.github.io/2024/hugo-blog-2/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/t01d389c22b38efbadc.jpg" alt="Featured image of post hugo-blog-2本地搭建hugo网站" /&gt;&lt;h1 id=&#34;本地搭建hugo网站&#34;&gt;本地搭建hugo网站
 &lt;/h1&gt;&lt;h2 id=&#34;1初始化hugo&#34;&gt;1.初始化hugo
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -2132,12 +2132,12 @@
 &lt;/div&gt;</description>
         </item>
         <item>
-        <title>blog1hugo-win10环境的搭建</title>
-        <link>https://4evergreat.github.io/2024/firstblog/</link>
+        <title>hugo-blog-1hugo-win10环境的搭建</title>
+        <link>https://4evergreat.github.io/2024/hugo-blog-1/</link>
         <pubDate>Mon, 01 Jul 2024 22:26:20 +0800</pubDate>
         
-        <guid>https://4evergreat.github.io/2024/firstblog/</guid>
-        <description>&lt;img src="https://4evergreat.github.io/cover/R%281%29.jpg" alt="Featured image of post blog1hugo-win10环境的搭建" /&gt;&lt;h1 id=&#34;hugo-win10环境的搭建&#34;&gt;hugo-win10环境的搭建
+        <guid>https://4evergreat.github.io/2024/hugo-blog-1/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/R%281%29.jpg" alt="Featured image of post hugo-blog-1hugo-win10环境的搭建" /&gt;&lt;h1 id=&#34;hugo-win10环境的搭建&#34;&gt;hugo-win10环境的搭建
 &lt;/h1&gt;&lt;h2 id=&#34;一前言&#34;&gt;一、前言
 &lt;/h2&gt;&lt;p&gt;当前市面上的个人博客搭建项目有很多，如wordpress, halo, hexo, hugo等。以下简单聊一聊这几种方案：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;动态博客&lt;/code&gt;&lt;/p&gt;

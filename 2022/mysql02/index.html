@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='mysql多实例安装'><title>mysql-blog-2多实例安装mysql 5.6.50</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2022/mysql02/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='mysql-blog-2多实例安装mysql 5.6.50'>
+<meta property='og:description' content='mysql多实例安装'>
+<meta property='og:url' content='https://4evergreat.github.io/2022/mysql02/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='mysql' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2022-03-11T23:30:20&#43;08:00'/><meta property='article:modified_time' content='2022-03-11T23:30:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/1005sa133rcv63bao0472.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="mysql-blog-2多实例安装mysql 5.6.50">
+<meta name="twitter:description" content="mysql多实例安装"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/1005sa133rcv63bao0472.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    <!-- on-phone--column extended -->
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2022/mysql02/">
+                
+                    <img src="/cover/1005sa133rcv63bao0472.jpg" loading="lazy" alt="Featured image of post mysql-blog-2多实例安装mysql 5.6.50" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" style="background-color: #2a9d8f; color: #fff;">
+                服务器部署
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2022/mysql02/">mysql-blog-2多实例安装mysql 5.6.50</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            mysql多实例安装
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">03月11日, 2022年</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/mysql/">Mysql</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h1 id="多实例安装mysql-5650">多实例安装mysql 5.6.50
+</h1><h2 id="1-卸载旧软件关防火墙安装依赖">1. 卸载旧软件、关防火墙、安装依赖
+</h2><h3 id="卸载旧软件">卸载旧软件
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost local]# rpm -qa | grep mysql
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost local]# rpm -qa | grep mariadb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            mariadb-libs-5.5.56-2.el7.x86_64
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">[root@localhost local]# yum -y remove mariadb-libs.x86_64 autoconf
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="设置防火墙">设置防火墙
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="n">agr</span><span class="p">]</span><span class="c1"># vim /etc/selinux/config         </span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#This file controls the state of SELinux on the system.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#SELINUX= can take one of these three values:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    enforcing - SELinux security policy is enforced.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    permissive - SELinux prints warnings instead of enforcing.</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    disabled - No SELinux policy is loaded.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SELINUX</span><span class="o">=</span><span class="n">permissive</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#SELINUXTYPE= can take one of three values:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#   targeted - Targeted processes are protected,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#   minimum - Modification of targeted policy. Only selected processes are protected. </span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#   mls - Multi Level Security protection.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SELINUXTYPE</span><span class="o">=</span><span class="n">targeted</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="n">agr</span><span class="p">]</span><span class="c1"># shutdown -r now   #重启           </span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="n">agr</span><span class="p">]</span><span class="c1"># getenforce      </span>
+</span></span><span class="line"><span class="cl">    <span class="n">Permissive</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装依赖">安装依赖
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr]# yum install libaio
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="2下载二进制格式的mysql">2.下载二进制格式的mysql
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="n">agr</span><span class="p">]</span><span class="c1"># wget https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-5.6/mysql-5.6.50-linux-glibc2.12-x86_64.tar.gz</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3解压文件设置软连接">3.解压文件，设置软连接
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr]# cd /usr/local
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost agr]# tar -zxvf mysql-5.6/mysql-5.6.50-linux-glibc2.12-x86_64.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost agr]# ls /usr/local/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bin  games    lib    libexec                              sbin   src
+</span></span><span class="line"><span class="cl">etc  include  lib64 mysql-5.6/mysql-5.6.50-linux-glibc2.12-x86_64.tar.gz  share
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost agr]# cd /usr/local/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="软连接">软连接
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost local]# ln -sv mysql-5.7.38-linux-glibc2.12-x86_64 mysql 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4创建mysql用户">4.创建MySQL用户
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr]# useradd -M -r -s /sbin/nologin mysql    
+</span></span><span class="line"><span class="cl">    #/sbin/nologin是不允许登录
+</span></span><span class="line"><span class="cl">            
+</span></span><span class="line"><span class="cl">[root@localhost agr]# id mysql
+</span></span><span class="line"><span class="cl">    uid=995(mysql) gid=992(mysql) groups=992(mysql)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="登录用户显示bash-42的解决方法">登录用户显示bash-4.2的解决方法
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr]cp -r/etc/skel/.bash* /home/mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="this-account-is-currently-not-available的解决方法">“This account is currently not available”的解决方法
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr] vim /etc/passwd
+</span></span><span class="line"><span class="cl">    #“/sbin /nologin”改成“/bin/bash”
+</span></span><span class="line"><span class="cl">[root@localhost agr] cat /etc/passwd
+</span></span><span class="line"><span class="cl">    ...
+</span></span><span class="line"><span class="cl">    mysql:x:987:980::/home/mysql:/bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="5多用户文件夹">5.多用户文件夹
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr]# yum install -y tree
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost agr]# mkdir -p /mysql/{3306,3307,3308}/{data,my.cnf}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost agr]# vim /mysql/3307/my.cnf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[mysql]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[client]
+</span></span><span class="line"><span class="cl">port=3307
+</span></span><span class="line"><span class="cl">socket=/mysql/3307/temp/mysql_3307.sock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[mysqld]
+</span></span><span class="line"><span class="cl">user=mysql
+</span></span><span class="line"><span class="cl">port=3307
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">socket=/mysql/3307/temp/mysql_3307.sock
+</span></span><span class="line"><span class="cl">basedir=/usr/local/mysql/
+</span></span><span class="line"><span class="cl">datadir=/mysql/3307/data
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">innodb_buffer_pool_size=128M #缓存InnoDB的容量
+</span></span><span class="line"><span class="cl">character-set-server=utf8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log-bin=/mysql/3307/log/mysql-bin
+</span></span><span class="line"><span class="cl">server-id = 3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[mysqld_safe]
+</span></span><span class="line"><span class="cl">log-error=/mysql/3307/log/mysql_3307_error.log
+</span></span><span class="line"><span class="cl">pid-file=/mysql/3307/mysqld_3307.pid
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="验证">验证
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost 3307]# cat my.cnf
+</span></span><span class="line"><span class="cl">[mysql]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[client]
+</span></span><span class="line"><span class="cl">port=3307
+</span></span><span class="line"><span class="cl">socket=/mysql/3307/temp/mysql_3307.sock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[mysqld]
+</span></span><span class="line"><span class="cl">user=mysql
+</span></span><span class="line"><span class="cl">port=3307
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">socket=/mysql/3307/temp/mysql_3307.sock
+</span></span><span class="line"><span class="cl">basedir=/usr/local/mysql/
+</span></span><span class="line"><span class="cl">datadir=/mysql/3307/data
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">innodb_buffer_pool_size=128M #缓存InnoDB的容量
+</span></span><span class="line"><span class="cl">character-set-server=utf8
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log-bin=/mysql/3307/log/mysql-bin
+</span></span><span class="line"><span class="cl">server-id = 3
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[mysqld_safe]
+</span></span><span class="line"><span class="cl">log-error=/mysql/3307/log/mysql_3307_error.log
+</span></span><span class="line"><span class="cl">pid-file=/mysql/3307/mysqld_3307.pid
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost 3307]# 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="6修改文件权限">6.修改文件权限
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"> [root@localhost agr]# chown -R mysql.mysql /mysql/
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"> [root@localhost agr]# ls -l /mysql
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">                total 0
+</span></span><span class="line"><span class="cl">                drwxr-xr-x. 3 mysql mysql 32 2月  26 15:48 3306
+</span></span><span class="line"><span class="cl">                drwxr-xr-x. 3 mysql mysql 32 2月  26 15:50 3307
+</span></span><span class="line"><span class="cl">                drwxr-xr-x. 3 mysql mysql 32 2月  26 15:50 3308
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="7添加环境变量">7.添加环境变量
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="mi">3307</span><span class="p">]</span><span class="c1"># mysql</span>
+</span></span><span class="line"><span class="cl"><span class="n">ERROR</span> <span class="mi">2002</span> <span class="p">(</span><span class="n">HY000</span><span class="p">):</span> <span class="n">Can</span><span class="s1">&#39;t connect to local MySQL server through socket &#39;</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">mysql</span><span class="o">.</span><span class="n">sock</span><span class="s1">&#39; (2)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="n">agr</span><span class="p">]</span><span class="c1"># vim /etc/profile</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#文件最后添加 export PATH=/usr/local/mysql/bin/:$PATH</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="刷新缓存">刷新缓存
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost agr]# source /etc/profile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="验证-1">验证
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost 3307]# which mysql
+</span></span><span class="line"><span class="cl">/usr/local/mysql/bin/mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="方式二">方式二
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">localhost</span> <span class="mi">3307</span><span class="p">]</span><span class="c1">#tail -1 /etc/profile</span>
+</span></span><span class="line"><span class="cl"><span class="k">export</span> <span class="n">PATH</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="p">:</span><span class="o">$</span><span class="n">PATH</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="8配置启动脚本">8.配置启动脚本
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost 3306]# cat mysql_3307
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[mysqld]
+</span></span><span class="line"><span class="cl">port=3307
+</span></span><span class="line"><span class="cl">mysql_user=&#34;mysql&#34;
+</span></span><span class="line"><span class="cl">CmdPath=&#34;/usr/local/mysql/bin&#34;
+</span></span><span class="line"><span class="cl">mysql_sock=&#34;/mysql/${port}/temp/mysql_${port}.sock&#34;
+</span></span><span class="line"><span class="cl">mysqld_pid_file_path=/mysql/${port}/mysqld_${port}.pid
+</span></span><span class="line"><span class="cl">function_start_mysql()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">if [ ! -e &#34;$mysql_sock&#34; ]; then
+</span></span><span class="line"><span class="cl">    printf &#34;Starting MySQL... \n&#34;
+</span></span><span class="line"><span class="cl">    /bin/sh ${CmdPath}/mysqld_safe --defaults-file=/mysql/${port}/my.cnf --pid-file=$mysqld_pid_file_path 2&gt;&amp;1 &gt;/dev/null  &amp;
+</span></span><span class="line"><span class="cl">    sleep 3
+</span></span><span class="line"><span class="cl">else
+</span></span><span class="line"><span class="cl">    printf &#34;MySQL is running...\n&#34;
+</span></span><span class="line"><span class="cl">    exit 1
+</span></span><span class="line"><span class="cl">fi
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">function_stop_mysql()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">if  [ ! -e  &#34;$mysql_sock&#34; ];  then 
+</span></span><span class="line"><span class="cl">      printf &#34;MySQL is stopped ...\n&#34;
+</span></span><span class="line"><span class="cl">      exit 1
+</span></span><span class="line"><span class="cl">else
+</span></span><span class="line"><span class="cl">      printf &#34;Stoping MYSQL ...\n&#34;
+</span></span><span class="line"><span class="cl">      mysqld_pid = &#39;cat &#34;mysqld_pid_file_path&#34;&#39;
+</span></span><span class="line"><span class="cl">if(kill -0 $mysqld_pid 2&gt;/dev/null)
+</span></span><span class="line"><span class="cl">	then
+</span></span><span class="line"><span class="cl">	kill $mysqld_pid
+</span></span><span class="line"><span class="cl">	sleep 2
+</span></span><span class="line"><span class="cl">	fi
+</span></span><span class="line"><span class="cl">fi
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">function_restart_mysql()
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl">	printf &#34;Restarting MySQL...\n&#34;
+</span></span><span class="line"><span class="cl">	function_stop_mysql
+</span></span><span class="line"><span class="cl">	sleep 2
+</span></span><span class="line"><span class="cl">	function_start_mysql
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">case &#34;$1&#34; in
+</span></span><span class="line"><span class="cl">start)
+</span></span><span class="line"><span class="cl">	function_start_mysql
+</span></span><span class="line"><span class="cl">;;
+</span></span><span class="line"><span class="cl">stop)
+</span></span><span class="line"><span class="cl">	function_stop_mysql
+</span></span><span class="line"><span class="cl">;;
+</span></span><span class="line"><span class="cl">restart)
+</span></span><span class="line"><span class="cl"> 	function_restart_mysql
+</span></span><span class="line"><span class="cl">;;
+</span></span><span class="line"><span class="cl">*)
+</span></span><span class="line"><span class="cl">	printf &#34;Usage: /mysql/${port}/mysql{start|stop|restart}\n&#34;
+</span></span><span class="line"><span class="cl">esac
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="赋予执行权限">赋予执行权限
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chmod +x /mysql/3307/mysql_3307
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="降低文件夹权限">降低文件夹权限
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chown -R mysql.mysql /mysql/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost profile.d]# /usr/local/mysql/scripts/mysql_install_db --basedir=/usr/local/mysql --datadir=/mysql/3306/data --user=mysql
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@youxi1 mysql]# cp support-files/mysql.server /etc/init.d/mysqld
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@youxi1 mysql]# chmod +x /etc/init.d/mysqld
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="9初始化">9.初始化
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost 3307]# /usr/local/mysql/scripts/mysql_install_db --defaults-file=/mysql/3307/my.cnf --basedir=/usr/local/mysql/ --datadir=/mysql/3307/data/ --user=mysql
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="验证及sock登录">验证及sock登录
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[root@localhost 3308]# netstat -tunlp|grep mysql
+</span></span><span class="line"><span class="cl">tcp6       0      0 :::3307            :::*              LISTEN      4189/mysqld        
+</span></span><span class="line"><span class="cl">tcp6       0      0 :::3308            :::*              LISTEN      4569/mysqld   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[root@localhost 3308]# mysql -S /mysql/3307/temp/mysql_3307.sock
+</span></span><span class="line"><span class="cl">Welcome to the MySQL monitor.  Commands end with ; or \g.
+</span></span><span class="line"><span class="cl">Your MySQL connection id is 1
+</span></span><span class="line"><span class="cl">Server version: 5.6.50-log MySQL Community Server (GPL)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Oracle is a registered trademark of Oracle Corporation and/or its
+</span></span><span class="line"><span class="cl">affiliates. Other names may be trademarks of their respective
+</span></span><span class="line"><span class="cl">owners.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Type &#39;help;&#39; or &#39;\h&#39; for help. Type &#39;\c&#39; to clear the current input statement.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mysql&gt; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/mysql/">Mysql</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2024/mysql-blog-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/01ba415dc5087ea801209e1f1da151.jpg@3000w_1l_0o_100sh.jpg" loading="lazy" data-key="mysql-blog-3" data-hash="/cover/01ba415dc5087ea801209e1f1da151.jpg@3000w_1l_0o_100sh.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">mysql-blog-3mysql8.0</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/linux-blog-1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/01a9d4564d938932f87512f6092e82.jpg@1280w_1l_2o_100sh.jpg" loading="lazy" data-key="linux-blog-1" data-hash="/cover/01a9d4564d938932f87512f6092e82.jpg@1280w_1l_2o_100sh.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">linux-blog-1linux运维遇到的问题</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2022/mysql01/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/8599.jpg_wh860.jpg" loading="lazy" data-key="mysql01" data-hash="/cover/8599.jpg_wh860.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">mysql-blog-1数据库常见操作</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/hugo-blog-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/R.jpg" loading="lazy" data-key="hugo-blog-3" data-hash="/cover/R.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">hugo-blog-3hugo博客推送到服务器</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.17.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-卸载旧软件关防火墙安装依赖">1. 卸载旧软件、关防火墙、安装依赖</a>
+      <ol>
+        <li><a href="#卸载旧软件">卸载旧软件</a></li>
+        <li><a href="#设置防火墙">设置防火墙</a></li>
+        <li><a href="#安装依赖">安装依赖</a></li>
+      </ol>
+    </li>
+    <li><a href="#2下载二进制格式的mysql">2.下载二进制格式的mysql</a></li>
+    <li><a href="#3解压文件设置软连接">3.解压文件，设置软连接</a>
+      <ol>
+        <li><a href="#软连接">软连接</a></li>
+      </ol>
+    </li>
+    <li><a href="#4创建mysql用户">4.创建MySQL用户</a>
+      <ol>
+        <li><a href="#登录用户显示bash-42的解决方法">登录用户显示bash-4.2的解决方法</a></li>
+        <li><a href="#this-account-is-currently-not-available的解决方法">“This account is currently not available”的解决方法</a></li>
+      </ol>
+    </li>
+    <li><a href="#5多用户文件夹">5.多用户文件夹</a>
+      <ol>
+        <li><a href="#验证">验证</a></li>
+      </ol>
+    </li>
+    <li><a href="#6修改文件权限">6.修改文件权限</a></li>
+    <li><a href="#7添加环境变量">7.添加环境变量</a>
+      <ol>
+        <li><a href="#刷新缓存">刷新缓存</a></li>
+        <li><a href="#验证-1">验证</a></li>
+        <li><a href="#方式二">方式二</a></li>
+      </ol>
+    </li>
+    <li><a href="#8配置启动脚本">8.配置启动脚本</a>
+      <ol>
+        <li><a href="#赋予执行权限">赋予执行权限</a></li>
+        <li><a href="#降低文件夹权限">降低文件夹权限</a></li>
+      </ol>
+    </li>
+    <li><a href="#9初始化">9.初始化</a>
+      <ol>
+        <li><a href="#验证及sock登录">验证及sock登录</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

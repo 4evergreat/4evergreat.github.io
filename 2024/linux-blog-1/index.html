@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='linux运维遇到的问题'><title>linux-blog-1linux运维遇到的问题</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2024/linux-blog-1/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='linux-blog-1linux运维遇到的问题'>
+<meta property='og:description' content='linux运维遇到的问题'>
+<meta property='og:url' content='https://4evergreat.github.io/2024/linux-blog-1/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='mysql' /><meta property='article:tag' content='linux' /><meta property='article:published_time' content='2024-03-11T23:30:20&#43;08:00'/><meta property='article:modified_time' content='2024-03-11T23:30:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/01a9d4564d938932f87512f6092e82.jpg@1280w_1l_2o_100sh.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="linux-blog-1linux运维遇到的问题">
+<meta name="twitter:description" content="linux运维遇到的问题"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/01a9d4564d938932f87512f6092e82.jpg@1280w_1l_2o_100sh.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    <!-- on-phone--column extended -->
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2024/linux-blog-1/">
+                
+                    <img src="/cover/01a9d4564d938932f87512f6092e82.jpg@1280w_1l_2o_100sh.jpg" loading="lazy" alt="Featured image of post linux-blog-1linux运维遇到的问题" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2/" style="background-color: #2a9d8f; color: #fff;">
+                服务器部署
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2024/linux-blog-1/">linux-blog-1linux运维遇到的问题</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            linux运维遇到的问题
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">03月11日, 2024年</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 1 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/mysql/">Mysql</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h1 id="1-防火墙">1. 防火墙
+</h1><h2 id="11-相关命令">1.1 相关命令
+</h2><ul>
+<li>
+<p>查看防火墙状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl status firewalld
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">liangfeifan</span> <span class="n">etc</span><span class="p">]</span><span class="c1"># systemctl status firewalld</span>
+</span></span><span class="line"><span class="cl"><span class="err">●</span> <span class="n">firewalld</span><span class="o">.</span><span class="n">service</span> <span class="o">-</span> <span class="n">firewalld</span> <span class="o">-</span> <span class="n">dynamic</span> <span class="n">firewall</span> <span class="n">daemon</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Loaded</span><span class="p">:</span> <span class="n">loaded</span> <span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">firewalld</span><span class="o">.</span><span class="n">service</span><span class="p">;</span> <span class="n">disabled</span><span class="p">;</span> <span class="n">vendor</span> <span class="n">preset</span><span class="p">:</span> <span class="n">enabled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Active</span><span class="p">:</span> <span class="n">inactive</span> <span class="p">(</span><span class="n">dead</span><span class="p">)</span> <span class="c1">#dead没开启防火墙</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Docs</span><span class="p">:</span> <span class="n">man</span><span class="p">:</span><span class="n">firewalld</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>开启防火墙</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl start firewalld
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">liangfeifan</span> <span class="n">etc</span><span class="p">]</span><span class="c1"># systemctl start firewalld</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="n">root</span><span class="err">@</span><span class="n">liangfeifan</span> <span class="n">etc</span><span class="p">]</span><span class="c1"># systemctl status firewalld</span>
+</span></span><span class="line"><span class="cl"><span class="err">●</span> <span class="n">firewalld</span><span class="o">.</span><span class="n">service</span> <span class="o">-</span> <span class="n">firewalld</span> <span class="o">-</span> <span class="n">dynamic</span> <span class="n">firewall</span> <span class="n">daemon</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Loaded</span><span class="p">:</span> <span class="n">loaded</span> <span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">firewalld</span><span class="o">.</span><span class="n">service</span><span class="p">;</span> <span class="n">disabled</span><span class="p">;</span> <span class="n">vendor</span> <span class="n">preset</span><span class="p">:</span> <span class="n">enabled</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="n">Active</span><span class="p">:</span> <span class="n">active</span> <span class="p">(</span><span class="n">running</span><span class="p">)</span> <span class="n">since</span> <span class="err">四</span> <span class="mi">2024</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">20</span> <span class="mi">03</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">23</span> <span class="n">CST</span><span class="p">;</span> <span class="mi">2</span><span class="n">s</span> <span class="n">ago</span>
+</span></span><span class="line"><span class="cl">     <span class="n">Docs</span><span class="p">:</span> <span class="n">man</span><span class="p">:</span><span class="n">firewalld</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="n">Main</span> <span class="n">PID</span><span class="p">:</span> <span class="mi">15841</span> <span class="p">(</span><span class="n">firewalld</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="n">CGroup</span><span class="p">:</span> <span class="o">/</span><span class="n">system</span><span class="o">.</span><span class="n">slice</span><span class="o">/</span><span class="n">firewalld</span><span class="o">.</span><span class="n">service</span>
+</span></span><span class="line"><span class="cl">           <span class="err">└─</span><span class="mi">15841</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">python2</span> <span class="o">-</span><span class="n">Es</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">sbin</span><span class="o">/</span><span class="n">firewalld</span> <span class="o">--</span><span class="n">nofork</span> <span class="o">--</span><span class="n">nopid</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>关闭防火墙</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl firewalld stop
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重启防火墙</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">systemctl firewalld restart
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><code>提示错误 FirewallD is not running</code></p>
+<blockquote>
+<p>没开防火墙，执行 systemctl start firewalld</p>
+</blockquote>
+<ul>
+<li>
+<p>查看防火墙规则</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">firewall-cmd --list-all #查看全部信息
+</span></span><span class="line"><span class="cl">firewall-cmd --list-ports #只查看端口信息
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>开启端口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">firewall-cmd --zone=public --add-port=80/tcp --permanent
+</span></span><span class="line"><span class="cl"># 参数含义
+</span></span><span class="line"><span class="cl">--zone #作用域
+</span></span><span class="line"><span class="cl">--add-port=80/tcp #添加端口。格式为端口/通信协议
+</span></span><span class="line"><span class="cl">--permanent #永久生效，没有此参数的话重启失效
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/mysql/">Mysql</a>
+        
+            <a href="/tags/linux/">Linux</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2024/mysql-blog-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/01ba415dc5087ea801209e1f1da151.jpg@3000w_1l_0o_100sh.jpg" loading="lazy" data-key="mysql-blog-3" data-hash="/cover/01ba415dc5087ea801209e1f1da151.jpg@3000w_1l_0o_100sh.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">mysql-blog-3mysql8.0</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2022/mysql02/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/1005sa133rcv63bao0472.jpg" loading="lazy" data-key="mysql02" data-hash="/cover/1005sa133rcv63bao0472.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">mysql-blog-2多实例安装mysql 5.6.50</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2022/mysql01/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/8599.jpg_wh860.jpg" loading="lazy" data-key="mysql01" data-hash="/cover/8599.jpg_wh860.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">mysql-blog-1数据库常见操作</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/hugo-blog-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/R.jpg" loading="lazy" data-key="hugo-blog-3" data-hash="/cover/R.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">hugo-blog-3hugo博客推送到服务器</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.17.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#11-相关命令">1.1 相关命令</a></li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

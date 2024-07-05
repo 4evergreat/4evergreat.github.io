@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Java on alwaysGreat&#39;s blog</title>
+        <link>http://localhost:1313/categories/java/</link>
+        <description>Recent content in Java on alwaysGreat&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright><atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java-blog-1JavaSE介绍与安装卸载</title>
+        <link>http://localhost:1313/1/ds-blog-1/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/1/ds-blog-1/</guid>
+        <description>&lt;img src="http://localhost:1313/cover/02Y2a12000ahjnt6k6E3F_R_1080_808_Q90.jpg" alt="Featured image of post Java-blog-1JavaSE介绍与安装卸载" /&gt;&lt;h3 id=&#34;1java三大版本&#34;&gt;1.Java三大版本
+&lt;/h3&gt;&lt;p&gt;javaSE: 标准版（桌面程序，控制台程序开发）&lt;/p&gt;
+&lt;p&gt;JavaME：精简版（嵌入式开发）&lt;/p&gt;
+&lt;p&gt;javaEE：企业级开发（web开发，服务器开发）&lt;/p&gt;
+&lt;h3 id=&#34;2jdkjrejvm&#34;&gt;2.JDK、JRE、JVM
+&lt;/h3&gt;&lt;p&gt;JDK: java development kit&lt;/p&gt;
+&lt;p&gt;JRE : java runtime envirnment&lt;/p&gt;
+&lt;p&gt;JVM : java virtual machine&lt;/p&gt;
+&lt;p&gt;其中 JDK包含了JRE与JVM。JRE包含了JVM。&lt;/p&gt;
+&lt;p&gt;安装了JRE后既可以运行java程序。JDK比JRE 多了一些开发工具，所以开发需要装JDK。&lt;/p&gt;
+&lt;p&gt;JDK包含的基本组件包括:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;javac – 编译器，将源程序转成字节码&lt;/li&gt;
+&lt;li&gt;javadoc – 文档生成器，从源码注释中提取文档&lt;/li&gt;
+&lt;li&gt;jdb – debugger，查错工具&lt;/li&gt;
+&lt;li&gt;jar – 打包工具，将相关的类文件打包成一个文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/resources/photo/JDK_JRE_JVM%e4%b9%8b%e9%97%b4%e7%9a%84%e5%85%b3%e7%b3%bb.jpg&#34; alt=&#34;三者的关系&#34;  /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3安装jdk&#34;&gt;3.安装JDK
+&lt;/h3&gt;&lt;h4 id=&#34;1如果openjdk输入-java--version显示的版本信息为&#34;&gt;1.如果Openjdk，输入 java -version显示的版本信息为
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[machao@dev ~]$ java -version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;openjdk version &amp;#34;1.8.0_144&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;OpenJDK Runtime Environment (build 1.8.0_144-b01)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;2如果是sunoraclejdk-输入的java--version-显示的版本信息为&#34;&gt;2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为
+&lt;/h4&gt;&lt;p&gt;注意：java  hotspot（TM） 64-BIT是说用的是64位的hotspot虚拟机  server 是说虚拟机运行在server模				 式下。 虚拟机有server 和client两种模式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C:\Windows\system32&amp;gt;java -version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;java version &amp;#34;1.8.0_391&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;3在命令窗口输入-java--verbose就可以查看安装路径&#34;&gt;3.在命令窗口输入 java -verbose，就可以查看安装路径
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;C:\Windows\system32&amp;gt;java -verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Opened C:\Program Files\Java\jre-1.8\lib\rt.jar]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Loaded java.lang.Object from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Loaded java.io.Serializable from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;有关详细信息, 请参阅 http://www.oracle.com/technetwork/java/javase/documentation/index.html。
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Loaded jdk.internal.misc.TerminatingThreadLocal$1 from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Loaded java.lang.Shutdown from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[Loaded java.lang.Shutdown$Lock from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;4-安装jdk&#34;&gt;4. 安装JDK
+&lt;/h4&gt;&lt;p&gt;建议下载JDK8, JDK11和JDK17, 其中企业运用JDK8比较多&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;下载安装包 &lt;a class=&#34;link&#34; href=&#34;https://www.oracle.com/java/technologies/downloads/#java8-windows&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;windows x86 JDK8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;添加环境变量 JAVA_HOME&lt;/li&gt;
+&lt;li&gt;添加path 变量
+&lt;ul&gt;
+&lt;li&gt;%JAVA_HOME%\bin  //%%是路径引用&lt;/li&gt;
+&lt;li&gt;%JAVA_HOME%\jre\bin&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;用java -version检验&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;5卸载jdk&#34;&gt;5.卸载JDK
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;删除Java的安装目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除JAVA_HOME&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;删除环境变量 PATH 下关于Java的目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用java -version检验&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

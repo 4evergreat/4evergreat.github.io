@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>生产工具的使用 on alwaysGreat&#39;s blog</title>
+        <link>https://4evergreat.github.io/categories/%E7%94%9F%E4%BA%A7%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+        <description>Recent content in 生产工具的使用 on alwaysGreat&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
+        <lastBuildDate>Fri, 22 Dec 2023 22:27:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/categories/%E7%94%9F%E4%BA%A7%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>IDEA-blog-1 IDEA常见的命令</title>
+        <link>https://4evergreat.github.io/2023/idea-blog-1/</link>
+        <pubDate>Fri, 22 Dec 2023 22:27:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/2023/idea-blog-1/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/01eb6558dc7021a801219c77252192.jpg@3000w_1l_0o_100sh.jpg" alt="Featured image of post IDEA-blog-1 IDEA常见的命令" /&gt;&lt;h3 id=&#34;常用快捷命令&#34;&gt;常用快捷命令：
+&lt;/h3&gt;&lt;h4 id=&#34;移动类&#34;&gt;移动类
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;Ctrl + D ： 复制当前行到下一行（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;li&gt;Ctrl + Y ： 删除当前行代码（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;li&gt;Ctrl + shift + ↑ ： 向上移动代码（把指定代码向上挪位置）（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;li&gt;Ctrl + shift +  ↓ ： 向下移动代码&lt;/li&gt;
+&lt;li&gt;Alt + shift + ↑ ： 向上移动一行 （*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;li&gt;Alt + shift +  ↓ ： 向下移动一行&lt;/li&gt;
+&lt;li&gt;shift + Enter : 切换到下一行代码空位（例如：从当前行任意位置跳转到并新建一行）&lt;/li&gt;
+&lt;li&gt;Ctrl + shift + Enter : 切换到上一行代码空位（例如：从当前行任意位置跳转并新建一行）&lt;/li&gt;
+&lt;li&gt;Ctrl + alt + L : 格式化代码，即自动调格式（如对齐操作）&lt;/li&gt;
+&lt;li&gt;alt + ← ： 切换到左侧文件窗口&lt;/li&gt;
+&lt;li&gt;alt + → ：切换到右侧文件窗口&lt;/li&gt;
+&lt;li&gt;Ctrl + alt + ← : 查看上一个超链接（有点像浏览器前进后退，常在溯源源码的时候使用）&lt;/li&gt;
+&lt;li&gt;Ctrl + alt + ← : 查看下一个超链接&lt;/li&gt;
+&lt;li&gt;Ctrl + g : 快速跳转到指定行的代码&lt;/li&gt;
+&lt;li&gt;home : 光标跳转到当前行行首&lt;/li&gt;
+&lt;li&gt;end ： 光标跳转到当前行行末&lt;/li&gt;
+&lt;li&gt;tap : 把选中区域的代码向右移&lt;/li&gt;
+&lt;li&gt;shift + tap : 把选中区域的代码向左移&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;文件操作类&#34;&gt;文件操作类
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;shift + F6 : （批量）文件快速重命名（*&lt;em&gt;重点&lt;/em&gt; **）（*&lt;em&gt;重点&lt;/em&gt; **）
+&lt;ul&gt;
+&lt;li&gt;shift + F6 还可以修改代码中指定的变量名、方法名、类名等。例如整体修改某个变量的名字（像查找全替换）（*&lt;em&gt;重点&lt;/em&gt; **）（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Ctrl  + h : 查看类的继承关系&lt;/li&gt;
+&lt;li&gt;Ctrl + alt + m : 抽取代码重构方法  (抽取指定代码进行封装） （*&lt;em&gt;重点&lt;/em&gt; **）（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;li&gt;Ctrl + q : 查看方法文档&lt;/li&gt;
+&lt;li&gt;Ctrl + alt + u : 查看类的UML关系图&lt;/li&gt;
+&lt;li&gt;Ctrl+N，可以快速打开类，可用于查找源码&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;快捷注释类重点&#34;&gt;快捷注释类（重点*）
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + /  :  单行注释与取消&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + shift + / :  多行注释与取消&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;/** + enter ： 方法或者类的说明注释， 自动根据参数和返回值生成注释&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;快捷生成类&#34;&gt;快捷生成类
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;ctrl + alt + t : 给选中区域套一层结构（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://4evergreat.github.io/resources/photo/ctrl_alt_t%E5%BF%AB%E6%8D%B7%E9%94%AE.jpg&#34; alt=&#34;ctrl_alt_t快捷键&#34;  /&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;alt + insert :  快速生成get、set、构造器等（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://4evergreat.github.io/.%5cresources%5cphoto%5calt_insert%e5%bf%ab%e6%8d%b7%e9%94%ae.jpg&#34; alt=&#34;altinsert快捷键&#34;  /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;alt + Enter ： 智能提示 （*&lt;em&gt;重点&lt;/em&gt; **）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + alt + v : 自动生成返回值变量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + p : 方法形参列表提醒&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;number.for+ enter: 快速创建for 循环，循环次数为number （*&lt;em&gt;重点&lt;/em&gt; **）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 100.for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;100&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;sout（小写）+ enter : 快速编写 （*&lt;em&gt;重点&lt;/em&gt; **）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;System&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;out&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;psvm（小写）+ enter : 快速编写&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;   
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + O :  重写父类方法（有点像alt + insert 专用化的衍生品）（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + i : 实现接口方法（*&lt;em&gt;重点&lt;/em&gt; **）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ctrl + shift + U ： 选中区域大小写转换&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;以下为未验证的复制黏贴&#34;&gt;以下为未验证的复制黏贴：
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;Ctrl+Shift + Enter，语句完成&lt;/li&gt;
+&lt;li&gt;“！”，否定完成，输入表达式时按 “！”键&lt;/li&gt;
+&lt;li&gt;Ctrl+E，最近的文件&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+E，最近更改的文件&lt;/li&gt;
+&lt;li&gt;Shift+Click，可以关闭文件&lt;/li&gt;
+&lt;li&gt;Ctrl+[ OR ]，可以跑到大括号的开头与结尾&lt;/li&gt;
+&lt;li&gt;Ctrl+F12，可以显示当前文件的结构&lt;/li&gt;
+&lt;li&gt;Ctrl+F7，可以查询当前元素在当前文件中的引用，然后按 F3 可以选择&lt;/li&gt;
+&lt;li&gt;Ctrl+N，可以快速打开类&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+N，可以快速打开文件&lt;/li&gt;
+&lt;li&gt;Alt+Q，可以看到当前方法的声明&lt;/li&gt;
+&lt;li&gt;Ctrl+P，可以显示参数信息&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+Insert，可以选择剪贴板内容并插入&lt;/li&gt;
+&lt;li&gt;Alt+Insert，可以生成构造器/Getter/Setter等&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+V，可以引入变量。例如：new String(); 自动导入变量定义&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+T，可以把代码包在一个块内，例如：try/catch&lt;/li&gt;
+&lt;li&gt;Ctrl+Enter，导入包，自动修正&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+L，格式化代码&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+I，将选中的代码进行自动缩进编排，这个功能在编辑 JSP 文件时也可以工作&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+O，优化导入的类和包&lt;/li&gt;
+&lt;li&gt;Ctrl+R，替换文本&lt;/li&gt;
+&lt;li&gt;Ctrl+F，查找文本&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+Space，自动补全代码&lt;/li&gt;
+&lt;li&gt;Ctrl+空格，代码提示（与系统输入法快捷键冲突）&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+Alt+N，查找类中的方法或变量&lt;/li&gt;
+&lt;li&gt;Alt+Shift+C，最近的更改&lt;/li&gt;
+&lt;li&gt;Alt+Shift+Up/Down，上/下移一行&lt;/li&gt;
+&lt;li&gt;Shift+F6，重构 - 重命名&lt;/li&gt;
+&lt;li&gt;Ctrl+X，删除行&lt;/li&gt;
+&lt;li&gt;Ctrl+D，复制行&lt;/li&gt;
+&lt;li&gt;Ctrl+/或Ctrl+Shift+/，注释（//或者/**/）&lt;/li&gt;
+&lt;li&gt;Ctrl+J，自动代码（例如：serr）&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+J，用动态模板环绕&lt;/li&gt;
+&lt;li&gt;Ctrl+H，显示类结构图（类的继承层次）&lt;/li&gt;
+&lt;li&gt;Ctrl+Q，显示注释文档&lt;/li&gt;
+&lt;li&gt;Alt+F1，查找代码所在位置&lt;/li&gt;
+&lt;li&gt;Alt+1，快速打开或隐藏工程面板&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+left/right，返回至上次浏览的位置&lt;/li&gt;
+&lt;li&gt;Alt+left/right，切换代码视图&lt;/li&gt;
+&lt;li&gt;Alt+Up/Down，在方法间快速移动定位&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+Up/Down，向上/下移动语句&lt;/li&gt;
+&lt;li&gt;F2 或 Shift+F2，高亮错误或警告快速定位&lt;/li&gt;
+&lt;li&gt;Tab，代码标签输入完成后，按 Tab，生成代码&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+F7，高亮显示所有该文本，按 Esc 高亮消失&lt;/li&gt;
+&lt;li&gt;Alt+F3，逐个往下查找相同文本，并高亮显示&lt;/li&gt;
+&lt;li&gt;Ctrl+Up/Down，光标中转到第一行或最后一行下&lt;/li&gt;
+&lt;li&gt;Ctrl+B/Ctrl+Click，快速打开光标处的类或方法（跳转到定义处）&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+B，跳转到方法实现处&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+Backspace，跳转到上次编辑的地方&lt;/li&gt;
+&lt;li&gt;Ctrl+O，重写方法&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+Space，类名自动完成&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+Up/Down，快速跳转搜索结果&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+J，整合两行&lt;/li&gt;
+&lt;li&gt;Alt+F8，计算变量值&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+V，可以将最近使用的剪贴板内容选择插入到文本&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+Shift+V，简单粘贴&lt;/li&gt;
+&lt;li&gt;Shift+Esc，不仅可以把焦点移到编辑器上，而且还可以隐藏当前（或最后活动的）工具窗口&lt;/li&gt;
+&lt;li&gt;F12，把焦点从编辑器移到最近使用的工具窗口&lt;/li&gt;
+&lt;li&gt;Shift+F1，要打开编辑器光标字符处使用的类或者方法 Java 文档的浏览器&lt;/li&gt;
+&lt;li&gt;Ctrl+W，可以选择单词继而语句继而行继而函数&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+W，取消选择光标所在词&lt;/li&gt;
+&lt;li&gt;Alt+F7，查找整个工程中使用地某一个类、方法或者变量的位置&lt;/li&gt;
+&lt;li&gt;Ctrl+I，实现方法&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+U，大小写转化&lt;/li&gt;
+&lt;li&gt;Ctrl+Y，删除当前行&lt;/li&gt;
+&lt;li&gt;Shift+Enter，向下插入新行&lt;/li&gt;
+&lt;li&gt;psvm/sout，main/System.out.println(); Ctrl+J，查看更多&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+F，全局查找&lt;/li&gt;
+&lt;li&gt;Ctrl+F，查找/Shift+F3，向上查找/F3，向下查找&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+S，高级搜索&lt;/li&gt;
+&lt;li&gt;Ctrl+U，转到父类&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+S，打开设置对话框&lt;/li&gt;
+&lt;li&gt;Alt+Shift+Inert，开启/关闭列选择模式&lt;/li&gt;
+&lt;li&gt;Ctrl+Alt+Shift+S，打开当前项目/模块属性&lt;/li&gt;
+&lt;li&gt;Ctrl+G，定位行&lt;/li&gt;
+&lt;li&gt;Alt+Home，跳转到导航栏&lt;/li&gt;
+&lt;li&gt;Ctrl+Enter，上插一行&lt;/li&gt;
+&lt;li&gt;Ctrl+Backspace，按单词删除&lt;/li&gt;
+&lt;li&gt;Ctrl+&amp;quot;+/-&amp;quot;，当前方法展开、折叠&lt;/li&gt;
+&lt;li&gt;Ctrl+Shift+&amp;quot;+/-&amp;quot;，全部展开、折叠&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
+        <title>typora-blog-1typora基本语法</title>
+        <link>https://4evergreat.github.io/2023/typora-blog-1/</link>
+        <pubDate>Fri, 24 Nov 2023 22:27:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/2023/typora-blog-1/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/01a3015d9a83a2a801211d537434e4.jpg@2o.jpg" alt="Featured image of post typora-blog-1typora基本语法" /&gt;&lt;h2 id=&#34;typora基本语法&#34;&gt;typora基本语法
+&lt;/h2&gt;&lt;h3 id=&#34;1层级标题&#34;&gt;1.层级标题：
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;格式：# + space + 自定义字符
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;​		其中#号的数量代表了标题的层级，单个#为最大的标题。“#” 号与自定义标题字符之间有个空格！！&lt;/p&gt;
+&lt;p&gt;效果演示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;#### 我是标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gu&#34;&gt;##### 我是小一级的标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h4 id=&#34;我是标题&#34;&gt;我是标题
+&lt;/h4&gt;&lt;h5 id=&#34;我是小一级的标题&#34;&gt;我是小一级的标题
+&lt;/h5&gt;&lt;h3 id=&#34;2字体&#34;&gt;2.字体
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;粗体格式： ** + 字体 + **
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;斜体格式： * + 字体 + *
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;中间删除线格式： ~~ + 字体+ ~~
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果演示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;**我是一段粗体文字**
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;ge&#34;&gt;*我是一段斜体文字*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;gd&#34;&gt;~~我是一段带删除线的文字~~&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;我是一段粗体文字&lt;/strong&gt; &lt;em&gt;我是一段斜体文字&lt;/em&gt;  &lt;del&gt;我是一段带删除线的文字&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3引用&#34;&gt;3.引用
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;引用格式： &amp;gt; + 段落
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;效果演示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;gt; 这是一个用于显示引用效果的句子
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;这是一个用于显示引用效果的句子&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;4分割线&#34;&gt;4.分割线
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;分割线格式1： ---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;分割线格式2： &lt;span class=&#34;ge&#34;&gt;**&lt;/span&gt;*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;演示效果：&lt;/p&gt;
+&lt;hr&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;5插入图片&#34;&gt;5.插入图片
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;插入图片的格式： ![&lt;span class=&#34;nt&#34;&gt;图片名称&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;图片路径&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;图片路径可以是本地路径，也可以是图片的网络链接。图片名称为自定义的新标签，可以与路径中图片的名字不一样。&lt;/p&gt;
+&lt;p&gt;演示效果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;![&lt;span class=&#34;nt&#34;&gt;蜡笔小新&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201905%2F29%2F20190529213011_dttcv.thumb.400_0.jpeg&amp;amp;refer=http%3A%2F%2Fb-ssl.duitang.com&amp;amp;app=2002&amp;amp;size=f9999,10000&amp;amp;q=a80&amp;amp;n=0&amp;amp;g=0n&amp;amp;fmt=auto?sec=1703259985&amp;amp;t=acb8150462356310d36fde4ad513218c&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201905%2F29%2F20190529213011_dttcv.thumb.400_0.jpeg&amp;amp;refer=http%3A%2F%2Fb-ssl.duitang.com&amp;amp;app=2002&amp;amp;size=f9999,10000&amp;amp;q=a80&amp;amp;n=0&amp;amp;g=0n&amp;amp;fmt=auto?sec=1703259985&amp;amp;t=acb8150462356310d36fde4ad513218c&#34; alt=&#34;蜡笔小新&#34;  /&gt;&lt;/p&gt;
+&lt;p&gt;本地图片加载出问题的解决方案：&lt;/p&gt;
+&lt;p&gt;​	1.文件=&amp;gt;偏好设置 =&amp;gt; 图像 勾选优先使用相对路径&lt;/p&gt;
+&lt;p&gt;​	2.检测文件图片是否放到了压缩包里面&lt;/p&gt;
+&lt;p&gt;网络图片加载出问题的解决方案：&lt;/p&gt;
+&lt;p&gt;​	暂时没找到解决方案。可能是图片源丢失，建议把图片转存到自己的服务器或者本地。&lt;/p&gt;
+&lt;h3 id=&#34;6超链接&#34;&gt;6.超链接
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;超链接格式： [&lt;span class=&#34;nt&#34;&gt;超链接名字&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;链接地址&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;演示效果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[&lt;span class=&#34;nt&#34;&gt;我的博客&lt;/span&gt;](&lt;span class=&#34;na&#34;&gt;https://www.cnblogs.com/wendao101&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.cnblogs.com/wendao101&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;我的博客&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Typora 点击超链接后会展出链接名字，但没有跳转网页，这是该软件不支持。&lt;/p&gt;
+&lt;h3 id=&#34;7列表&#34;&gt;7.列表
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;有序列表 无标准格式 enter 后会自动按格式排列
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;像word 一样, 按ENTER 后序号自动补全，删除中间的部分，序号自动变化&lt;/p&gt;
+&lt;p&gt;演示效果&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;有序列表示例
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;1.&lt;/span&gt; A + ENTER
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;2.&lt;/span&gt; B + ENTER
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;无序列表示例
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; space A
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; space B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; space
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;A&lt;/li&gt;
+&lt;li&gt;B&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;A&lt;/li&gt;
+&lt;li&gt;B&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;8表格&#34;&gt;8.表格
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;表格格式：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		| 属性1 | 属性2 | 属性3|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	    | -- | —— | -- |          //中间的横线
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		| 值1 | 值2 | 值3 |
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;竖线代表列 ，&amp;ndash; 代表横 ，两者需要对其， 而且整个表格的命令代码需要放在同一个代码块内才会自动识别成一个表格。&lt;/p&gt;
+&lt;p&gt;效果演示：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		| 姓名 | 性别 | 民族|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	    | -- | —— | -- |          
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		| 问稻 | 男 | 汉 |
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;姓名&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;性别&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;民族&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;问稻&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;男&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;汉&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;遇到的问题：&lt;/p&gt;
+&lt;p&gt;​	直接用源代码编写，typora 容易出现不对齐、不编译、多个表格等问题，建议直接用右键创建表格，用		   法与在word中插入表格类似。&lt;/p&gt;
+&lt;h3 id=&#34;9代码块&#34;&gt;9.代码块
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;代码块调用格式: ``` + 语言名称 其中`是TAB上方那个键
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;演示效果：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;iostream&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;viod&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello Word!&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
+        <title>win-blog-1常见的Terminal命令</title>
+        <link>https://4evergreat.github.io/2023/win-blog-1/</link>
+        <pubDate>Fri, 24 Nov 2023 22:27:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/2023/win-blog-1/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/01cf6858635528a8012060c8b33f77.jpg@2o.jpg" alt="Featured image of post win-blog-1常见的Terminal命令" /&gt;&lt;h3 id=&#34;常见的terminal命令&#34;&gt;常见的Terminal命令：
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;50
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 盘符切换： 直接输入盘符，不区分大小写
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	直接输入 E: 等
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 查看当前目录下的所有文件：dir
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 切换目录： cd newdirectory 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				只返回目标路径但不会跳转
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		   cd \d newdirectory 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		  		跨盘符切换的话要加\d参数后才会切换到目标路径，
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		  		Linux 用 cd [路径] 即可切换到目标路径
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		   cd .. 切换到上一级目录
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		   cd ./ 切换代当前目录（原地）
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	cd \d C:\Windows\System32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 查看当前路径内的所有文件： dir
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Linux是ls ： 只写ls，默认查看当前工作目录的所有文件夹(不含隐藏文件夹),也可加以下一个或多个参数：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		-a，即-all，所有的意思，表示查看当前目录所有文件夹(包含隐藏的文件夹)，这些隐藏文件夹主要是以 				. 开头的文件夹和默认隐藏的文件夹
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		-l 表示以竖向形式展示内容，并展示更多的信息
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		-h，是展示出所有文件的大小，如KB，MB，GB，如果不展示则为Byte
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 査看当前所在目录的命令: pwd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 清理屏幕： c1s  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	clear screen的缩写
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 退出终端： exit
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 查看电脑的ip：ipconfig
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 		如果没识别，需要添加PATH C:\Windows\System32
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 		
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 打开常见的应用：
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	calc ：计算器
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	mspaint ： 画图软件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	notepad ： notepad记事本
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; 	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# ping 命令
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	ping www.baidu .com
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 文件操作
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	md [目录名] ： 当前路径下创建目标文件夹; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				  Linux是mkdir [文件夹]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    rd [目录名] ： 移除当前路径下的目标文件夹，直接使用 rd 只能删除空目录，如果要删除的目录有子目录或					文件，就必须使用 /s 选项	
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    			  Linux是rm -r [文件夹], 其中 -r：递归删除目录及其子目录下的所有文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    cd&amp;gt;[文件名] ： 在当前路径下创建目标文件; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    			  Linux是touch [文件名]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    			  或者 vim [文件名]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    del [文件名] ：在当前路径下删除目标文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    			  Linux是rm -f [文件名], 其中 -f：强制删除文件，不提示确认信息
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        
+    </channel>
+</rss>
