@@ -6,12 +6,13 @@
         <description>Recent content in 数据结构与算法 on alwaysGreat&#39;s blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright><atom:link href="https://4evergreat.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
+        <lastBuildDate>Sat, 02 Mar 2024 22:27:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>DS-blog-1 红黑树</title>
-        <link>https://4evergreat.github.io/1/ds-blog-1/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        <link>https://4evergreat.github.io/2024/ds-blog-1/</link>
+        <pubDate>Sat, 02 Mar 2024 22:27:20 +0800</pubDate>
         
-        <guid>https://4evergreat.github.io/1/ds-blog-1/</guid>
+        <guid>https://4evergreat.github.io/2024/ds-blog-1/</guid>
         <description>&lt;img src="https://4evergreat.github.io/cover/02Y2a12000ahjnt6k6E3F_R_1080_808_Q90.jpg" alt="Featured image of post DS-blog-1 红黑树" /&gt;&lt;p&gt;bbs:&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/Vicky_Cr/article/details/105460774&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;红黑树旋转详解&lt;/a&gt;&lt;/p&gt;

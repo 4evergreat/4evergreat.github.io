@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='JavaSE介绍与安装卸载'><title>Java-blog-1JavaSE介绍与安装卸载</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2023/java-blog-1/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='Java-blog-1JavaSE介绍与安装卸载'>
+<meta property='og:description' content='JavaSE介绍与安装卸载'>
+<meta property='og:url' content='https://4evergreat.github.io/2023/java-blog-1/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaSE' /><meta property='article:published_time' content='2023-11-26T22:27:20&#43;08:00'/><meta property='article:modified_time' content='2023-11-26T22:27:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/5a65990461edd3b5.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="Java-blog-1JavaSE介绍与安装卸载">
+<meta name="twitter:description" content="JavaSE介绍与安装卸载"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/5a65990461edd3b5.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    on-phone--column extended
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2023/java-blog-1/">
+                
+                    <img src="/cover/5a65990461edd3b5.jpg" loading="lazy" alt="Featured image of post Java-blog-1JavaSE介绍与安装卸载" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                java学习笔记
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2023/java-blog-1/">Java-blog-1JavaSE介绍与安装卸载</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            JavaSE介绍与安装卸载
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">11月26日, 2023年</time>
+
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 2 分钟 #
+                    共754 字
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/javase/">JavaSE</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h3 id="1java三大版本">1.Java三大版本
+</h3><p>javaSE: 标准版（桌面程序，控制台程序开发）</p>
+<p>JavaME：精简版（嵌入式开发）</p>
+<p>javaEE：企业级开发（web开发，服务器开发）</p>
+<h3 id="2jdkjrejvm">2.JDK、JRE、JVM
+</h3><p>JDK: java development kit</p>
+<p>JRE : java runtime envirnment</p>
+<p>JVM : java virtual machine</p>
+<p>其中 JDK包含了JRE与JVM。JRE包含了JVM。</p>
+<p>安装了JRE后既可以运行java程序。JDK比JRE 多了一些开发工具，所以开发需要装JDK。</p>
+<p>JDK包含的基本组件包括:</p>
+<ul>
+<li>javac – 编译器，将源程序转成字节码</li>
+<li>javadoc – 文档生成器，从源码注释中提取文档</li>
+<li>jdb – debugger，查错工具</li>
+<li>jar – 打包工具，将相关的类文件打包成一个文件</li>
+</ul>
+<p><img src="/resources/photo/JDK_JRE_JVM%e4%b9%8b%e9%97%b4%e7%9a%84%e5%85%b3%e7%b3%bb.jpg" alt="三者的关系"  /></p>
+<h3 id="3安装jdk">3.安装JDK
+</h3><h4 id="1如果openjdk输入-java--version显示的版本信息为">1.如果Openjdk，输入 java -version显示的版本信息为
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[machao@dev ~]$ java -version
+</span></span><span class="line"><span class="cl">openjdk version &#34;1.8.0_144&#34;
+</span></span><span class="line"><span class="cl">OpenJDK Runtime Environment (build 1.8.0_144-b01)
+</span></span><span class="line"><span class="cl">OpenJDK 64-Bit Server VM (build 25.144-b01, mixed mode)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2如果是sunoraclejdk-输入的java--version-显示的版本信息为">2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为
+</h4><p>注意：java  hotspot（TM） 64-BIT是说用的是64位的hotspot虚拟机  server 是说虚拟机运行在server模				 式下。 虚拟机有server 和client两种模式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\Windows\system32&gt;java -version
+</span></span><span class="line"><span class="cl">java version &#34;1.8.0_391&#34;
+</span></span><span class="line"><span class="cl">Java(TM) SE Runtime Environment (build 1.8.0_391-b13)
+</span></span><span class="line"><span class="cl">Java HotSpot(TM) 64-Bit Server VM (build 25.391-b13, mixed mode)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3在命令窗口输入-java--verbose就可以查看安装路径">3.在命令窗口输入 java -verbose，就可以查看安装路径
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">C:\Windows\system32&gt;java -verbose
+</span></span><span class="line"><span class="cl">[Opened C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.lang.Object from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.io.Serializable from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">有关详细信息, 请参阅 http://www.oracle.com/technetwork/java/javase/documentation/index.html。
+</span></span><span class="line"><span class="cl">[Loaded jdk.internal.misc.TerminatingThreadLocal$1 from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.lang.Shutdown from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span><span class="line"><span class="cl">[Loaded java.lang.Shutdown$Lock from C:\Program Files\Java\jre-1.8\lib\rt.jar]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="4-安装jdk">4. 安装JDK
+</h4><p>建议下载JDK8, JDK11和JDK17, 其中企业运用JDK8比较多</p>
+<ol>
+<li>下载安装包 <a class="link" href="https://www.oracle.com/java/technologies/downloads/#java8-windows"  target="_blank" rel="noopener"
+    >windows x86 JDK8</a></li>
+<li>添加环境变量 JAVA_HOME</li>
+<li>添加path 变量
+<ul>
+<li>%JAVA_HOME%\bin  //%%是路径引用</li>
+<li>%JAVA_HOME%\jre\bin</li>
+</ul>
+</li>
+<li>用java -version检验</li>
+</ol>
+<h4 id="5卸载jdk">5.卸载JDK
+</h4><ol>
+<li>
+<p>删除Java的安装目录</p>
+</li>
+<li>
+<p>删除JAVA_HOME</p>
+</li>
+<li>
+<p>删除环境变量 PATH 下关于Java的目录</p>
+</li>
+<li>
+<p>用java -version检验</p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/javase/">JavaSE</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+    <div class="custom-comment-container">  
+        <h4>留言 Comments:</h4><div id="cusdis_thread"  
+            data-host="https://cusdis.com"  
+            data-app-id="aab5b4aa-b493-49d0-9b43-58944a947665"  
+            data-page-id="e2d5dd956c4dee3e9bbd126a5c1ae8e6"  
+            data-page-url="https://4evergreat.github.io/2023/java-blog-1/"  
+            data-page-title="Java-blog-1JavaSE介绍与安装卸载"></div>  
+      
+        <style>  
+            .custom-comment-container {  
+                   
+                padding: 20px;    
+                border: 15px solid rgba(140, 141, 122, 0.623);    
+                background-color: #f9f9f9;    
+                margin-top: 20px;  
+            }  
+        </style>  
+      <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+      <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    </div>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2023/java-blog-2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/41F215B9.jpg" loading="lazy" data-key="Java-blog-2" data-hash="/cover/41F215B9.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-2用javac和java命令输出HelloWord</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2023/java-blog-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/85b4b7adc8a3227a66565b22bf63231c.jpg" loading="lazy" data-key="Java-blog-3" data-hash="/cover/85b4b7adc8a3227a66565b22bf63231c.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-305java注释、基本数据类型、类型转换、变量、命名规则和关键字</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <p>已经写了 55 篇文章，共 239850 字。</p>
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1java三大版本">1.Java三大版本</a></li>
+        <li><a href="#2jdkjrejvm">2.JDK、JRE、JVM</a></li>
+        <li><a href="#3安装jdk">3.安装JDK</a>
+          <ol>
+            <li><a href="#1如果openjdk输入-java--version显示的版本信息为">1.如果Openjdk，输入 java -version显示的版本信息为</a></li>
+            <li><a href="#2如果是sunoraclejdk-输入的java--version-显示的版本信息为">2.如果是Sun/Oraclejdk ,输入的java -version 显示的版本信息为</a></li>
+            <li><a href="#3在命令窗口输入-java--verbose就可以查看安装路径">3.在命令窗口输入 java -verbose，就可以查看安装路径</a></li>
+            <li><a href="#4-安装jdk">4. 安装JDK</a></li>
+            <li><a href="#5卸载jdk">5.卸载JDK</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

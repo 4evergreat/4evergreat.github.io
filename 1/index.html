@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 包机制 1.1 语法格式 package pkg1[.pkg2[.pkg3&amp;hellip;]]; 注意： ​ 此句必须放在文件最开始位置 1.2 提倡的命名格式 一般利用公司的域名倒置作为包名 如 www.baidu.com 其包名就推荐命名为 com.baidu.www 1.3 引用包 import package pkg1[.pkg2[.pkg3&amp;hellip;]].(classname|*);'><title></title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 *'><title></title>
 
 <link rel='canonical' href='https://4evergreat.github.io/1/'>
 
 <link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content=''>
-<meta property='og:description' content='1. 包机制 1.1 语法格式 package pkg1[.pkg2[.pkg3&amp;hellip;]]; 注意： ​ 此句必须放在文件最开始位置 1.2 提倡的命名格式 一般利用公司的域名倒置作为包名 如 www.baidu.com 其包名就推荐命名为 com.baidu.www 1.3 引用包 import package pkg1[.pkg2[.pkg3&amp;hellip;]].(classname|*);'>
+<meta property='og:description' content='1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 *'>
 <meta property='og:url' content='https://4evergreat.github.io/1/'>
 <meta property='og:site_name' content='alwaysGreat&#39;s blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' />
 <meta name="twitter:site" content="@mountains">
     <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="">
-<meta name="twitter:description" content="1. 包机制 1.1 语法格式 package pkg1[.pkg2[.pkg3&amp;hellip;]]; 注意： ​ 此句必须放在文件最开始位置 1.2 提倡的命名格式 一般利用公司的域名倒置作为包名 如 www.baidu.com 其包名就推荐命名为 com.baidu.www 1.3 引用包 import package pkg1[.pkg2[.pkg3&amp;hellip;]].(classname|*);">
+<meta name="twitter:description" content="1. 位运算 1 2 3 4 5 6 7 8 9 10 11 12 /* A = 0011 1100; * B = 0000 1101; * ---------------------------------- * 与： * A&amp;amp;B = 0000 1100;//都为1的才是1 * 或： * A|B = 0011 1101;//有1的就是1 *">
     <link rel="shortcut icon" href="/logo/image8.png" />
 
   
@@ -70,7 +70,7 @@
     
         extended
     
-    <!-- on-phone--column extended -->
+    on-phone--column extended
 ">
     
         <div id="article-toolbar">
@@ -120,11 +120,14 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 3 分钟
+                    阅读时长: 3 分钟 #
+                    共1125 字
                 </time>
             </div>
         
     </footer>
+    
+
     
 
     
@@ -1202,6 +1205,28 @@
         });})
 </script>
     
+    <div class="custom-comment-container">  
+        <h4>留言 Comments:</h4><div id="cusdis_thread"  
+            data-host="https://cusdis.com"  
+            data-app-id="aab5b4aa-b493-49d0-9b43-58944a947665"  
+            data-page-id="98b080a64daa651533f5972c7e51bfbf"  
+            data-page-url="https://4evergreat.github.io/1/"  
+            data-page-title=""></div>  
+      
+        <style>  
+            .custom-comment-container {  
+                   
+                padding: 20px;    
+                border: 15px solid rgba(140, 141, 122, 0.623);    
+                background-color: #f9f9f9;    
+                margin-top: 20px;  
+            }  
+        </style>  
+      <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+      <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    </div>
+
+    
 </article>
 
     <aside class="related-contents--wrapper">
@@ -1212,139 +1237,42 @@
      
      
         
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
-<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
-<div id="waline" class="waline-container">评论系统正在整合中，请静候上线！！</div>
-<style>
-    .waline-container {
-        background-color: var(--card-background);
-        border-radius: var(--card-border-radius);
-        box-shadow: var(--shadow-l1);
-        padding: var(--card-padding);
-        --waline-font-size: var(--article-font-size);
+    <h4>留言 Comments:</h4><div id="cusdis_thread"
+    data-host="https://cusdis.com"
+    data-app-id="aab5b4aa-b493-49d0-9b43-58944a947665"
+    data-page-id="98b080a64daa651533f5972c7e51bfbf"
+    data-page-url="https://4evergreat.github.io/1/"
+    data-page-title=""></div>
+
+<script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+<script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+
+<script>
+    window.CUSDIS_LOCALE = {
+      "powered_by": "评论由 Cusdis 提供",
+      "post_comment": "发送",
+      "loading": "加载中",
+      "email": "邮箱地址 (可选)",
+      "nickname": "昵称",
+      "reply_placeholder": "回复内容...",
+      "reply_btn": "回复",
+      "sending": "发送中...",
+      "mod_badge": "管理员",
+      "content_is_required": "内容不能为空",
+      "nickname_is_required": "昵称不能为空",
+      "comment_has_been_sent": "评论已发送，管理员审核通过后会展示"
     }
-    .waline-container .wl-count {
-        color: var(--card-text-color-main);
+    function setCusdisTheme(theme) {
+        let cusdis = document.querySelector('#cusdis_thread iframe');
+        if (cusdis) {
+            window.CUSDIS.setTheme(theme)
+        }
     }
 
+    window.addEventListener('onColorSchemeChange', (e) => {
+        setCusdisTheme(e.detail)
+    })
 
-     
-    :root{
-        --waline-theme-color: #34495e;  
-        --waline-active-color: #bababa;  
-        --waline-badge-color: #34495e;  
-        --waline-avatar-size: 5rem;
-        --waline-dark-grey: #34495e;  
-    }
-
-     
-    :root[data-scheme="dark"] {
-        --waline-theme-color: #acc6e0;
-        --waline-white: #34495e;  
-        --waline-active-color: #8ab1d8;
-        --waline-light-grey: #666;
-        --waline-dark-grey: #acc6e0;  
-        --waline-badge-color: #acc6e0;
-
-         
-        --waline-text-color: rgba(255, 255, 255, 0.7);
-        --waline-bgcolor: #515151;
-        --waline-bgcolor-light: #66696b; 
-        --waline-border-color: #9B9C9C;
-        --waline-disable-bgcolor: #444;
-        --waline-disable-color: #272727;
-
-         
-        --waline-bq-color:  #9B9C9C;  
-
-         
-        --waline-info-bgcolor: #acc6e0;
-        --waline-info-color: #9B9C9C;
-    }
-    .waline-container[data-v-app] .wl-content .wl-emoji {
-        width:3.7em;  
-        height: 3.7em;
-
-    }
-</style><script>
-    
-    Waline.init({"dark":"auto","el":"#waline","emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://cdn.jsdelivr.net/gh/walinejs/emojis/bilibili@1.0.6"],"locale":{"admin":"博主","placeholder":"有什么新点子？（上方留下邮箱可以收到通知哦）"},"pageview":true,"requiredMeta":["name","email","url"],"visitor":true});
 </script>
 
     
@@ -1354,6 +1282,14 @@
   
 
   
+  
+      
+  
+      
+  
+      
+  
+      
   
       
   
@@ -1469,6 +1405,177 @@
         
             2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
         
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <p>已经写了 55 篇文章，共 239850 字。</p>
     </section>
 
 
