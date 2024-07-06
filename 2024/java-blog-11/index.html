@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Javase继承知识点综合'><title>Java-blog-11继承知识点综合</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2024/java-blog-11/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='Java-blog-11继承知识点综合'>
+<meta property='og:description' content='Javase继承知识点综合'>
+<meta property='og:url' content='https://4evergreat.github.io/2024/java-blog-11/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaSE' /><meta property='article:published_time' content='2024-01-03T22:30:20&#43;08:00'/><meta property='article:modified_time' content='2024-01-03T22:30:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/2022091601381437.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="Java-blog-11继承知识点综合">
+<meta name="twitter:description" content="Javase继承知识点综合"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/2022091601381437.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    on-phone--column extended
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2024/java-blog-11/">
+                
+                    <img src="/cover/2022091601381437.jpg" loading="lazy" alt="Featured image of post Java-blog-11继承知识点综合" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                java学习笔记
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2024/java-blog-11/">Java-blog-11继承知识点综合</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Javase继承知识点综合
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">01月03日, 2024年</time>
+
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟 #
+                    共1556 字
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/javase/">JavaSE</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h3 id="1继承">1.继承
+</h3><ul>
+<li>java 只有单继承  关键字：extends</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">A</span><span class="p">{}</span><span class="c1">//父类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">B</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="kd">class</span> <span class="nc">A</span><span class="p">{}</span><span class="c1">//子类B继承了A类</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2继承权限">2.继承权限
+</h3><ul>
+<li>
+<p>相较于C++ 的public，protected, private，java对不写继承的default的定义不一样：</p>
+<ul>
+<li>c++ default =  private</li>
+<li>Java不写则默认是 default，是一个新的权限， 所以 Java 有四种 public，protected, private，default。</li>
+</ul>
+</li>
+<li>
+<p>default ：包访问权限
+默认访问权限没有关键字，通常被称为包访问权限 (packageaccess) (有时也称为friendly)。</p>
+<ul>
+<li>这意味着当前包中的所有其他类都可以访问那个成员。对于这个包之外的类，这个成员看上去是private 的。</li>
+<li>由于一个编译单元(即一个文件)只能隶属于一个包，所以通过包访问权限，位于同一编译单元中的所有类彼此之间都是可访问的。包访问权限可以把相关类聚到一个包下，以便它们能轻易地相互访问。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3访问调用逻辑">3.访问调用逻辑
+</h3><ul>
+<li>
+<p>子类获取到了父类声明中的全部属性与方法（构造器除外，构造器只能被子类调用）。但是受到封装性的影响，可能不能直接调用。</p>
+</li>
+<li>
+<p>在子类方法中访问一个变量或者方法：最先在子类局部范围找，如果没有就在子类成员范围找，最后在父类成员范围找，<del>如果都没有就报错(不考虑父亲的父亲之类的祖先)</del></p>
+</li>
+<li>
+<p><code>勘误</code>：上面这条查找关系的逻辑错误，正确情况是：子类中如果没找到，会去父类中查找，如果还是没有会一直查到 Object 类为止，还是没有才会报错。如果其中有祖先有定义了待查的变量或者方法，但是没给访问权限，会停止溯源直接报错。</p>
+<ul>
+<li>
+<p>其实很好理解，因为子类继承了父类的信息，所以子孙也拥有祖先的信息才对，可以套娃式地溯源是理所应当的</p>
+</li>
+<li>
+<p>理解是这么理解，和实际上方法和变量在JVM的继承的实现逻辑还是有一点区别的，实例对象由对象头、示例数据、对齐填充三个字段构成。对象头存了Klass指向当前类的定义（该定义存了指向父类的定义的指针），实例数据字段存的才是包括父类在内的实例变量。所以方法的溯源和变量的溯源在实际中还是有区别的。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-object类">4. Object类
+</h3><p>Java 中所有类都会继承Object类，无论程序中有没有显式写明这种继承关系。有点像JS对象中的原型prototype的prototype即Object。</p>
+<h3 id="5-super关键字">5. Super关键字
+</h3><p>​	加了super 关键字后 同名 属性 或者 方法 直接直接指向 父类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Person</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Class</span><span class="w"> </span><span class="n">Man</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Person</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">showName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">,</span><span class="n">println</span><span class="p">(</span><span class="n">name</span><span class="p">);</span><span class="c1">//指向形参name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">name</span><span class="p">);</span><span class="c1">//指向当前实例 Person 中的name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="kd">super</span><span class="p">.</span><span class="na">name</span><span class="p">);</span><span class="c1">//指向父类Person的name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6-this与super">6. this()与super()
+</h3><ul>
+<li>
+<p>定义：</p>
+<ul>
+<li>
+<p>this()是调用当前类的构造器，（）内带参数就是有参构造，无参数就是无参构造</p>
+</li>
+<li>
+<p>super()是调用父类的构造器，（）内带参数就是有参构造，无参数就是无参构造</p>
+</li>
+</ul>
+</li>
+<li>
+<p>作用：</p>
+<ul>
+<li>子类继承父类时，不会继承父类的构造器，只能通过super(形参列表)的方式调用父类指定的构造器</li>
+<li>子类想要扩展构造器初始化更多的实例变量，通常可以用this(形参列表)来避免代码的重复</li>
+</ul>
+</li>
+<li>
+<p>使用方式：</p>
+<ul>
+<li>
+<p>**super(形参列表)**必须放在构造器方法体的首行， <strong>this(形参列表)</strong> 亦是如此</p>
+</li>
+<li>
+<p>子类构造器首行可以是 <strong>this(形参列表)</strong> 或者 <strong>super(形参列表)</strong>，不写的话编译器去就默认添加 **super()**无参</p>
+</li>
+<li>
+<p><strong>this(形参列表)</strong> 和 <strong>super(形参列表)</strong> 都要求放首行，所以想要显式调用，只能二选一。</p>
+</li>
+<li>
+<p>推论</p>
+<ul>
+<li>
+<p>子类须要调用  <strong>super(形参列表)</strong>，所以子类至少有一个构造器满足第一行调用了 super(形参列表)</p>
+</li>
+<li>
+<p>子类如果有构造器首行显式调用了<strong>this(形参列表)</strong> ，则一定嵌套调用了一个带 **super(形参列表)**的构造器</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="7多继承">7.多继承
+</h3><ul>
+<li>java 的类没有多继承，只有单继承</li>
+<li>java 的接口可以多继承</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/javase/">JavaSE</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+    <div class="custom-comment-container">  
+        <h4>留言 Comments:</h4><div id="cusdis_thread"  
+            data-host="https://cusdis.com"  
+            data-app-id="aab5b4aa-b493-49d0-9b43-58944a947665"  
+            data-page-id="39d605be9b066476b6a0201f4270856a"  
+            data-page-url="https://4evergreat.github.io/2024/java-blog-11/"  
+            data-page-title="Java-blog-11继承知识点综合"></div>  
+      
+        <style>  
+            .custom-comment-container {  
+                   
+                padding: 20px;    
+                border: 15px solid rgba(140, 141, 122, 0.623);    
+                background-color: #f9f9f9;    
+                margin-top: 20px;  
+            }  
+        </style>  
+      <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+      <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    </div>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-18/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/Hong_Kong-Zhuhai-Macau_Bridge1.jpg" loading="lazy" data-key="Java-blog-18" data-hash="/cover/Hong_Kong-Zhuhai-Macau_Bridge1.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-18maven</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-17/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/e6fc118f-6365-4239-b369-f9e8d74626ee.jpg" loading="lazy" data-key="Java-blog-17" data-hash="/cover/e6fc118f-6365-4239-b369-f9e8d74626ee.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-17java反射</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-19/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/OIP-C%20%281%29.jpg" loading="lazy" data-key="Java-blog-19" data-hash="/cover/OIP-C (1).jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-19Lambda表达式</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-16/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/fa6d11e00c0f91f7.jpg" loading="lazy" data-key="Java-blog-16" data-hash="/cover/fa6d11e00c0f91f7.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-16java对象进阶</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2023/java-blog-10/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/012750554411a00000019ae9d1d1bf.jpg@1280w_1l_2o_100sh.jpg" loading="lazy" data-key="Java-blog-10" data-hash="/cover/012750554411a00000019ae9d1d1bf.jpg@1280w_1l_2o_100sh.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-10jvm 内存模型JMM</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <p>已经写了 55 篇文章，共 239850 字。</p>
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1继承">1.继承</a></li>
+        <li><a href="#2继承权限">2.继承权限</a></li>
+        <li><a href="#3访问调用逻辑">3.访问调用逻辑</a></li>
+        <li><a href="#4-object类">4. Object类</a></li>
+        <li><a href="#5-super关键字">5. Super关键字</a></li>
+        <li><a href="#6-this与super">6. this()与super()</a></li>
+        <li><a href="#7多继承">7.多继承</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

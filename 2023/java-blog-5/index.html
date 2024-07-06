@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Javase注释、基本数据类型、类型转换、变量、命名规则和关键字'><title>Java-blog-5java包机制和JavaDoc文件生成</title>
+
+<link rel='canonical' href='https://4evergreat.github.io/2023/java-blog-5/'>
+
+<link rel="stylesheet" href="/scss/style.min.8e76576a2419722ff3a723aecc4222881bc6c8b02bcdb7bdcffd580451242835.css"><meta property='og:title' content='Java-blog-5java包机制和JavaDoc文件生成'>
+<meta property='og:description' content='Javase注释、基本数据类型、类型转换、变量、命名规则和关键字'>
+<meta property='og:url' content='https://4evergreat.github.io/2023/java-blog-5/'>
+<meta property='og:site_name' content='alwaysGreat&#39;s blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaSE' /><meta property='article:published_time' content='2023-11-27T22:27:20&#43;08:00'/><meta property='article:modified_time' content='2023-11-27T22:28:20&#43;08:00'/><meta property='og:image' content='https://4evergreat.github.io/cover/3027.jpg_wh860.jpg' />
+<meta name="twitter:site" content="@mountains">
+    <meta name="twitter:creator" content="@mountains"><meta name="twitter:title" content="Java-blog-5java包机制和JavaDoc文件生成">
+<meta name="twitter:description" content="Javase注释、基本数据类型、类型转换、变量、命名规则和关键字"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://4evergreat.github.io/cover/3027.jpg_wh860.jpg' />
+    <link rel="shortcut icon" href="/logo/image8.png" />
+
+  
+
+<style>
+    :root {
+         
+		 
+		 
+		 
+
+		--code-font-family: "JetBrainsMono Regular", Menlo, Monaco, Consolas, "Courier New";
+		--article-font-family: "HarmonyOS_Sans_SC_Medium", var(--base-font-family);
+    }
+</style>
+
+<script>
+	
+		(function () {
+		    const customFont = document.createElement('link');
+			customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;700&display=swap";
+		    customFont.type = "text/css";
+		    customFont.rel = "stylesheet";
+		
+		    document.head.appendChild(customFont);
+		}());
+</script>
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+    on-phone--column extended
+">
+    
+        <div id="article-toolbar">
+            <a href="https://4evergreat.github.io/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>返回</span>
+            </a>
+        </div>
+    
+    
+<main class="main full-width">
+    <article class="has-image main-article">
+    
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/2023/java-blog-5/">
+                
+                    <img src="/cover/3027.jpg_wh860.jpg" loading="lazy" alt="Featured image of post Java-blog-5java包机制和JavaDoc文件生成" />
+                
+            </a>
+        </div>
+
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                java学习笔记
+            </a>
+        
+    </header>
+
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/2023/java-blog-5/">Java-blog-5java包机制和JavaDoc文件生成</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Javase注释、基本数据类型、类型转换、变量、命名规则和关键字
+        </h3>
+        
+    </div>
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  stroke="currentColor" fill="#BDBDBF"><path d="M326.1 160l127.4-127.4C451.7 32.39 449.9 32 448 32h-86.06l-128 128H326.1zM166.1 160l128-128H201.9l-128 128H166.1zM497.7 56.19L393.9 160H512V96C512 80.87 506.5 67.15 497.7 56.19zM134.1 32H64C28.65 32 0 60.65 0 96v64h6.062L134.1 32zM0 416c0 35.35 28.65 64 64 64h384c35.35 0 64-28.65 64-64V192H0V416z"/></svg>
+                <time class="article-time--published">11月27日, 2023年</time>
+
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟 #
+                    共1096 字
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+</div>
+</header>
+
+    <div class="artivle-tag" style="margin-left: 30px; margin-top: 40px;"> 
+    <section class="article-tags">
+        
+            <a href="/tags/javase/">JavaSE</a>
+        
+    </section>
+ </div>
+    
+    <section class="article-content">
+    
+    
+     
+     
+     <h3 id="1-包机制">1. 包机制
+</h3><h4 id="11-语法格式">1.1 语法格式
+</h4><p>package pkg1[.pkg2[.pkg3&hellip;]];</p>
+<p>注意：</p>
+<p>​	此句必须放在文件最开始位置</p>
+<hr>
+<h4 id="12-提倡的命名格式">1.2 提倡的命名格式
+</h4><p>一般利用公司的域名倒置作为包名</p>
+<p>如 <a class="link" href="https://www.baidu.com"  target="_blank" rel="noopener"
+    >www.baidu.com</a> 其包名就推荐命名为 com.baidu.www</p>
+<hr>
+<h4 id="13-引用包">1.3 引用包
+</h4><p>import package pkg1[.pkg2[.pkg3&hellip;]].(classname|*);</p>
+<p>​	- 导入自定义文件时，一般无需添加文件类型 .(classname|*)，只写到文件名即可</p>
+<p>​	- *号是万能符，可以简单理解成“所有”，和SQL一样用法</p>
+<p>例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.utol.Date</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h4 id="14-静态导入包">1.4 静态导入包
+</h4><p>​	import static [包名] <strong>.</strong> [方法名];</p>
+<p>import static [包名] <strong>.</strong> [类属性];</p>
+<ul>
+<li>方法名无需加括号，导入后可在该文件内直接调用该方法，无需再用 [包名] <strong>.</strong> [方法名]的形式</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//使用静态导入包前</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.Math</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">random</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//使用静态导入包后</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.Math.random</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.Math.PI</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">random</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">PI</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h4 id="15-jdk18-api文档">1.5 JDK1.8 API文档
+</h4><p><a class="link" href="https://docs.oracle.com/javase/8/docs/api/"  target="_blank" rel="noopener"
+    >JDK8 API 在线文档 全英文</a></p>
+<p><a class="link" href="https://www.matools.com/api/java8"  target="_blank" rel="noopener"
+    >JDK8 API 在线文档 中文</a></p>
+<p>JDK1.8 API文档中文与英文版的离线版：这个哥们提供了一个：</p>
+<p><a class="link" href="https://blog.csdn.net/weixin_43654123/article/details/121552167"  target="_blank" rel="noopener"
+    >下载源</a></p>
+<hr>
+<h3 id="2-javadoc生成">2. JavaDoc生成
+</h3><h4 id="21-命令行生成javadoc文档">2.1 命令行生成JavaDoc文档：
+</h4><p>javadoc -encoding UTF-8 -charset UTF-8 [文件名].java</p>
+<p>结果：</p>
+<p>生成了好几个文件，其中 index.html打开后与 1.4 节中的在线API文档界面相似</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Users\Administrator\Desktop\src\base</span><span class="c1">&gt;javadoc -encoding UTF-8 -charset UTF-8 Doc.java</span>
+</span></span><span class="line"><span class="cl">正在加载源文件Doc.java...
+</span></span><span class="line"><span class="cl">正在构造 Javadoc 信息...
+</span></span><span class="line"><span class="cl">标准 Doclet 版本 1.8.0_391
+</span></span><span class="line"><span class="cl">正在构建所有程序包和类的树...
+</span></span><span class="line"><span class="cl">正在生成.\base\Doc.html...
+</span></span><span class="line"><span class="cl">Doc.java:14: 警告: @param 没有说明
+</span></span><span class="line"><span class="cl">     * @param name
+</span></span><span class="line"><span class="cl">       <span class="se">^
+</span></span></span><span class="line"><span class="cl"><span class="se">D</span>oc.java:15: 警告: @return 没有说明
+</span></span><span class="line"><span class="cl">     * @return
+</span></span><span class="line"><span class="cl">       <span class="se">^
+</span></span></span><span class="line"><span class="cl"><span class="se">D</span>oc.java:16: 警告: @throws 没有说明
+</span></span><span class="line"><span class="cl">     * @throws Exception
+</span></span><span class="line"><span class="cl">       <span class="se">^
+</span></span></span><span class="line"><span class="cl"><span class="se">D</span>oc.java:4: 错误: 未知标记: auther
+</span></span><span class="line"><span class="cl"> * @auther wendao101
+</span></span><span class="line"><span class="cl">   <span class="se">^
+</span></span></span><span class="line"><span class="cl"><span class="se">正</span>在生成.\base\package-frame.html...
+</span></span><span class="line"><span class="cl">正在生成.\base\package-summary.html...
+</span></span><span class="line"><span class="cl">正在生成.\base\package-tree.html...
+</span></span><span class="line"><span class="cl">正在生成.\constant-values.html...
+</span></span><span class="line"><span class="cl">正在构建所有程序包和类的索引...
+</span></span><span class="line"><span class="cl">正在生成.\overview-tree.html...
+</span></span><span class="line"><span class="cl">正在生成.\index-all.html...
+</span></span><span class="line"><span class="cl">正在生成.\deprecated-list.html...
+</span></span><span class="line"><span class="cl">正在构建所有类的索引...
+</span></span><span class="line"><span class="cl">正在生成.\allclasses-frame.html...
+</span></span><span class="line"><span class="cl">正在生成.\allclasses-noframe.html...
+</span></span><span class="line"><span class="cl">正在生成.\index.html...
+</span></span><span class="line"><span class="cl">正在生成.\help-doc.html...
+</span></span><span class="line"><span class="cl">1 个错误
+</span></span><span class="line"><span class="cl">3 个警告
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h4 id="22-idea生成javadoc文档">2.2 IDEA生成JavaDoc文档：
+</h4><p>Tool==&gt;Generate JavaDoc</p>
+<p><img src="/java%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0/resources/photo/d42f81b43bfc47f9997c45f1bb90029a.png" alt="IDEA操作演示"  /></p>
+<p><strong>其他参数设置：</strong></p>
+<ul>
+<li>
+<p>output directory: 生成路径</p>
+</li>
+<li>
+<p>Locale：设置语言区域，决定文档的语言</p>
+<ul>
+<li>简体中文就是zh_CN、繁体(台湾)zh_tw、繁体(香港)zh-hk、英语(香港)en-hk、英语(美国)en-us、英语(英国)en-gb、英语(全球)en-ww</li>
+</ul>
+</li>
+<li>
+<p>Command line arguments：(其他命令行参数)：</p>
+<ul>
+<li>编码设置: 参数一般为-encoding UTF-8 -charset UTF-8</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/javase/">JavaSE</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke="currentColor" fill="#BDBDBF"  ><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"/></svg>
+        <span>
+            最后更新于 11月27日 22点28分, 2023年
+        </span>
+    </section></footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css"integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js"integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js"integrity="sha384-vZTG03m&#43;2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl"crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ]
+        });})
+</script>
+    
+    <div class="custom-comment-container">  
+        <h4>留言 Comments:</h4><div id="cusdis_thread"  
+            data-host="https://cusdis.com"  
+            data-app-id="aab5b4aa-b493-49d0-9b43-58944a947665"  
+            data-page-id="a2a30330df9f81655a6c91dd00d98017"  
+            data-page-url="https://4evergreat.github.io/2023/java-blog-5/"  
+            data-page-title="Java-blog-5java包机制和JavaDoc文件生成"></div>  
+      
+        <style>  
+            .custom-comment-container {  
+                   
+                padding: 20px;    
+                border: 15px solid rgba(140, 141, 122, 0.623);    
+                background-color: #f9f9f9;    
+                margin-top: 20px;  
+            }  
+        </style>  
+      <script defer src="https://cusdis.com/js/widget/lang/zh-cn.js"></script>
+      <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    </div>
+
+    
+</article>
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title"></h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-18/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/Hong_Kong-Zhuhai-Macau_Bridge1.jpg" loading="lazy" data-key="Java-blog-18" data-hash="/cover/Hong_Kong-Zhuhai-Macau_Bridge1.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-18maven</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-17/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/e6fc118f-6365-4239-b369-f9e8d74626ee.jpg" loading="lazy" data-key="Java-blog-17" data-hash="/cover/e6fc118f-6365-4239-b369-f9e8d74626ee.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-17java反射</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-19/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/OIP-C%20%281%29.jpg" loading="lazy" data-key="Java-blog-19" data-hash="/cover/OIP-C (1).jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-19Lambda表达式</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-16/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/fa6d11e00c0f91f7.jpg" loading="lazy" data-key="Java-blog-16" data-hash="/cover/fa6d11e00c0f91f7.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-16java对象进阶</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="has-image">
+    <a href="/2024/java-blog-11/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/cover/2022091601381437.jpg" loading="lazy" data-key="Java-blog-11" data-hash="/cover/2022091601381437.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Java-blog-11继承知识点综合</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+
+    <footer class="site-footer">
+
+  
+
+  
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+      
+  
+    <section class="copyright">
+        &copy;
+        
+        2024
+
+        alwaysGreat&#39;s blog
+    </section>
+
+    <section class="powerby">
+        
+            2024开始使用hugo建站 || Theme Stack Design by Jimmy <br/>
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <p>已经写了 55 篇文章，共 239850 字。</p>
+    </section>
+
+
+
+
+
+
+
+
+
+
+  
+</footer>
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">目录</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#1-包机制">1. 包机制</a>
+          <ol>
+            <li><a href="#11-语法格式">1.1 语法格式</a></li>
+            <li><a href="#12-提倡的命名格式">1.2 提倡的命名格式</a></li>
+            <li><a href="#13-引用包">1.3 引用包</a></li>
+            <li><a href="#14-静态导入包">1.4 静态导入包</a></li>
+            <li><a href="#15-jdk18-api文档">1.5 JDK1.8 API文档</a></li>
+          </ol>
+        </li>
+        <li><a href="#2-javadoc生成">2. JavaDoc生成</a>
+          <ol>
+            <li><a href="#21-命令行生成javadoc文档">2.1 命令行生成JavaDoc文档：</a></li>
+            <li><a href="#22-idea生成javadoc文档">2.2 IDEA生成JavaDoc文档：</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+
+                <div class="scroll-buttons">  
+                      
+                    <button id="scrollToTopBtn" class="scroll-button">返回顶部</button>  
+                      
+                    <button id="scrollToBottomBtn" class="scroll-button">跳转底部</button>  
+                </div>
+            </section>
+        </aside>
+
+
+    
+
+      
+    <script>  
+        document.addEventListener('DOMContentLoaded', function() {  
+            var scrollToBottomBtn = document.getElementById('scrollToBottomBtn');  
+            scrollToBottomBtn.addEventListener('click', function() {  
+                window.scrollTo(0, document.body.scrollHeight);  
+            }); 
+
+            var scrollToTopBtn = document.getElementById('scrollToTopBtn');  
+            scrollToTopBtn.addEventListener('click', function() {  
+                window.scrollTo({
+                    top: 0, 
+                    behavior: 'smooth' 
+                });  
+            });  
+        });  
+    </script>
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
