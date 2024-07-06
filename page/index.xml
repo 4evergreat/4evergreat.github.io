@@ -75,6 +75,7 @@
 &lt;/style&gt;
 &lt;h2 id=&#34;朋友页面&#34;&gt;朋友页面
 &lt;/h2&gt;&lt;p&gt;这里展示的是我的好朋友们！&lt;/p&gt;
+&lt;p&gt;请在下方留言联系我！！&lt;/p&gt;
 &lt;!-- 友链头像放在`/assets/link-img`，友链数据放在`/data/links.json` --&gt;
 </description>
         </item>

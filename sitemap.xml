@@ -2,37 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://4evergreat.github.io/</loc>
+    <loc>https://4evergreat.github.io/2024/annouce-blog-1/</loc>
     <lastmod>2024-07-05T22:27:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/tags/blog/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
   </url><url>
     <loc>https://4evergreat.github.io/categories/</loc>
-    <lastmod>2024-07-05T22:27:20+08:00</lastmod>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/tags/hugo/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/2024/hugo-blog-5/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/tags/mindmap/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
   </url><url>
     <loc>https://4evergreat.github.io/post/</loc>
-    <lastmod>2024-07-05T22:27:20+08:00</lastmod>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
   </url><url>
     <loc>https://4evergreat.github.io/tags/</loc>
-    <lastmod>2024-07-05T22:27:20+08:00</lastmod>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
+  </url><url>
+    <loc>https://4evergreat.github.io/categories/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</loc>
+    <lastmod>2024-07-05T23:29:20+08:00</lastmod>
   </url><url>
     <loc>https://4evergreat.github.io/tags/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</loc>
     <lastmod>2024-07-05T22:27:20+08:00</lastmod>
   </url><url>
-    <loc>https://4evergreat.github.io/categories/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</loc>
-    <lastmod>2024-07-05T22:27:20+08:00</lastmod>
-  </url><url>
-    <loc>https://4evergreat.github.io/2024/annouce-blog-1/</loc>
-    <lastmod>2024-07-05T22:27:20+08:00</lastmod>
-  </url><url>
-    <loc>https://4evergreat.github.io/tags/blog/</loc>
-    <lastmod>2024-07-01T23:29:20+08:00</lastmod>
-  </url><url>
-    <loc>https://4evergreat.github.io/tags/hugo/</loc>
-    <lastmod>2024-07-01T23:29:20+08:00</lastmod>
-  </url><url>
     <loc>https://4evergreat.github.io/2024/hugo-blog-4/</loc>
-    <lastmod>2024-07-01T23:29:20+08:00</lastmod>
-  </url><url>
-    <loc>https://4evergreat.github.io/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2024-07-01T23:29:20+08:00</lastmod>
   </url><url>
     <loc>https://4evergreat.github.io/tags/github/</loc>

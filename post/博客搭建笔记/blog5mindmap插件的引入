@@ -1,0 +1,40 @@
+---
+title: "hugo-blog-5 hugo支持思维导图"
+description: "特刊：介绍如何引入思维导图的支持"
+date: 2024-07-05T23:29:20+08:00
+lastmod: 2024-07-05T23:29:20+08:00
+hidden: false
+license: "Licensed under CC BY-NC-SA 4.0"
+comments: true
+draft: flase
+slug: hugo-blog-5
+image: /cover/v2-077442bbd7eefdba06ccd5f6c5106177_r.png
+categories: 
+- hugo博客搭建
+  
+tags:
+- blog 
+- hugo
+- mindmap
+---
+# 资源文件
+
+在layout/partials/下的script.html或其他文章模板html文件适当位置引入以下资源：
+``
+<script src="{{.Site.BaseURL}}js/kity.min.js"></script>
+<script src="{{.Site.BaseURL}}js/kityminder.core.min.js"></script>
+<script src="{{.Site.BaseURL}}js/mindmap.js"></script>
+<link href="{{.Site.BaseURL}}css/kityminder.core.css" rel="stylesheet">
+<link href="{{.Site.BaseURL}}css/mindmap.css" rel="stylesheet">
+```
+>介绍：
+kity.min.js：核心 svg 渲染库
+
+kityminder.core.min.js：脑图渲染库
+
+mindmap.min.js：来自 @HunterXuan 开发的，用来将 li 结构转换成脑图需要的 json 的文件
+
+kityminder.core.css：核心 svg 渲染库
+
+mindmap.css：脑图渲染库
+

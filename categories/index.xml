@@ -7,21 +7,21 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
-        <lastBuildDate>Fri, 05 Jul 2024 22:27:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>本站通告</title>
-        <link>https://4evergreat.github.io/categories/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</link>
-        <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
-        
-        <guid>https://4evergreat.github.io/categories/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</guid>
-        <description>&lt;img src="https://4evergreat.github.io/categroies/780.jpg" alt="Featured image of post 本站通告" /&gt;</description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 05 Jul 2024 23:29:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo博客搭建</title>
         <link>https://4evergreat.github.io/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
-        <pubDate>Mon, 01 Jul 2024 23:29:20 +0800</pubDate>
+        <pubDate>Fri, 05 Jul 2024 23:29:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/categories/hugo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
         <description>&lt;img src="https://4evergreat.github.io/categroies/135468462.jpg" alt="Featured image of post Hugo博客搭建" /&gt;</description>
+        </item>
+        <item>
+        <title>本站通告</title>
+        <link>https://4evergreat.github.io/categories/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</link>
+        <pubDate>Fri, 05 Jul 2024 23:29:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/categories/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/categroies/780.jpg" alt="Featured image of post 本站通告" /&gt;</description>
         </item>
         <item>
         <title>服务器部署</title>

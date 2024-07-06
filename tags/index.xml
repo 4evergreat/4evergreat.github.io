@@ -7,18 +7,10 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
-        <lastBuildDate>Fri, 05 Jul 2024 22:27:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>本站通告</title>
-        <link>https://4evergreat.github.io/tags/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</link>
-        <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
-        
-        <guid>https://4evergreat.github.io/tags/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</guid>
-        <description></description>
-        </item>
-        <item>
+        <lastBuildDate>Fri, 05 Jul 2024 23:29:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Blog</title>
         <link>https://4evergreat.github.io/tags/blog/</link>
-        <pubDate>Mon, 01 Jul 2024 23:29:20 +0800</pubDate>
+        <pubDate>Fri, 05 Jul 2024 23:29:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/tags/blog/</guid>
         <description></description>
@@ -26,9 +18,25 @@
         <item>
         <title>Hugo</title>
         <link>https://4evergreat.github.io/tags/hugo/</link>
-        <pubDate>Mon, 01 Jul 2024 23:29:20 +0800</pubDate>
+        <pubDate>Fri, 05 Jul 2024 23:29:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/tags/hugo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Mindmap</title>
+        <link>https://4evergreat.github.io/tags/mindmap/</link>
+        <pubDate>Fri, 05 Jul 2024 23:29:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/tags/mindmap/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>本站通告</title>
+        <link>https://4evergreat.github.io/tags/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</link>
+        <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/tags/%E6%9C%AC%E7%AB%99%E9%80%9A%E5%91%8A/</guid>
         <description></description>
         </item>
         <item>

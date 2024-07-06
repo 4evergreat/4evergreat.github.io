@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Mindmap on alwaysGreat&#39;s blog</title>
+        <link>https://4evergreat.github.io/tags/mindmap/</link>
+        <description>Recent content in Mindmap on alwaysGreat&#39;s blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>LICENSED UNDER CC BY-NC-SA 4.0</copyright>
+        <lastBuildDate>Fri, 05 Jul 2024 23:29:20 +0800</lastBuildDate><atom:link href="https://4evergreat.github.io/tags/mindmap/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>hugo-blog-5hugo支持思维导图</title>
+        <link>https://4evergreat.github.io/2024/hugo-blog-5/</link>
+        <pubDate>Fri, 05 Jul 2024 23:29:20 +0800</pubDate>
+        
+        <guid>https://4evergreat.github.io/2024/hugo-blog-5/</guid>
+        <description>&lt;img src="https://4evergreat.github.io/cover/v2-077442bbd7eefdba06ccd5f6c5106177_r.png" alt="Featured image of post hugo-blog-5hugo支持思维导图" /&gt;&lt;h1 id=&#34;1-资源文件&#34;&gt;1. 资源文件
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/HunterXuan/unordered-list-to-mind-map&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;下载链接&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;文件介绍：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;kity.min.js：核心 svg 渲染库&lt;/li&gt;
+&lt;li&gt;kityminder.core.min.js：脑图渲染库&lt;/li&gt;
+&lt;li&gt;mindmap.min.js：来自 @HunterXuan 开发的，用来将 li 结构转换成脑图需要的 json 的文件&lt;/li&gt;
+&lt;li&gt;kityminder.core.css：核心 svg 渲染库&lt;/li&gt;
+&lt;li&gt;mindmap.css：脑图渲染库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;2-shortcode定制&#34;&gt;2. shortcode定制
+&lt;/h1&gt;&lt;p&gt;在/layouts/shortcodes/ 下新建html，
+根据脑图的大小样式，共有3个脑图的shortcodes：mind-sm, mind-md, mind-lg (名字可以自定)
+分别对应height为400px，800px，1600px的脑图显示范围。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;示范&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建 mind-sm.html为例，内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;!-- 引入思维导图mindmap --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;script src=&amp;#34;https://code.jquery.com/jquery-3.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;script src=&amp;#34;/js/mindmap/kity.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;script src=&amp;#34;/js/mindmap/kityminder.core.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;!-- &amp;lt;script src=&amp;#34;/js/mindmap/mindmap.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; --&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;script src=&amp;#34;/js/mindmap/mindmap.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;link href=&amp;#34;/js/mindmap/mindmap.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;link href=&amp;#34;/js/mindmap/kityminder.core.css&amp;#34; rel=&amp;#34;stylesheet&amp;#34;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;div id=&amp;#34;{{ .Get 0 }}&amp;#34; class=&amp;#34;mindmap mindmap-sm&amp;#34;&amp;gt;        #这里改 mindmap-sm,  mindmap-md,  mindmap-lg 对应上述名字
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    {{- .Inner | markdownify -}}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/div&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;3-测试&#34;&gt;3. 测试
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;# 需要加shortcode 将以下这段包起来  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{内容}} 其中内容为 mind-lg、mind-md、mind-sm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- 在 Hugo 中使用思维导图
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - 前言
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - 操作指南
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - 准备需要的文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    - 为主题添加 CSS/JS 文件
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  - 使用方法
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{ /内容}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src=&#34;https://code.jquery.com/jquery-3.3.1.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://4evergreat.github.io/js/mindmap/kity.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;https://4evergreat.github.io/js/mindmap/kityminder.core.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;script src=&#34;https://4evergreat.github.io/js/mindmap/mindmap.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;https://4evergreat.github.io/js/mindmap/mindmap.css&#34; rel=&#34;stylesheet&#34;&gt;
+&lt;link href=&#34;https://4evergreat.github.io/js/mindmap/kityminder.core.css&#34; rel=&#34;stylesheet&#34;&gt;
+
+
+
+
+&lt;div id=&#34;&#34; class=&#34;mindmap mindmap-sm&#34;&gt;&lt;ul&gt;
+&lt;li&gt;在 Hugo 中使用思维导图
+&lt;ul&gt;
+&lt;li&gt;前言&lt;/li&gt;
+&lt;li&gt;操作指南
+&lt;ul&gt;
+&lt;li&gt;准备需要的文件&lt;/li&gt;
+&lt;li&gt;为主题添加 CSS/JS 文件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;使用方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>
