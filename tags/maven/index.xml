@@ -13,7 +13,7 @@
         <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/2024/maven-blog-1/</guid>
-        <description>&lt;img src="https://picsum.photos/800/600 " alt="Featured image of post maven初级" /&gt;&lt;h1 id=&#34;maven&#34;&gt;Maven
+        <description>&lt;img src="https://picsum.photos/800/600" alt="Featured image of post maven初级" /&gt;&lt;h1 id=&#34;maven&#34;&gt;Maven
 &lt;/h1&gt;&lt;h2 id=&#34;课程内容&#34;&gt;课程内容
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;ol&gt;
@@ -721,7 +721,7 @@
         <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/2024/maven-blog-2/</guid>
-        <description>&lt;img src="https://picsum.photos/800/600 " alt="Featured image of post maven进阶" /&gt;&lt;hr&gt;
+        <description>&lt;img src="https://picsum.photos/800/600" alt="Featured image of post maven进阶" /&gt;&lt;hr&gt;
 &lt;h1 id=&#34;maven高级&#34;&gt;Maven高级
 &lt;/h1&gt;&lt;p&gt;Web开发讲解完毕之后，我们再来学习Maven高级。其实在前面的课程当中，我们已经学习了Maven。&lt;/p&gt;
 &lt;p&gt;我们讲到 &lt;strong&gt;Maven 是一款构建和管理 Java 项目的工具&lt;/strong&gt;。经过前面 10 多天 web 开发的学习，相信大家对于 Maven 这款工具的基本使用应该没什么问题了。我们掌握了 Maven 工具的基本使用之后，其实对于一些简单的项目的构建及管理基本上就没什么问题了。&lt;/p&gt;

@@ -13,7 +13,7 @@
         <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/2024/mybatis-blog-1/</guid>
-        <description>&lt;img src="https://picsum.photos/800/600 " alt="Featured image of post mybatis初级1" /&gt;&lt;h1 id=&#34;1-mybatis基础操作&#34;&gt;1. Mybatis基础操作
+        <description>&lt;img src="https://picsum.photos/800/600" alt="Featured image of post mybatis初级1" /&gt;&lt;h1 id=&#34;1-mybatis基础操作&#34;&gt;1. Mybatis基础操作
 &lt;/h1&gt;&lt;p&gt;学习完mybatis入门后，我们继续学习mybatis基础操作。&lt;/p&gt;
 &lt;h2 id=&#34;11-需求&#34;&gt;1.1 需求
 &lt;/h2&gt;&lt;p&gt;需求说明：&lt;/p&gt;
@@ -1980,7 +1980,7 @@
         <pubDate>Fri, 05 Jul 2024 22:27:20 +0800</pubDate>
         
         <guid>https://4evergreat.github.io/2024/mybatis-blog-2/</guid>
-        <description>&lt;img src="https://picsum.photos/800/600 " alt="Featured image of post mybatis初级2" /&gt;&lt;h1 id=&#34;mybatis入门&#34;&gt;Mybatis入门
+        <description>&lt;img src="https://picsum.photos/800/600" alt="Featured image of post mybatis初级2" /&gt;&lt;h1 id=&#34;mybatis入门&#34;&gt;Mybatis入门
 &lt;/h1&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;在前面我们学习MySQL数据库时，都是利用图形化客户端工具(如：idea、datagrip)，来操作数据库的。&lt;/p&gt;
 &lt;blockquote&gt;
